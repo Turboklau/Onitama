@@ -1,10 +1,9 @@
 import random
 
-"""ATTENTION TORBEN: A THING YOU HAVE TO CODE IN IS THE FOLLOWING: 
-MOVES ARE BROKEN RIGHT NOW"""
-
 """Simulation of the game Onitama.
 For reference, the blue shrine is [0,2] and the red shrine is [4,2]"""
+
+
 class Game:
 
     def __init__(self, board_state, cards, pieces):
@@ -13,12 +12,12 @@ class Game:
         self.pieces = pieces
         self.current_player = None
 
-
     """Deals the cards and decides starting player."""
+
     def set_up(self):
-        random.shuffle(self.cards) #For now uses the top 5 cards of the deck.
+        random.shuffle(self.cards)  # For now uses the top 5 cards of the deck.
         self.cards = self.cards[:5]
-        #self.cards = random.shuffle(self.cards)[:5] To use the whole deck
+        # self.cards = random.shuffle(self.cards)[:5] To use the whole deck
         self.cards[0].holder = 'r'
         self.cards[1].holder = 'r'
         self.cards[2].holder = 'b'
@@ -26,20 +25,22 @@ class Game:
         self.cards[4].holder = 'm'
         self.current_player = self.cards[4].start_player
 
-
     """Returns true if the game is in a winning state. 
     Current player is used to find out who won.
     This should be run after the current player makes a move."""
+
     def is_won(self):
-        #There is a piece on the red shrine and it is blue
-        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].color == 'b' and self.board_state[4][2].type == 'master':
+        # There is a piece on the red shrine and it is blue
+        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].color == 'b' and self.board_state[4][
+            2].type == 'master':
             return True
 
-        #There is a piece on the blue shrine and it is red
-        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].color == 'r' and self.board_state[4][2].type == 'master':
+        # There is a piece on the blue shrine and it is red
+        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].color == 'r' and self.board_state[4][
+            2].type == 'master':
             return True
 
-        #There are less than 2 master pawns
+        # There are less than 2 master pawns
         master_pawns_counter = 0
         for row in self.board_state:
             for square in row:
@@ -50,35 +51,35 @@ class Game:
 
         return False
 
-
     """Uses a move from a card on a piece."""
+
     def use_move(self, card, move_index, piece):
         if self.move_legal(card, move_index, piece):
             piece_position = self.get_piece_position(piece)
             move = card.moves[move_index]
-            #inverts the move if playing from the top of the board
+            # inverts the move if playing from the top of the board
             if piece.color == 'b':
                 # removes any piece in the space the piece is moving to
                 self.remove_piece(self.board_state[piece_position[0] + move[0]][piece_position[1] + move[1]])
                 # sets the new space to the piece
                 self.board_state[piece_position[0] + move[0]][piece_position[1] + move[1]] = piece
             else:
-                #removes any piece in the space the piece is moving to
+                # removes any piece in the space the piece is moving to
                 self.remove_piece(self.board_state[piece_position[0] - move[0]][piece_position[1] - move[1]])
-                #sets where the piece was to None
-                #sets the new space to the piece
+                # sets where the piece was to None
+                # sets the new space to the piece
                 self.board_state[piece_position[0] - move[0]][piece_position[1] - move[1]] = piece
             # sets where the piece was to None
             self.board_state[piece_position[0]][piece_position[1]] = None
-            #swaps the card that was used with the middle card
+            # swaps the card that was used with the middle card
             self.swap_cards(card)
             return True
         else:
             return False
 
-
     """Checks to see if the current player must pass. 
     This is false if all possible moves they could take are illegal."""
+
     def no_moves(self):
         for card in self.cards:
             if card.holder == self.current_player:
@@ -88,36 +89,40 @@ class Game:
                             return False
         return True
 
-
     """Checks if a move is legal. Also checks that the piece and the card are legal for the current player."""
+
     def move_legal(self, card, move_index, piece):
-        #if holding the card, move index is valid and piece belongs to current turn player
-        if card.holder == self.current_player and 0 <= move_index < len(card.moves) and piece.color == self.current_player:
+        # if holding the card, move index is valid and piece belongs to current turn player
+        if card.holder == self.current_player and 0 <= move_index < len(
+                card.moves) and piece.color == self.current_player:
 
             piece_position = self.get_piece_position(piece)
             move = card.moves[move_index]
-            #calculate where the piece will go
+            # calculate where the piece will go
             if piece.color == 'b':
                 end_position = (piece_position[0] + move[0], piece_position[1] + move[1])
             else:
                 end_position = (piece_position[0] - move[0], piece_position[1] - move[1])
             x = end_position[0]
             y = end_position[1]
-            #if the x and y of the move is still in the board
+            # if the x and y of the move is still in the board
             if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
-                #if the space is not a friendly piece
-                if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == self.current_player):
+                # if the space is not a friendly piece
+                if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][
+                    y].color == self.current_player):
                     return True
         return False
 
     """Gets the position of a piece on the board"""
+
     def get_piece_position(self, piece):
-        for i in range (0, len(self.board_state)):
+        for i in range(0, len(self.board_state)):
             for j in range(0, len(self.board_state[i])):
                 if isinstance(self.board_state[i][j], Piece) and self.board_state[i][j].id == piece.id:
                     return i, j
 
     """Removes a piece from the list of pieces if a piece was passed in"""
+
     def remove_piece(self, piece):
         pop_index = None
         if piece:
@@ -128,15 +133,16 @@ class Game:
                 self.pieces.pop(pop_index)
 
     """Swaps cards with the middle"""
+
     def swap_cards(self, player_card):
         for card in cards:
-            #if the card is in the middle
+            # if the card is in the middle
             if card.holder == 'm':
-                #the current player has it now
+                # the current player has it now
                 card.holder = self.current_player
-            #if the card was just played
+            # if the card was just played
             if card.name == player_card.name:
-                #the middle has it now
+                # the middle has it now
                 card.holder = 'm'
 
     def end_turn(self):
@@ -183,7 +189,6 @@ class Game:
         print("Bad name. Lowercase string input of a card name you are holding.")
         self.process_input("cards")
         return False
-
 
     def print_board(self):
         for row in self.board_state:
@@ -245,7 +250,6 @@ def main():
     print("The winner is " + game.current_player)
 
 
-
 pieces = [
     Piece(0, 'student', 'r'),
     Piece(1, 'student', 'r'),
@@ -283,7 +287,5 @@ default_board = [[pieces[0], pieces[1], pieces[4], pieces[2], pieces[3]],
                  [None, None, None, None, None],
                  [None, None, None, None, None],
                  [pieces[5], pieces[6], pieces[9], pieces[7], pieces[8]]]
-
-
 
 main()
