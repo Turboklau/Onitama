@@ -213,6 +213,7 @@ class Game:
             print()
             for card in self.cards:
                 print(str(card.name) + ": Held by " + str(card.holder))
+                print(card.moves)
             return None
         elif t == "2":
             self.print_board(self.board_state)
