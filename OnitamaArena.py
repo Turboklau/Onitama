@@ -8,27 +8,23 @@ def pvp_loop(game):
     print("Starting player is " + game.current_player)
     while not game.is_won():
         print("Next turn: " + game.current_player)
-        if len(game.move_list()) < 1:
-            swap_done = False
-            while not swap_done:
-                print("You have no possible moves.")
-                swap = input("Enter the name of the card you want to swap with the middle: " )
-                swap_done = game.process_swap(swap)
-        else:
-            game.process_input("1")
-            game.process_input("2")
-            game.process_input("3")
-            move = False
-            while not move:
-                name = input("Enter the name of the card to use: ")
-                index = input("Enter the move index of the move to use: ")
-                piece_id = input("Enter the piece id: ")
-                move = game.process_move(name, index, piece_id)
-        game.end_turn()
+        human_turn(game, True)
 
 def pve_loop(robot, game):
-    print("Not implemented")
-    pass
+    print()
+    print("You are blue")
+    while not game.is_won():
+        if robot.color == game.current_player:
+            robot_turn(robot, game)
+        #player turn
+        human_turn(game, False)
+
+        print("Next turn: " + game.current_player)
+
+        # robot turn
+        robot_turn(robot, game)
+
+
 
 def robot_battle_loop(robot1, robot2, game):
     while not game.is_won():
@@ -39,17 +35,41 @@ def robot_battle_loop(robot1, robot2, game):
 
         for robot in robots:
             if not game.is_won():
-                move = robot.decide_move()
-                if move:
-                    game.process_move(move.card.name, move.move_index, move.piece.id)
-                else:
-                    for card in game.cards:
-                        if card.holder == robot.color:
-                            game.process_swap(card)
-                            break
+                robot_turn(robot, game)
 
-                game.end_turn()
+def robot_turn(robot, game):
+    move = robot.decide_move()
+    if move:
+        game.process_move(move.card.name, move.move_index, move.piece.id)
+    else:
+        for card in game.cards:
+            if card.holder == robot.color:
+                game.process_swap(card)
+                break
 
+    game.end_turn()
+
+def human_turn(game, print_board):
+    print("Next turn: " + game.current_player)
+    if len(game.move_list()) < 1:
+        swap_done = False
+        while not swap_done:
+            print("You have no possible moves.")
+            swap = input("Enter the name of the card you want to swap with the middle: ")
+            swap_done = game.process_swap(swap)
+    else:
+        game.process_input("1")
+        if print_board:
+            game.process_input("2")
+        game.process_input("3")
+        move = False
+        while not move:
+            print()
+            name = input("Enter the name of the card to use: ")
+            index = input("Enter the move index of the move to use: ")
+            piece_id = input("Enter the piece id: ")
+            move = game.process_move(name, index, piece_id)
+    game.end_turn()
 
 def get_robot(name, game, color):
     if name == "andy":
