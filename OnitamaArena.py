@@ -1,0 +1,96 @@
+from OnitamaForRobots import Game
+from Robots.AssassinAndyAI import AssassinAndyAI
+from Robots.DirectDerek import DirectDerek
+from Robots.ErraticErin import ErraticErin
+from Robots.RandomRebecca import RandomRebecca
+
+def pvp_loop(game):
+    print("Starting player is " + game.current_player)
+    while not game.is_won():
+        print("Next turn: " + game.current_player)
+        if len(game.move_list()) < 1:
+            swap_done = False
+            while not swap_done:
+                print("You have no possible moves.")
+                swap = input("Enter the name of the card you want to swap with the middle: " )
+                swap_done = game.process_swap(swap)
+        else:
+            game.process_input("1")
+            game.process_input("2")
+            game.process_input("3")
+            move = False
+            while not move:
+                name = input("Enter the name of the card to use: ")
+                index = input("Enter the move index of the move to use: ")
+                piece_id = input("Enter the piece id: ")
+                move = game.process_move(name, index, piece_id)
+        game.end_turn()
+
+def pve_loop(robot, game):
+    print("Not implemented")
+    pass
+
+def robot_battle_loop(robot1, robot2, game):
+    while not game.is_won():
+        if game.current_player == 'red':
+            robots = [robot1, robot2]
+        else:
+            robots = [robot2, robot1]
+
+        for robot in robots:
+            if not game.is_won():
+                move = robot.decide_move()
+                if move:
+                    game.process_move(move.card.name, move.move_index, move.piece.id)
+                else:
+                    for card in game.cards:
+                        if card.holder == robot.color:
+                            game.process_swap(card)
+                            break
+
+                game.end_turn()
+
+
+def get_robot(name, game, color):
+    if name == "andy":
+        return AssassinAndyAI(game, color)
+    elif name == 'derek':
+        return DirectDerek(game, color)
+    elif name == 'rebecca':
+        return RandomRebecca(game, color)
+    elif name == 'erin':
+        return ErraticErin(game, color)
+
+
+def print_options():
+    print()
+    print("1: Player VS Player")
+    print("2: Player VS AI")
+    print("3: AI VS AI")
+    print()
+
+def main():
+    game = Game()
+    print()
+    print("Welcome to Onitama! This is a 2 player game similar to chess.")
+    print_options()
+    mode = input("Please choose a mode: ")
+    while mode != "1" and mode != "2" and mode != "3":
+        print("DOES NOT COMPUTE. ENTER 1, 2 or 3.")
+        print_options()
+        mode = input("Please choose a mode: ")
+    game.set_up()
+    if mode == "1":
+        pvp_loop(game)
+    elif mode == "2":
+        robot1 = get_robot('erin', game, 'red')
+        pve_loop(robot1, game)
+    elif mode == "3":
+        robot1 = get_robot('derek', game, 'red')
+        robot2 = get_robot('derek', game, 'blue')
+        robot_battle_loop(robot1, robot2, game)
+
+    print("winner is " + game.current_player)
+
+
+main()

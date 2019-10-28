@@ -1,0 +1,293 @@
+import random
+
+"""Simulation of the game Onitama.
+For reference, the blue shrine is [0,2] and the red shrine is [4,2]"""
+
+"""Global variable time!"""
+player1 = 'red'
+player2 = 'blue'
+middle = 'middle'
+
+
+class Game:
+
+    def __init__(self, board_state, cards, pieces):
+        self.board_state = board_state
+        self.cards = cards
+        self.pieces = pieces
+        self.current_player = None
+        self.master_captured = False
+
+    """Deals the cards and decides starting player."""
+
+    def set_up(self):
+        self.cards = random.sample(self.cards, 5)
+        self.cards[0].holder = player1
+        self.cards[1].holder = player1
+        self.cards[2].holder = player2
+        self.cards[3].holder = player2
+        self.cards[4].holder = middle
+        self.current_player = self.cards[4].start_player
+
+    """Returns true if the game is in a winning state. 
+    Current player is used to find out who won.
+    This should be run after the current player makes a move."""
+
+    def is_won(self):
+        # There is a piece on the red shrine and it is blue
+        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].color == player2 and \
+                self.board_state[0][
+                    2].type == 'master':
+            return True
+
+        # There is a piece on the blue shrine and it is red
+        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].color == player1 and \
+                self.board_state[4][
+                    2].type == 'master':
+            return True
+
+        if self.master_captured:
+            return True
+
+        return False
+
+    """Uses a move from a card on a piece."""
+
+    def use_move(self, card, move_index, piece):
+        if self.move_legal(card, move_index, piece):
+            piece_position = self.get_piece_position(piece)
+            move = card.moves[move_index]
+            # inverts the move if playing from the top of the board
+            # sets where the piece was to None
+            self.board_state[piece_position[0]][piece_position[1]] = None
+            if piece.color == player2:
+                # removes any piece in the space the piece is moving to
+                self.remove_piece(self.board_state[piece_position[0] + move[0]][piece_position[1] + move[1]])
+                # sets the new space to the piece
+                self.board_state[piece_position[0] + move[0]][piece_position[1] + move[1]] = piece
+            else:
+                #removes any piece in the space the piece is moving to
+                self.remove_piece(self.board_state[piece_position[0] - move[0]][piece_position[1] - move[1]])
+                #sets where the piece was to None
+                #sets the new space to the piece
+                self.board_state[piece_position[0] - move[0]][piece_position[1] - move[1]] = piece
+            # sets where the piece was to None
+            self.board_state[piece_position[0]][piece_position[1]] = None
+            #swaps the card that was used with the middle card
+            self.swap_cards(card)
+            return True
+        else:
+            return False
+
+    """Checks to see if the current player must pass. 
+    This is false if all possible moves they could take are illegal."""
+
+    def no_moves(self):
+        for card in self.cards:
+            if card.holder == self.current_player:
+                for move_index in range(0, len(card.moves)):
+                    for piece in pieces:
+                        if self.move_legal(card, move_index, piece):
+                            return False
+        return True
+
+    """Checks if a move is legal. Also checks that the piece and the card are legal for the current player."""
+
+    def move_legal(self, card, move_index, piece):
+        # if holding the card, move index is valid and piece belongs to current turn player
+        if card.holder == self.current_player and 0 <= move_index < len(
+                card.moves) and piece.color == self.current_player:
+
+            piece_position = self.get_piece_position(piece)
+            move = card.moves[move_index]
+            # calculate where the piece will go
+            if piece.color == player2:
+                end_position = (piece_position[0] + move[0], piece_position[1] + move[1])
+            else:
+                end_position = (piece_position[0] - move[0], piece_position[1] - move[1])
+            x = end_position[0]
+            y = end_position[1]
+            # if the x and y of the move is still in the board
+            if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
+                # if the space is not a friendly piece
+                if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][
+                    y].color == self.current_player):
+                    return True
+        return False
+
+    """Gets the position of a piece on the board"""
+
+    def get_piece_position(self, piece):
+        for i in range(0, len(self.board_state)):
+            for j in range(0, len(self.board_state[i])):
+                if isinstance(self.board_state[i][j], Piece) and self.board_state[i][j].id == piece.id:
+                    return i, j
+
+    """Removes a piece from the list of pieces if a piece was passed in"""
+
+    def remove_piece(self, piece):
+        pop_index = None
+        if piece:
+            for i in range(0, len(pieces)):
+                if self.pieces[i].id == piece.id:
+                    pop_index = i
+            if pop_index:
+                self.pieces.pop(pop_index)
+            if piece.type == 'master':
+                self.master_captured = True
+
+    """Swaps cards with the middle"""
+
+    def swap_cards(self, player_card):
+        for card in cards:
+            # if the card is in the middle
+            if card.holder == middle:
+                # the current player has it now
+                card.holder = self.current_player
+            # if the card was just played
+            if card.name == player_card.name:
+                # the middle has it now
+                card.holder = middle
+
+    def end_turn(self):
+        if self.is_won():
+            return self.current_player
+        if self.current_player == player2:
+            self.current_player = player1
+        else:
+            self.current_player = player2
+        return None
+
+    def process_input(self, t):
+        if t == "1":
+            print()
+            for card in self.cards:
+                print(str(card.name) + ": Held by " + str(card.holder))
+            return None
+        elif t == "2":
+            self.print_board()
+            return None
+        elif t == "3":
+            return True
+        else:
+            print("Please enter a valid command.")
+            return None
+
+    def process_move(self, name, index, piece_id):
+        result = False
+        for card in self.cards:
+            if card.name == name:
+                for piece in self.pieces:
+                    if piece.id == int(piece_id):
+                        result = self.use_move(card, int(index), piece)
+                        if not result:
+                            print("Invalid move")
+                        return result
+        print("Check your input is correct")
+        return result
+
+    def process_swap(self, name):
+        for card in self.cards:
+            if card.name == name and self.current_player == card.holder:
+                self.swap_cards(card)
+                return True
+        print("Bad name. Lowercase string input of a card name you are holding.")
+        self.process_input("cards")
+        return False
+
+    def print_board(self):
+        print()
+        for row in self.board_state:
+            row_string = ""
+            for space in row:
+                if isinstance(space, Piece):
+                    row_string += (str(space.color[0]) + str(space.id))
+                else:
+                    row_string += ("[]")
+            print(row_string)
+        print()
+
+
+class Card:
+
+    def __init__(self, name, moves, start_player, holder):
+        self.name = name
+        self.moves = moves
+        self.start_player = start_player
+        self.holder = holder
+
+
+class Piece:
+
+    def __init__(self, id, type, color):
+        self.id = id
+        self.type = type
+        self.color = color
+
+
+def main():
+    game = Game(default_board, cards, pieces)
+    game.set_up()
+    print("Welcome to Onitama! This is a 2 player game similar to chess.\n")
+    print("Starting player is " + game.current_player)
+    while not game.is_won():
+        print("Next turn: " + game.current_player)
+        if game.no_moves():
+            swap_done = False
+            while not swap_done:
+                print("You have no possible moves.")
+                swap = input("Enter the name of the card you want to swap with the middle: ")
+                swap_done = game.process_swap(swap)
+        else:
+            game.process_input("1")
+            game.process_input("2")
+            game.process_input("3")
+            move = False
+            while not move:
+                name = input("Enter the name of the card to use: ")
+                index = input("Enter the move index of the move to use: ")
+                piece_id = input("Enter the piece id: ")
+                move = game.process_move(name, index, piece_id)
+        game.end_turn()
+    print("The winner is " + game.current_player)
+
+
+pieces = [
+    Piece(0, 'student', player1),
+    Piece(1, 'student', player1),
+    Piece(2, 'student', player1),
+    Piece(3, 'student', player1),
+    Piece(4, 'master', player1),
+    Piece(5, 'student', player2),
+    Piece(6, 'student', player2),
+    Piece(7, 'student', player2),
+    Piece(8, 'student', player2),
+    Piece(9, 'master', player2)
+]
+
+cards = [
+    Card("tiger", [(-2, 0), (1, 0)], player2, None),
+    Card("dragon", [(-1, -2), (-1, 2), (1, -1), (1, 1)], player1, None),
+    Card("frog", [(-1, -1), (0, -2), (1, 1)], player1, None),
+    Card("rabbit", [(-1, 1), (0, -2), (1, -1)], player1, None),
+    Card("crab", [(-1, 0), (0, -2), (0, 2)], player2, None),
+    Card("elephant", [(-1, -1), (-1, 1), (0, -1), (0, 1)], player1, None),
+    Card("goose", [(-1, -1), (0, -1), (0, 1), (1, 1)], player2, None),
+    Card("rooster", [(-1, 1), (0, -1), (0, 1), (1, -1)], player1, None),
+    Card("monkey", [(-1, -1), (-1, 1), (1, -1), (1, 1)], player2, None),
+    Card("mantis", [(-1, -1), (-1, 1), (1, 0)], player1, None),
+    Card("horse", [(-1, 0), (0, -1), (1, 0)], player1, None),
+    Card("ox", [(-1, 0), (0, 1), (1, 0)], player2, None),
+    Card("crane", [(-1, 0), (1, -1), (1, 1)], player2, None),
+    Card("boar", [(-1, 0), (0, -1), (0, 1)], player1, None),
+    Card("eel", [(-1, -1), (0, 1), (1, -1)], player2, None),
+    Card("cobra", [(-1, 1), (0, -1), (1, 1)], player1, None)
+]
+
+default_board = [[pieces[0], pieces[1], pieces[4], pieces[2], pieces[3]],
+                 [None, None, None, None, None],
+                 [None, None, None, None, None],
+                 [None, None, None, None, None],
+                 [pieces[5], pieces[6], pieces[9], pieces[7], pieces[8]]]
+
+main()
