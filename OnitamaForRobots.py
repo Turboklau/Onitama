@@ -306,6 +306,7 @@ class Game:
                             new_cards = copy.deepcopy(self.cards)
                             new_cards = self.get_new_card_list(new_cards, card)
                             game_state = Game(new_board_state, new_cards, new_pieces)
+                            game_state.current_player = self.current_player
                             moves.append(Move(card, move_index, piece, game_state))
 
         return moves

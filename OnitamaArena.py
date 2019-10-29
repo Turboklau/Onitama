@@ -113,7 +113,6 @@ def main():
         robot1 = get_robot('tanya', game, 'red')
         robot2 = get_robot('tanya', game, 'blue')
         robot_battle_loop(robot1, robot2, game)
-
     print("winner is " + game.current_player)
 
 
