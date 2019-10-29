@@ -1,4 +1,6 @@
 import math
+import random
+
 from OnitamaForRobots import Game
 from Robots.BaseAI import BaseAI
 
@@ -6,86 +8,54 @@ from Robots.BaseAI import BaseAI
 
 """The entire game needs to be passed in to the min/max. It needs to be copied."""
 
-class TacticalTanya(BaseAI):
+class TacticalTanya():
+
+    def __init__(self, game, color, depth):
+        self.game = game
+        self.color = color
+        self.depth = depth
 
     def decide_move(self):
-        simulated_game = Game(self.game.board_state, self.game.cards, self.game.pieces)
-        moves = simulated_game.move_list()
-        #start from here
-        for move in moves:
-            move.points = self.evaluate_points(move)
-        best_move = min(moves, key=lambda x: x.points)
-        print()
-        print()
-        print(self.color)
-        print(best_move.card.name)
-        self.game.print_board(best_move.new_board_state)
-        print(best_move.points)
-        return best_move
+        max_player = False
+        if self.game.current_player == self.color:
+            max_player = True
+        return self.minimax(self.game, self.depth, -math.inf, math.inf, max_player)
+
+    def minimax(self, move, depth, alpha, beta, maximizing_player):
+
+        if depth == 0 or self.game_over(move):
+            return self.evaluate_points(move)
+
+        if isinstance(move, Game):
+            moves = move.move_list()
+        else:
+            moves = move.game_state.move_list()
+
+        if maximizing_player:
+            maxEval = -math.inf
+            for move in moves:
+                eval = self.minimax(move, depth-1, alpha, beta, False)
+                maxEval = max(maxEval, eval)
+                alpha = max(alpha, eval)
+                if beta <= alpha:
+                    break
+            return maxEval
+
+        else:
+            minEval = math.inf
+            for move in moves:
+                eval = self.minimax(move, depth-1, alpha, beta, True)
+                minEval = min(minEval, eval)
+                beta = min(alpha, eval)
+                if beta <= alpha:
+                    break
+            return minEval
+
+    def game_over(self, move):
+        if isinstance(move, Game):
+            return move.is_won()
+        else:
+            return move.game_state.is_won()
 
     def evaluate_points(self, move):
-        pieces = []
-        enemy_master = None
-        for piece in self.game.pieces:
-            if piece.color == self.color:
-                pieces.append(piece)
-            elif piece.color != self.color and piece.type == "master":
-                enemy_master = piece
-        return self.total_distance_from_master(pieces, enemy_master, move.new_board_state)
-
-    def total_distance_from_master(self, pieces, enemy_master, new_board_state):
-        total_distance = 0
-        master_location = self.game.get_piece_position_on_board(new_board_state, enemy_master)
-        if not master_location:
-            return 0
-        for piece in pieces:
-            piece_location = self.game.get_piece_position_on_board(new_board_state, piece)
-            if piece_location:
-                total_distance += self.distance_between_locations(piece_location, master_location)
-        return total_distance
-
-
-    def distance_between_locations(self, a, b):
-        return math.sqrt((a[0]-b[0])**2 + (a[1]-b[1])**2)
-
-    def max_value(self, tree):
-        if self.terminal_test(tree):
-            return tree
-        v = -math.inf
-        for s in tree:
-            v = max(v, self.min_value(s))
-        return v
-
-    def min_value(self, tree):
-        if self.terminal_test(tree):
-            return tree
-        v = math.inf
-        for s in tree:
-            v = min(v, self.max_value(s))
-        return v
-
-    def terminal_test(self, state):
-        return not isinstance(state, list)
-
-    def max_action_value(self, game_tree):
-        x = None
-        if self.terminal_test(game_tree):
-            return x, game_tree
-        v = -math.inf
-        for i in range(0, len(game_tree)):
-            if v < self.min_value(game_tree[i]):
-                v = max(v, self.min_value(game_tree[i]))
-                x = i
-        return x, v
-
-    def min_action_value(self, game_tree):
-        x = None
-        if self.terminal_test(game_tree):
-            return x, game_tree
-        v = math.inf
-
-        for i in range(0, len(game_tree)):
-            if v > self.max_value(game_tree[i]):
-                v = min(v, self.max_value(game_tree[i]))
-                x = i
-        return x, v
+        return random.randint(0, 1000)

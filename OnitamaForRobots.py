@@ -32,14 +32,12 @@ class Piece:
 
 class Move:
 
-    def __init__(self, card, move_index, piece, new_board_state, card_list, piece_list):
+    def __init__(self, card, move_index, piece, game_state):
         self.card = card
         self.move_index = move_index
         self.piece = piece
         self.points = -math.inf
-        self.new_board_state = new_board_state
-        self.card_list = card_list
-        self.piece_list = piece_list
+        self.game_state = game_state
 
 
 pieces = [
@@ -307,6 +305,7 @@ class Game:
                             new_pieces = self.get_pieces_from_board_state(new_board_state)
                             new_cards = copy.deepcopy(self.cards)
                             new_cards = self.get_new_card_list(new_cards, card)
-                            moves.append(Move(card, move_index, piece, new_board_state, new_cards, new_pieces))
+                            game_state = Game(new_board_state, new_cards, new_pieces)
+                            moves.append(Move(card, move_index, piece, game_state))
 
         return moves
