@@ -18,15 +18,14 @@ class BaseAI():
         moves = self.game.move_list()
         for move in moves:
             move.points = self.evaluate_points(move)
-        print(len(moves))
-        best_move = min(moves, key=lambda x: x.points)
+        best_state = max(moves, key=lambda x: x.points)
         print()
         print()
         print(self.color)
-        print(best_move.card.name)
-        self.game.print_board(best_move.new_board_state)
-        print(best_move.points)
-        return best_move
+        print(best_state.card.name)
+        self.game.print_board(best_state.game_state.board_state)
+        print(best_state.points)
+        return best_state
 
     def evaluate_points(self, move):
         pass

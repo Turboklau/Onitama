@@ -32,14 +32,12 @@ class Piece:
 
 class Move:
 
-    def __init__(self, card, move_index, piece, new_board_state, card_list, piece_list):
+    def __init__(self, card, move_index, piece, game_state):
         self.card = card
         self.move_index = move_index
         self.piece = piece
         self.points = -math.inf
-        self.new_board_state = new_board_state
-        self.card_list = card_list
-        self.piece_list = piece_list
+        self.game_state = game_state
 
 
 pieces = [
@@ -170,6 +168,8 @@ class Game:
     """Gets the position of a piece on the board"""
 
     def get_piece_position_on_board(self, board, piece):
+        if not piece:
+            return None
         for i in range(0, len(board)):
             for j in range(0, len(board[i])):
                 if isinstance(board[i][j], Piece) and board[i][j].id == piece.id:
@@ -285,8 +285,7 @@ class Game:
                 card_list.append(card)
             elif used_card.name != card.name:
                 card_list.append(card)
-        used_card.holder = middle
-        card_list.append(used_card)
+        card_list.append(Card(used_card.name, used_card.moves, used_card.start_player, middle))
         return card_list
 
     def move_list(self):
@@ -303,7 +302,10 @@ class Game:
                                 new_board_state[piece_position[0] + card.moves[move_index][0]][piece_position[1] + card.moves[move_index][1]] = piece
                             else:
                                 new_board_state[piece_position[0] - card.moves[move_index][0]][piece_position[1] - card.moves[move_index][1]] = piece
-                            self.print_board(new_board_state)
-                            moves.append(Move(card, move_index, piece, new_board_state, self.get_new_card_list(self.cards, card), self.get_pieces_from_board_state(new_board_state)))
-                            print("added a move")
+                            new_pieces = self.get_pieces_from_board_state(new_board_state)
+                            new_cards = copy.deepcopy(self.cards)
+                            new_cards = self.get_new_card_list(new_cards, card)
+                            game_state = Game(new_board_state, new_cards, new_pieces)
+                            moves.append(Move(card, move_index, piece, game_state))
+
         return moves

@@ -9,20 +9,20 @@ class AssassinAndyAI(BaseAI):
     def evaluate_points(self, move):
         pieces = []
         enemy_master = None
-        for piece in self.game.pieces:
+        for piece in move.game_state.pieces:
             if piece.color == self.color:
                 pieces.append(piece)
             elif piece.color != self.color and piece.type == "master":
                 enemy_master = piece
-        return self.total_distance_from_master(pieces, enemy_master, move.new_board_state)
+        return -self.total_distance_from_master(pieces, enemy_master, move.game_state)
 
-    def total_distance_from_master(self, pieces, enemy_master, new_board_state):
+    def total_distance_from_master(self, pieces, enemy_master, game_state):
         total_distance = 0
-        master_location = self.game.get_piece_position_on_board(new_board_state, enemy_master)
+        master_location = game_state.get_piece_position_on_board(game_state.board_state, enemy_master)
         if not master_location:
-            return 0
+            return -math.inf
         for piece in pieces:
-            piece_location = self.game.get_piece_position_on_board(new_board_state, piece)
+            piece_location = game_state.get_piece_position_on_board(game_state.board_state, piece)
             if piece_location:
                 total_distance += self.distance_between_locations(piece_location, master_location)
         return total_distance

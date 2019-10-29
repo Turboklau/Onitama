@@ -3,6 +3,8 @@ from Robots.AssassinAndyAI import AssassinAndyAI
 from Robots.DirectDerek import DirectDerek
 from Robots.ErraticErin import ErraticErin
 from Robots.RandomRebecca import RandomRebecca
+from Robots.TacticalTanya import TacticalTanya
+
 
 def pvp_loop(game):
     print("Starting player is " + game.current_player)
@@ -80,6 +82,8 @@ def get_robot(name, game, color):
         return RandomRebecca(game, color)
     elif name == 'erin':
         return ErraticErin(game, color)
+    elif name == 'tanya':
+        return TacticalTanya(game, color, 3)
 
 
 def print_options():
@@ -106,8 +110,8 @@ def main():
         robot1 = get_robot('erin', game, 'red')
         pve_loop(robot1, game)
     elif mode == "3":
-        robot1 = get_robot('derek', game, 'red')
-        robot2 = get_robot('derek', game, 'blue')
+        robot1 = get_robot('tanya', game, 'red')
+        robot2 = get_robot('tanya', game, 'blue')
         robot_battle_loop(robot1, robot2, game)
 
     print("winner is " + game.current_player)
