@@ -7,18 +7,17 @@ class OnitamaGUI:
     def __init__(self, game):
         self.root = tk.Tk()
         self.game = game
-        #print(game.board_state)# [i][j] =
-        board = [ [None]*5 for _ in range(5) ]
-        for i,row in enumerate(game.board_state):
-            for j,col in enumerate(row):
-                colour, kind = self.game.get_square(i, j)
-                text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
-                #text = {"master":'♕', "student":'♙', '':'‎‎‎‏‏‎ ‎'}[kind]
+        self.title = tk.Label(self.root,text="Today is Onitama", font=('Courier', 128))
+        self.title.grid(row=0,column=0)
 
-                L = tk.Label(self.root,text=text,bg=colour, font=('Courier', 128))
-                L.grid(row=i,column=j)
-                L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
-                #tk.ttk.Separator(self.root, orient='vertical').grid(column=1, row=0, rowspan=5, sticky='ns')
+        self.board = tk.Frame(self.root)
+        self.board.grid(row=1,column=0)
+
+        self.actions = tk.Frame(self.root)
+        self.actions.grid(row=2,column=0)
+        
+        self.update_board()
+        self.update_actions()
 
 
 
@@ -30,6 +29,35 @@ class OnitamaGUI:
 
     def pvp(self):
         self.pvp.destroy()
+
+
+
+    def update_board(self):
+        board = [ [None]*5 for _ in range(5) ]
+        for i,row in enumerate(game.board_state):
+            for j,col in enumerate(row):
+                colour, kind = self.game.get_square(i, j)
+                text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
+                #text = {"master":'♕', "student":'♙', '':'‎‎‎‏‏‎ ‎'}[kind]
+
+                L = tk.Label(self.board,text=text,bg=colour, font=('Courier', 128))
+                L.grid(row=i,column=j)
+                L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
+                #tk.ttk.Separator(self.root, orient='vertical').grid(column=1, row=0, rowspan=5, sticky='ns')
+
+    def update_actions(self):
+        for card in self.game.cards:
+            print(card)
+        P1 = tk.Label(self.actions,text="P1 Cardfdggrgrrgrgrgrgrgrgrs", bg="green")
+        Ex = tk.Label(self.actions,text="Extra")
+        P2 = tk.Label(self.actions,text="P2 Cards")
+
+        #P1.pack(side="left", anchor="w", fill='x')
+        #P2.pack(side="right", anchor="e", fill='x')
+        P1.grid(row=0,column=0, sticky="w")
+        #Ex.grid(row=0,column=1, sticky)
+        P2.grid(row=0,column=2, sticky="e")
+
 
 
 def main():
