@@ -12,8 +12,8 @@ class OnitamaGUI:
         for i,row in enumerate(game.board_state):
             for j,col in enumerate(row):
                 colour, kind = self.game.get_square(i, j)
-                #text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
-                text = {"master":'♕', "student":'♙', '':'‎‎‎‏‏‎ ‎'}[kind]
+                text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
+                #text = {"master":'♕', "student":'♙', '':'‎‎‎‏‏‎ ‎'}[kind]
 
                 L = tk.Label(self.root,text=text,bg=colour, font=('Courier', 128))
                 L.grid(row=i,column=j)
