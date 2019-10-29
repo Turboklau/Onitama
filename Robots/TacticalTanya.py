@@ -33,13 +33,14 @@ class TacticalTanya():
         if isinstance(move, Game):
             moves = move.move_list()
         else:
+            move.game_state.end_turn()
             moves = move.game_state.move_list()
 
         if maximizing_player:
             maxEval = -math.inf, None
             for child in moves:
                 eval = self.minimax(child, depth-1, alpha, beta, False)
-                if eval[0] >= maxEval[0]:
+                if eval[0] > maxEval[0]:
                     maxEval = (eval[0], child)
                 alpha = max(alpha, eval[0])
                 if beta <= alpha:
@@ -50,7 +51,7 @@ class TacticalTanya():
             minEval = math.inf, None
             for child in moves:
                 eval = self.minimax(child, depth-1, alpha, beta, True)
-                if eval[0] <= minEval[0]:
+                if eval[0] < minEval[0]:
                     minEval = (eval[0], child)
                 beta = min(beta, eval[0])
                 if beta <= alpha:

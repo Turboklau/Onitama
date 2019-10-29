@@ -303,18 +303,16 @@ class Game:
                 for move_index in range(0, len(card.moves)):
                     for piece in pieces:
                         if self.move_legal(card, move_index, piece):
-                            piece_position = self.get_piece_position_on_board(self.board_state, piece)
                             new_board_state = copy.deepcopy(self.board_state)
-                            new_board_state[piece_position[0]][piece_position[1]] = None
-                            if piece.color == player2:
-                                new_board_state[piece_position[0] + card.moves[move_index][0]][piece_position[1] + card.moves[move_index][1]] = piece
-                            else:
-                                new_board_state[piece_position[0] - card.moves[move_index][0]][piece_position[1] - card.moves[move_index][1]] = piece
                             new_pieces = self.get_pieces_from_board_state(new_board_state)
                             new_cards = copy.deepcopy(self.cards)
                             new_cards = self.get_new_card_list(new_cards, card)
                             game_state = Game(new_board_state, new_cards, new_pieces)
                             game_state.current_player = self.current_player
+                            game_state.use_move(card, move_index, piece)
                             moves.append(Move(card, move_index, piece, game_state))
+        if len(moves) == 0:
+            print("yp")
+            pass
 
         return moves
