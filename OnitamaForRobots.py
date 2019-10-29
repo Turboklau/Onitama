@@ -32,12 +32,14 @@ class Piece:
 
 class Move:
 
-    def __init__(self, card, move_index, piece, new_board_state):
+    def __init__(self, card, move_index, piece, new_board_state, card_list, piece_list):
         self.card = card
         self.move_index = move_index
         self.piece = piece
         self.points = -math.inf
         self.new_board_state = new_board_state
+        self.card_list = card_list
+        self.piece_list = piece_list
 
 
 pieces = [
@@ -261,6 +263,32 @@ class Game:
             print(row_string)
         print()
 
+    def get_square(self, row, column):
+        if self.board_state[row][column]:
+            return self.board_state[row][column].color, self.board_state[row][column].type
+        else:
+            return "grey", ""
+
+    def get_pieces_from_board_state(self, board_state):
+        pieces = []
+        for row in board_state:
+            for space in row:
+                if isinstance(space, Piece):
+                    pieces.append(space)
+        return pieces
+
+    def get_new_card_list(self, cards, used_card):
+        card_list = []
+        for card in cards:
+            if card.holder == middle:
+                card.holder = self.current_player
+                card_list.append(card)
+            elif used_card.name != card.name:
+                card_list.append(card)
+        used_card.holder = middle
+        card_list.append(used_card)
+        return card_list
+
     def move_list(self):
         moves = []
         for card in self.cards:
@@ -275,7 +303,8 @@ class Game:
                                 new_board_state[piece_position[0] + card.moves[move_index][0]][piece_position[1] + card.moves[move_index][1]] = piece
                             else:
                                 new_board_state[piece_position[0] - card.moves[move_index][0]][piece_position[1] - card.moves[move_index][1]] = piece
-                            moves.append(Move(card, move_index, piece, new_board_state))
+                            self.print_board(new_board_state)
+                            moves.append(Move(card, move_index, piece, new_board_state, self.get_new_card_list(self.cards, card), self.get_pieces_from_board_state(new_board_state)))
 
 
         return moves
