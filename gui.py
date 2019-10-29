@@ -9,18 +9,13 @@ class OnitamaGUI:
         self.root = tk.Tk()
         self.game = Game()
         self.game.set_up()
-        self.title = tk.Label(self.root,text="Today is Onitama", font=('Courier', 64))
-        self.title.grid(row=0,column=1)
 
+        self.actions = tk.Frame(self.root)
+        self.actions.grid(row=2,column=0)
         self.board = tk.Frame(self.root)
-        self.board.grid(row=1,column=1)
-
-        #self.actions = tk.Frame(self.root)
-        #self.actions.grid(row=2,column=0)
-        
+        self.board.grid(row=1,column=1)        
         self.update_board()
         self.update_actions()
-
 
 
         self.root.mainloop()
@@ -29,7 +24,7 @@ class OnitamaGUI:
         #color = "red"
         #event.widget.config(bg=color)
         from Robots.ErraticErin import ErraticErin
-        bot = ErraticErin(self.game, 'red')
+        bot = ErraticErin('red')
 
         robot_turn(bot, self.game)
         if self.game.is_won():
@@ -38,12 +33,21 @@ class OnitamaGUI:
         self.update_board()
 
     def reset(self):
-        print("aahhhhhh")
-        self.root = tk.Tk()
-        self.game = Game()
-        self.game.set_up()
-        self.update_board()
-        self.update_actions()
+        #self.root = tk.Tk()
+        #self.game = Game()
+        #self.game.set_up()
+        #print(self.game.board_state)
+        #for i in range(100):
+        #    print("won")
+        self.game.reset()
+        print(self.game.board_state)
+        #self.title = tk.Label(self.root,text="Today is Onitama", font=('Courier', 64))
+        #self.title.grid(row=0,column=1)
+        #self.board = tk.Frame(self.root)
+        #self.board.grid(row=1,column=1)
+
+        #self.update_board()
+        #self.update_actions()
 
     def pvp(self):
         self.pvp.destroy()

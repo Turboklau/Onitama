@@ -72,16 +72,16 @@ cards = [
     Card("cobra", [(-1, 1), (0, -1), (1, 1)], player1, None)
 ]
 
-default_board = [[pieces[0], pieces[1], pieces[4], pieces[2], pieces[3]],
+default_board = ([pieces[0], pieces[1], pieces[4], pieces[2], pieces[3]],
                  [None, None, None, None, None],
                  [None, None, None, None, None],
                  [None, None, None, None, None],
-                 [pieces[5], pieces[6], pieces[9], pieces[7], pieces[8]]]
+                 [pieces[5], pieces[6], pieces[9], pieces[7], pieces[8]])
 
 class Game:
 
     def __init__(self, board_state=default_board, cards=cards, pieces=pieces):
-        self.board_state = board_state
+        self.board_state = copy.deepcopy(board_state)
         self.cards = cards
         self.pieces = pieces
         self.current_player = None
@@ -97,6 +97,14 @@ class Game:
         self.cards[3].holder = player2
         self.cards[4].holder = middle
         self.current_player = self.cards[4].start_player
+
+    def reset(self):
+        self.board_state = copy.deepcopy(default_board)
+        self.cards = cards
+        self.pieces = pieces
+        self.current_player = None
+        self.master_captured = False
+        self.set_up()
 
     """Returns true if the game is in a winning state. 
     Current player is used to find out who won.
