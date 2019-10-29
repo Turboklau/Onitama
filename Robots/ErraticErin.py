@@ -14,7 +14,7 @@ class ErraticErin(BaseAI):
             for space in row:
                 if isinstance(space, Piece) and space.type == "master" and space.color != self.color:
                     winning_move = False
-        blue_shrine =move.game_state.board_state[4][2]
+        blue_shrine = move.game_state.board_state[4][2]
         red_shrine = move.game_state.board_state[0][2]
         if self.color == "red":
             if isinstance(blue_shrine, Piece) and blue_shrine.color == self.color and blue_shrine.type == "master":

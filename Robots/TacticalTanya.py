@@ -1,28 +1,24 @@
 import math
-import random
 
-from OnitamaForRobots import Game, Move
+from OnitamaForRobots import Game
 
 """Tanya can see the future. Tanya makes moves using a game tree."""
 
-"""The entire game needs to be passed in to the min/max. It needs to be copied."""
-
 class TacticalTanya():
 
-    def __init__(self, game, color, depth):
-        self.game = game
+    def __init__(self, color, depth):
         self.color = color
         self.depth = depth
 
-    def decide_move(self):
-        best_state_tuple = self.minimax(self.game, self.depth, -math.inf, math.inf, True)
+    def decide_move(self, game):
+        best_state_tuple = self.minimax(game, self.depth, -math.inf, math.inf, True)
         best_state = best_state_tuple[1]
         best_state.points = best_state_tuple[0]
         print()
         print()
         print(self.color)
         print(best_state.card.name)
-        self.game.print_board(best_state.game_state.board_state)
+        game.print_board(best_state.game_state.board_state)
         print(best_state.points)
         return best_state
 
@@ -65,7 +61,6 @@ class TacticalTanya():
             return move.game_state.is_won()
 
     def evaluate_points(self, move):
-        print("eval")
         total_points = 0
         if isinstance(move, Game):
             return -1

@@ -29,18 +29,17 @@ def pve_loop(robot, game):
 
 
 def robot_battle_loop(robot1, robot2, game):
+    if game.current_player == 'red':
+        robots = [robot1, robot2]
+    else:
+        robots = [robot2, robot1]
     while not game.is_won():
-        if game.current_player == 'red':
-            robots = [robot1, robot2]
-        else:
-            robots = [robot2, robot1]
-
         for robot in robots:
             if not game.is_won():
                 robot_turn(robot, game)
 
 def robot_turn(robot, game):
-    move = robot.decide_move()
+    move = robot.decide_move(game)
     if move:
         game.process_move(move.card.name, move.move_index, move.piece.id)
     else:
@@ -73,17 +72,17 @@ def human_turn(game, print_board):
             move = game.process_move(name, index, piece_id)
     game.end_turn()
 
-def get_robot(name, game, color):
+def get_robot(name, color):
     if name == "andy":
-        return AssassinAndyAI(game, color)
+        return AssassinAndyAI(color)
     elif name == 'derek':
-        return DirectDerek(game, color)
+        return DirectDerek(color)
     elif name == 'rebecca':
-        return RandomRebecca(game, color)
+        return RandomRebecca(color)
     elif name == 'erin':
-        return ErraticErin(game, color)
+        return ErraticErin(color)
     elif name == 'tanya':
-        return TacticalTanya(game, color, 3)
+        return TacticalTanya(color, 3)
 
 
 def print_options():
@@ -107,11 +106,11 @@ def main():
     if mode == "1":
         pvp_loop(game)
     elif mode == "2":
-        robot1 = get_robot('erin', game, 'red')
+        robot1 = get_robot('erin', 'red')
         pve_loop(robot1, game)
     elif mode == "3":
-        robot1 = get_robot('tanya', game, 'red')
-        robot2 = get_robot('tanya', game, 'blue')
+        robot1 = get_robot('tanya', 'red')
+        robot2 = get_robot('derek', 'blue')
         robot_battle_loop(robot1, robot2, game)
     print("winner is " + game.current_player)
 

@@ -10,12 +10,11 @@
 
 class BaseAI():
 
-    def __init__(self, game, color):
-        self.game = game
+    def __init__(self, color):
         self.color = color
 
-    def decide_move(self):
-        moves = self.game.move_list()
+    def decide_move(self, game):
+        moves = game.move_list()
         for move in moves:
             move.points = self.evaluate_points(move)
         best_state = max(moves, key=lambda x: x.points)
@@ -23,7 +22,7 @@ class BaseAI():
         print()
         print(self.color)
         print(best_state.card.name)
-        self.game.print_board(best_state.game_state.board_state)
+        game.print_board(best_state.game_state.board_state)
         print(best_state.points)
         return best_state
 
