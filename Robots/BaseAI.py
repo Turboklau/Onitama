@@ -18,7 +18,6 @@ class BaseAI():
         moves = self.game.move_list()
         for move in moves:
             move.points = self.evaluate_points(move)
-        print(len(moves))
         best_move = min(moves, key=lambda x: x.points)
         print()
         print()

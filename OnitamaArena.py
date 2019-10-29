@@ -106,8 +106,8 @@ def main():
         robot1 = get_robot('erin', game, 'red')
         pve_loop(robot1, game)
     elif mode == "3":
-        robot1 = get_robot('derek', game, 'red')
-        robot2 = get_robot('derek', game, 'blue')
+        robot1 = get_robot('andy', game, 'red')
+        robot2 = get_robot('andy', game, 'blue')
         robot_battle_loop(robot1, robot2, game)
 
     print("winner is " + game.current_player)

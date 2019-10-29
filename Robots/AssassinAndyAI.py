@@ -9,7 +9,7 @@ class AssassinAndyAI(BaseAI):
     def evaluate_points(self, move):
         pieces = []
         enemy_master = None
-        for piece in self.game.pieces:
+        for piece in move.piece_list:
             if piece.color == self.color:
                 pieces.append(piece)
             elif piece.color != self.color and piece.type == "master":
