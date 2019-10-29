@@ -5,9 +5,9 @@ from PIL import ImageTk, Image
 
 
 class OnitamaGUI:
-    def __init__(self, game):
+    def __init__(self):
         self.root = tk.Tk()
-        self.game = game
+        self.game = Game()
         self.game.set_up()
         self.title = tk.Label(self.root,text="Today is Onitama", font=('Courier', 64))
         self.title.grid(row=0,column=1)
@@ -28,7 +28,22 @@ class OnitamaGUI:
     def on_click(self, i,j,event):
         #color = "red"
         #event.widget.config(bg=color)
-        robot_turn(robot, self.game)
+        from Robots.ErraticErin import ErraticErin
+        bot = ErraticErin(self.game, 'red')
+
+        robot_turn(bot, self.game)
+        if self.game.is_won():
+            self.reset()
+
+        self.update_board()
+
+    def reset(self):
+        print("aahhhhhh")
+        self.root = tk.Tk()
+        self.game = Game()
+        self.game.set_up()
+        self.update_board()
+        self.update_actions()
 
     def pvp(self):
         self.pvp.destroy()
@@ -36,8 +51,8 @@ class OnitamaGUI:
 
 
     def update_board(self):
-        board = [ [None]*5 for _ in range(5) ]
-        for i,row in enumerate(game.board_state):
+        #board = [ [None]*5 for _ in range(5) ]
+        for i,row in enumerate(self.game.board_state):
             for j,col in enumerate(row):
                 colour, kind = self.game.get_square(i, j)
                 text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
@@ -49,8 +64,6 @@ class OnitamaGUI:
                 #tk.ttk.Separator(self.root, orient='vertical').grid(column=1, row=0, rowspan=5, sticky='ns')
 
     def update_actions(self):
-        for card in self.game.cards:
-            print(card)
 
         self.left = tk.Frame(self.root)
         self.left.grid(row=1, column=0)
@@ -98,7 +111,17 @@ class OnitamaGUI:
 
         #panel.grid(row=1,column=0)
 
+def robot_turn(robot, game):
+    move = robot.decide_move(game)
+    if move:
+        game.process_move(move.card.name, move.move_index, move.piece.id)
+    else:
+        for card in game.cards:
+            if card.holder == robot.color:
+                game.process_swap(card)
+                break
 
-game = Game()
-x = OnitamaGUI(game)
+    game.end_turn()
+
+x = OnitamaGUI()
 
