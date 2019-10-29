@@ -1,4 +1,5 @@
 import tkinter as tk#, Label, Button
+import tkinter.ttk
 from OnitamaForRobots import Game
 
 
@@ -9,11 +10,16 @@ class OnitamaGUI:
         #print(game.board_state)# [i][j] =
         board = [ [None]*5 for _ in range(5) ]
         for i,row in enumerate(game.board_state):
-            for j,column in enumerate(row):
-                colour = Game.get_color(row, col)
-                L = tk.Label(self.root,text='    ',bg=colour)
+            for j,col in enumerate(row):
+                colour, kind = self.game.get_square(i, j)
+                #text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
+                text = {"master":'♕', "student":'♙', '':'‎‎‎‏‏‎ ‎'}[kind]
+
+                L = tk.Label(self.root,text=text,bg=colour, font=('Courier', 128))
                 L.grid(row=i,column=j)
                 L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
+                #tk.ttk.Separator(self.root, orient='vertical').grid(column=1, row=0, rowspan=5, sticky='ns')
+
 
 
         self.root.mainloop()
