@@ -265,9 +265,9 @@ class Game:
 
     def get_square(self, row, column):
         if self.board_state[row][column]:
-            return (self.board_state[row][column].color, self.board_state[row][column].type)
+            return tuple((self.board_state[row][column].color, self.board_state[row][column].type))
         else:
-            return ("grey", "")
+            return tuple(("white", ""))
 
     def get_pieces_from_board_state(self, board_state):
         pieces = []
