@@ -114,5 +114,4 @@ def main():
         robot_battle_loop(robot1, robot2, game)
     print("winner is " + game.current_player)
 
-
 main()
