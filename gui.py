@@ -12,11 +12,16 @@ class OnitamaGUI:
         self.game = Game()
         self.game.set_up()
 
-      
+        self.title = tk.Label(self.root,text="Onitama!", font=("Helvetica", 64))
+        self.title.grid(row=0,column=1)
         self.create_board()
         self.create_actions()
 
-        self.count = 0
+        self.rscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
+        self.rscore.grid(row=2,column=0)
+        self.bscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
+        self.bscore.grid(row=2,column=2)
+
 
 
         self.root.mainloop()
@@ -27,12 +32,13 @@ class OnitamaGUI:
         from Robots.RandomRebecca import RandomRebecca as robot
         bot = robot('red')
         bot2 = robot('blue')
-        self.count += 1
-        if self.count %2 == 1:
+
+        if self.game.current_player == 'red':
             robot_turn(bot, self.game)
-        else:
+        elif self.game.current_player == 'blue':
             robot_turn(bot2, self.game)
         if self.game.is_won():
+            self.rscore['text']+= 1
             self.reset()
 
         self.update_board()
