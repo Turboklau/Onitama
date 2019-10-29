@@ -9,18 +9,15 @@ class OnitamaGUI:
         self.root = tk.Tk()
         self.game = Game()
         self.game.set_up()
-        self.title = tk.Label(self.root,text="Today is Onitama", font=('Courier', 64))
-        self.title.grid(row=0,column=1)
 
+        self.actions = tk.Frame(self.root)
+        self.actions.grid(row=2,column=0)
         self.board = tk.Frame(self.root)
-        self.board.grid(row=1,column=1)
-
-        #self.actions = tk.Frame(self.root)
-        #self.actions.grid(row=2,column=0)
-        
-        self.update_board()
+        self.board.grid(row=1,column=1)        
+        self.create_board()
         self.update_actions()
 
+        self.count = 0
 
 
         self.root.mainloop()
@@ -28,30 +25,31 @@ class OnitamaGUI:
     def on_click(self, i,j,event):
         #color = "red"
         #event.widget.config(bg=color)
-        from Robots.ErraticErin import ErraticErin
-        bot = ErraticErin(self.game, 'red')
-
-        robot_turn(bot, self.game)
+        from Robots.RandomRebecca import RandomRebecca as robot
+        bot = robot('red')
+        bot2 = robot('blue')
+        self.count += 1
+        if self.count %2 == 1:
+            robot_turn(bot, self.game)
+        else:
+            robot_turn(bot2, self.game)
         if self.game.is_won():
             self.reset()
 
         self.update_board()
 
     def reset(self):
-        print("aahhhhhh")
-        self.root = tk.Tk()
-        self.game = Game()
-        self.game.set_up()
-        self.update_board()
-        self.update_actions()
+        self.game.reset()
+        print(self.game.board_state)
 
     def pvp(self):
         self.pvp.destroy()
 
 
 
-    def update_board(self):
+    def create_board(self):
         #board = [ [None]*5 for _ in range(5) ]
+        self.labelgrid = [ [None]*5 for _ in range(5) ]
         for i,row in enumerate(self.game.board_state):
             for j,col in enumerate(row):
                 colour, kind = self.game.get_square(i, j)
@@ -61,8 +59,17 @@ class OnitamaGUI:
                 L = tk.Label(self.board,text=text,bg=colour, font=('Courier', 80))
                 L.grid(row=i,column=j)
                 L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
+                self.labelgrid[i][j] = L
                 #tk.ttk.Separator(self.root, orient='vertical').grid(column=1, row=0, rowspan=5, sticky='ns')
 
+    def update_board(self):
+        for i,row in enumerate(self.game.board_state):
+            for j,col in enumerate(row):
+                colour, kind = self.game.get_square(i, j)
+                text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
+
+                self.labelgrid[i][j]['text'] = text
+                self.labelgrid[i][j]['bg'] = colour
     def update_actions(self):
 
         self.left = tk.Frame(self.root)
