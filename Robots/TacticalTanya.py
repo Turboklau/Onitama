@@ -1,3 +1,4 @@
+import copy
 import math
 
 from OnitamaForRobots import Game
@@ -11,18 +12,20 @@ class TacticalTanya():
         self.depth = depth
 
     def decide_move(self, game):
-        best_state_tuple = self.minimax(game, self.depth, -math.inf, math.inf, True)
+        new_game = copy.deepcopy(game)
+        best_state_tuple = self.minimax(new_game, self.depth, -math.inf, math.inf, True)
         best_state = best_state_tuple[1]
         best_state.points = best_state_tuple[0]
         print()
         print()
         print(self.color)
         print(best_state.card.name)
-        game.print_board(best_state.game_state.board_state)
+        new_game.print_board(best_state.game_state.board_state)
         print(best_state.points)
         return best_state
 
-    def minimax(self, move, depth, alpha, beta, maximizing_player):
+    def minimax(self, move_to_be_copied, depth, alpha, beta, maximizing_player):
+        move = copy.deepcopy(move_to_be_copied)
 
         if depth == 0 or self.game_over(move):
             return self.evaluate_points(move), move
@@ -37,7 +40,7 @@ class TacticalTanya():
             for child in moves:
                 eval = self.minimax(child, depth-1, alpha, beta, False)
                 if eval[0] >= maxEval[0]:
-                    maxEval = eval
+                    maxEval = (eval[0], child)
                 alpha = max(alpha, eval[0])
                 if beta <= alpha:
                     break
@@ -48,7 +51,7 @@ class TacticalTanya():
             for child in moves:
                 eval = self.minimax(child, depth-1, alpha, beta, True)
                 if eval[0] <= minEval[0]:
-                    minEval = eval
+                    minEval = (eval[0], child)
                 beta = min(beta, eval[0])
                 if beta <= alpha:
                     break
