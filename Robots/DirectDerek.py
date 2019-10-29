@@ -8,7 +8,7 @@ class DirectDerek(BaseAI):
 
     def evaluate_points(self, move):
         friendly_master = None
-        for piece in self.game.pieces:
+        for piece in move.piece_list:
             if piece.color == self.color and piece.type == "master":
                 friendly_master = piece
         return self.total_distance_from_enemy_shrine(friendly_master, move.new_board_state)

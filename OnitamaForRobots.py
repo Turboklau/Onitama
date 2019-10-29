@@ -265,9 +265,9 @@ class Game:
 
     def get_square(self, row, column):
         if self.board_state[row][column]:
-            return self.board_state[row][column].color, self.board_state[row][column].type
+            return (self.board_state[row][column].color, self.board_state[row][column].type)
         else:
-            return "grey", ""
+            return ("grey", "")
 
     def get_pieces_from_board_state(self, board_state):
         pieces = []
@@ -305,6 +305,5 @@ class Game:
                                 new_board_state[piece_position[0] - card.moves[move_index][0]][piece_position[1] - card.moves[move_index][1]] = piece
                             self.print_board(new_board_state)
                             moves.append(Move(card, move_index, piece, new_board_state, self.get_new_card_list(self.cards, card), self.get_pieces_from_board_state(new_board_state)))
-
-
+                            print("added a move")
         return moves
