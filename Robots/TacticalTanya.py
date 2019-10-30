@@ -4,8 +4,10 @@ import math
 from OnitamaForRobots import Game
 
 """Tanya can see the future. Tanya makes moves using a game tree."""
+#https://jsfiddle.net/Laa0p1mh/3/
 
-class TacticalTanya():
+
+class TacticalTanya:
 
     def __init__(self, color, depth):
         self.color = color

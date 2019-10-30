@@ -5,6 +5,7 @@ import copy
 """Simulation of the game Onitama.
 For reference, the blue shrine is [0,2] and the red shrine is [4,2]"""
 
+
 """Global variable time!"""
 player1 = 'red'
 player2 = 'blue'
@@ -26,9 +27,9 @@ class Card:
 
 class Piece:
 
-    def __init__(self, id, type, color):
+    def __init__(self, id, master, color):
         self.id = id
-        self.type = type
+        self.master = master
         self.color = color
 
 
@@ -42,16 +43,16 @@ class Move:
         self.game_state = game_state
 
 pieces = [
-    Piece(0, 'student', player1),
-    Piece(1, 'student', player1),
-    Piece(2, 'student', player1),
-    Piece(3, 'student', player1),
-    Piece(4, 'master', player1),
-    Piece(5, 'student', player2),
-    Piece(6, 'student', player2),
-    Piece(7, 'student', player2),
-    Piece(8, 'student', player2),
-    Piece(9, 'master', player2)
+    Piece(0, False, player1),
+    Piece(1, False, player1),
+    Piece(2, False, player1),
+    Piece(3, False, player1),
+    Piece(4, True, player1),
+    Piece(5, False, player2),
+    Piece(6, False, player2),
+    Piece(7, False, player2),
+    Piece(8, False, player2),
+    Piece(9, True, player2)
 ]
 
 cards = [
@@ -79,6 +80,28 @@ default_board = ([pieces[0], pieces[1], pieces[4], pieces[2], pieces[3]],
                  [None, None, None, None, None],
                  [pieces[5], pieces[6], pieces[9], pieces[7], pieces[8]])
 
+class Board:
+
+    def __init__(self, middle_card, board_state, pieces):
+        self.middle_card = middle_card
+        self.board_state = copy.deepcopy(board_state)
+        self.pieces = pieces
+
+
+    def populate_board(self):
+        pass
+
+    def is_won(self):
+        pass
+
+    def is_possible(self):
+        pass
+
+
+class Game2:
+
+    def take_move(self):
+        pass
 
 class Game:
 
@@ -87,9 +110,10 @@ class Game:
         self.cards = cards
         self.pieces = pieces
         self.current_player = None
-        self.master_captured = False
+        self.master_captured = False #game over?
         self.last_move_index = -1
         self.last_piece_id_moved = -1
+
 
     """Deals the cards"""
 
@@ -123,11 +147,11 @@ class Game:
 
     def is_won(self):
         # There is a piece on the red shrine and it is blue
-        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].color == player2 and self.board_state[0][2].type == 'master':
+        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].color == player2 and self.board_state[0][2].master:
             return True
 
         # There is a piece on the blue shrine and it is red
-        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].color == player1 and self.board_state[4][2].type == 'master':
+        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].color == player1 and self.board_state[4][2].master:
             return True
 
         if self.master_captured:
@@ -282,7 +306,24 @@ class Game:
         else:
             return tuple(("white", ""))
 
+    def ugly_move(self, move):
+        pass
+
+    def undo(self):
+        pass
+
     def move_list(self):
         moves = []
+        for card in self.cards:
+            if card.holder == self.current_player:
+                for move_index in range(0, len(card.moves)):
+                    for piece in pieces:
+                        if self.move_legal(card, move_index, piece):
+                            piece_position = self.get_piece_position_on_board(self.board_state, piece)
+                            move = card.moves[move_index]
+                            start_row, start_column = piece_position
+                            end_row, end_column = self.get_end_position_of_piece(move, piece_position, piece.color)
 
         return moves
+
+
