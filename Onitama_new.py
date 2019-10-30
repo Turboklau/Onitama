@@ -49,6 +49,7 @@ class Board:
 
     def __init__(self, middle_card):
         self.board_state = list(default_board)
+        self.pieces = set()
         self.populate_board()
 
     def populate_board(self):
@@ -60,6 +61,7 @@ class Board:
             else:
                 piece = Piece(player2)
 
+            self.pieces.add(piece)
             piece.location = self.board_state[num][index%5]
             self.board_state[num][index%5] = piece
             if index%5 == 2:
@@ -76,7 +78,7 @@ class Board:
 
     def master_captured(self):
         num_masters = 0
-        for piece in pieces:
+        for piece in self.pieces:
             if piece.master:
                 num_masters += 1
         return num_masters < 2
@@ -94,17 +96,26 @@ class Board:
 
     def on_board_and_not_friendly(self, x, y, color):
         if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
-            return (not isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == color)
+            return not isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == color
 
     def move_piece(self, card, color, start, end):
         if self.is_possible_move(card, color, start, end):
             start_x, start_y = start
             end_x, end_y = end
+            self.remove_piece(end_x, end_y)
             self.board_state[end_x][end_y] = self.board_state[start_x][start_y]
             self.board_state[start_x][start_y] = None
             return True
         else:
             return False
+
+    def remove_piece(self, end_x, end_y):
+        if isinstance(self.board_state[end_x][end_y], Piece):
+            for piece in self.pieces:
+                if piece.location == [end_x][end_y]:
+                    self.pieces.remove(piece)
+                    return True
+        return False
 
 class Piece:
     def __init__(self, player, location=None, master=False):
