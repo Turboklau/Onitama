@@ -1,6 +1,7 @@
 game:
 	create_game
 		create_board
+		current_player
 
 	take_move(card, start, end):
 		if possible_move:

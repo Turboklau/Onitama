@@ -32,16 +32,6 @@ class Piece:
         self.master = master
         self.color = color
 
-
-class Move:
-
-    def __init__(self, card, move_index, piece, game_state):
-        self.card = card
-        self.move_index = move_index
-        self.piece = piece
-        self.points = -math.inf
-        self.game_state = game_state
-
 pieces = [
     Piece(0, False, player1),
     Piece(1, False, player1),
@@ -87,7 +77,6 @@ class Board:
         self.board_state = copy.deepcopy(board_state)
         self.pieces = pieces
 
-
     def populate_board(self):
         pass
 
@@ -98,7 +87,7 @@ class Board:
         pass
 
 
-class Game2:
+class Game:
 
     def take_move(self):
         pass
@@ -111,8 +100,6 @@ class Game:
         self.pieces = pieces
         self.current_player = None
         self.master_captured = False #game over?
-        self.last_move_index = -1
-        self.last_piece_id_moved = -1
 
 
     """Deals the cards"""
