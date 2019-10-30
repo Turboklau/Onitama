@@ -7,9 +7,9 @@ For reference, the blue shrine is [0,2] and the red shrine is [4,2]"""
 
 
 """Global variable time!"""
-player1 = 'red'
-player2 = 'blue'
-middle = 'middle'
+player1 = 0
+player2 = 1
+middle = 2
 color_code_red = '\x1b[0;31;47m'
 color_code_blue = '\x1b[0;34;47m'
 color_code_black = '\x1b[0;30;47m'
@@ -109,22 +109,31 @@ class Board:
                 num_masters += 1
         return num_masters < 2
 
-    def is_possible(self, card, start, end, color):
+    def is_possible_move(self, card, color, start, end):
         start_x, start_y = start
         end_x, end_y = end
         piece = self.board_state[start_x][start_y]
-        if isinstance(piece, Piece) and self.move_on_board(end_x, end_y):
+        if isinstance(piece, Piece) and self.on_board_and_not_friendly(end_x, end_y, color):
             for move in card.moves:
                 if (color == player1 and end == (start_x + move[0], start_y + move[1])) \
                         or (color == player2 and end == (start_x - move[0], start_y - move[1])):
                     return True
         return False
 
-    def move_on_board(self, x, y):
+    def on_board_and_not_friendly(self, x, y, color):
         if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
-            if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == self.current_player):
-                return True
-        return False
+            return (not isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == color)
+
+    def move_piece(self, card, color, start, end):
+        if self.is_possible_move(card, color, start, end):
+            start_x, start_y = start
+            end_x, end_y = end
+            self.board_state[end_x][end_y] = self.board_state[start_x][start_y]
+            self.board_state[start_x][start_y] = None
+            return True
+        else:
+            return False
+
 
 class Game:
 
