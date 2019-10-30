@@ -5,32 +5,49 @@ default_board = ([None, None, None, None, None],
                  [None, None, None, None, None])
 
 class Game:
-    def __init__(p1, p22, deck):
+    def __init__(self, p1, p22, deck):
         self.deck = deck
         self.players = [Player(p1), Player(p2)]
         board = Board()
         self.current = 0
+        self.mid_card = mid_card
 
-    def deal_hand(p1, p2):
+    def deal_hand(self, p1, p2):
         cards = random.sample(self.deck, 5)
         p1.hand = cards[0:2]
         p2.hand = cards[2:4]
         self.extra_card = cards[4]
 
-    def take_move(card, start, end):
-        self.players[current].get_move
-        self.board.move_piece(card, colour, start, end)
-        #swap_card
-        #
-        #if board.is_won
-        #   self.reset
-        #
-        #swap_turn
+    def main_loop(self):
+
+        while True:
+            card, start, end = self.players[current].get_move(self.board, self.current, self.players)
+            x = self.take_move(self, card, start, end)
+            if x:
+                break
+
+
+
+    def take_move(self, card, start, end):
+        #card, start, end = self.players[current].get_move(board, self.current, self.players)
+        assert self.board.move_piece(card, self.current, start, end)
+
+        if self.players[self.current].hand[0] == card:
+            self.players[self.current].hand[0], self.mid_card = self.mid_card, self.players[self.current].hand[0]
+
+        elif self.players[self.current].hand[1] == card:
+            self.players[self.current].hand[1], self.mid_card = self.mid_card, self.players[self.current].hand[1]
+        
+        self.current = 1 - self.current
+
+        if board.is_won:
+            #self.reset
+            return True
+        return False
 
 class Board:
 
     def __init__(self, middle_card):
-        self.middle_card = middle_card
         self.board_state = list(default_board)
         self.populate_board()
 
@@ -95,7 +112,6 @@ class Piece:
         self.player = player
         location = location
 
-
 class Player:
     def __init__(self, strategy, hand=[], score=0):
         self.strategy = strategy
@@ -104,7 +120,6 @@ class Player:
 
     def get_move(self, board, player, players):
         return self.strategy(board, player, players)
-
 
 class Card:
     def __init__(self, name=None, moves=None, image=None):
