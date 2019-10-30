@@ -39,13 +39,6 @@ class Move:
         self.points = -math.inf
         self.game_state = game_state
 
-class Board:
-
-    def __init__(self):
-        self.board_state = board_state
-
-
-
 pieces = [
     Piece(0, 'student', player1),
     Piece(1, 'student', player1),

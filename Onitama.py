@@ -86,6 +86,7 @@ class Game:
         self.board_state = copy.deepcopy(board_state)
         self.cards = cards
         self.pieces = pieces
+        self.current_player = None
         self.master_captured = False
         self.last_move_index = -1
         self.last_piece_id_moved = -1
@@ -110,6 +111,7 @@ class Game:
         self.board_state = copy.deepcopy(default_board)
         self.cards = cards
         self.pieces = pieces
+        self.current_player = None
         self.master_captured = False
         self.last_move_index = -1
         self.last_piece_id_moved = -1
@@ -135,13 +137,13 @@ class Game:
 
     """Uses a move from a card on a piece."""
 
-    def use_move(self, card, move_index, piece, player_color):
-        if self.move_legal(card, move_index, piece, player_color):
+    def use_move(self, card, move_index, piece):
+        if self.move_legal(card, move_index, piece):
             piece_position = self.get_piece_position_on_board(self.board_state, piece)
             move = card.moves[move_index]
             start_row, start_column = piece_position
             end_row, end_column = self.get_end_position_of_piece(move, piece_position, piece.color)
-            if self.move_on_board(end_row, end_column, player_color):
+            if self.move_on_board(end_row, end_column):
                 self.board_state[start_row][start_column] = None
                 self.remove_piece(self.board_state[end_row][end_column])
                 self.board_state[end_row][end_column] = piece
@@ -152,12 +154,12 @@ class Game:
 
     """Checks if a move is legal. Also checks that the piece and the card are legal for the current player."""
 
-    def move_legal(self, card, move_index, piece, player_color):
-        return card.holder == player_color and 0 <= move_index < len(card.moves) and piece.color == player_color
+    def move_legal(self, card, move_index, piece):
+        return card.holder == self.current_player and 0 <= move_index < len(card.moves) and piece.color == self.current_player
 
-    def move_on_board(self, x, y, player_color):
+    def move_on_board(self, x, y):
         if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
-            if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == player_color):
+            if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == self.current_player):
                 return True
         return False
 
@@ -169,9 +171,6 @@ class Game:
         else:
             end_position = (piece_position[0] - move[0], piece_position[1] - move[1])
         return end_position
-
-    def update_board(self, row, column, thing_that_is_here_now):
-        self.board_state[row][column] = thing_that_is_here_now
 
 
     """Gets the position of a piece on the board"""
@@ -209,6 +208,15 @@ class Game:
             if card.name == player_card.name:
                 # the middle has it now
                 card.holder = middle
+
+    def end_turn(self):
+        if self.is_won():
+            return self.current_player
+        if self.current_player == player2:
+            self.current_player = player1
+        else:
+            self.current_player = player2
+        return None
 
     def process_input(self, t):
         if t == "1":
