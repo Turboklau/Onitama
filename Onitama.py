@@ -27,10 +27,8 @@ class Card:
 
 class Piece:
 
-    def __init__(self, id, master, color):
+    def __init__(self, id):
         self.id = id
-        self.master = master
-        self.color = color
 
 pieces = [
     Piece(0, False, player1),
@@ -70,22 +68,63 @@ default_board = ([pieces[0], pieces[1], pieces[4], pieces[2], pieces[3]],
                  [None, None, None, None, None],
                  [pieces[5], pieces[6], pieces[9], pieces[7], pieces[8]])
 
+class Player:
+    pass
+
+
 class Board:
 
-    def __init__(self, middle_card, board_state, pieces):
+    def __init__(self, middle_card, board_state):
         self.middle_card = middle_card
         self.board_state = copy.deepcopy(board_state)
-        self.pieces = pieces
+        self.populate_board()
 
     def populate_board(self):
-        pass
+
+        for index, num in enumerate([0, 0, 0, 0, 0, -1, -1, -1, -1, -1]):
+
+            if num == 0:
+                piece = Piece(player1)
+            else:
+                piece = Piece(player2)
+
+            piece.location = self.board_state[num][index%5]
+            self.board_state[num, index%5] = piece
+            if index%5 == 2:
+                piece.master = True
 
     def is_won(self):
-        pass
+        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].color == player2 and self.board_state[0][2].master:
+            return True
 
-    def is_possible(self):
-        pass
+        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].color == player1 and self.board_state[4][2].master:
+            return True
 
+        return self.master_captured()
+
+    def master_captured(self):
+        num_masters = 0
+        for piece in pieces:
+            if piece.master:
+                num_masters += 1
+        return num_masters < 2
+
+    def is_possible(self, card, start, end, color):
+        start_x, start_y = start
+        end_x, end_y = end
+        piece = self.board_state[start_x][start_y]
+        if isinstance(piece, Piece) and self.move_on_board(end_x, end_y):
+            for move in card.moves:
+                if (color == player1 and end == (start_x + move[0], start_y + move[1])) \
+                        or (color == player2 and end == (start_x - move[0], start_y - move[1])):
+                    return True
+        return False
+
+    def move_on_board(self, x, y):
+        if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
+            if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == self.current_player):
+                return True
+        return False
 
 class Game:
 
