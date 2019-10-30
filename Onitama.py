@@ -14,6 +14,7 @@ color_code_blue = '\x1b[0;34;47m'
 color_code_black = '\x1b[0;30;47m'
 color_code_end = '\x1b[0m'
 
+
 class Card:
 
     def __init__(self, name, moves, start_player, holder):
@@ -30,6 +31,7 @@ class Piece:
         self.type = type
         self.color = color
 
+
 class Move:
 
     def __init__(self, card, move_index, piece, game_state):
@@ -38,13 +40,6 @@ class Move:
         self.piece = piece
         self.points = -math.inf
         self.game_state = game_state
-
-class Board:
-
-    def __init__(self):
-        self.board_state = board_state
-
-
 
 pieces = [
     Piece(0, 'student', player1),
@@ -84,16 +79,18 @@ default_board = ([pieces[0], pieces[1], pieces[4], pieces[2], pieces[3]],
                  [None, None, None, None, None],
                  [pieces[5], pieces[6], pieces[9], pieces[7], pieces[8]])
 
+
 class Game:
 
     def __init__(self, board_state=default_board, cards=cards, pieces=pieces):
         self.board_state = copy.deepcopy(board_state)
         self.cards = cards
         self.pieces = pieces
-        self.current_player = None
         self.master_captured = False
+        self.last_move_index = -1
+        self.last_piece_id_moved = -1
 
-    """Deals the cards and decides starting player."""
+    """Deals the cards"""
 
     def set_up(self):
         self.cards = random.sample(self.cards, 5)
@@ -102,14 +99,20 @@ class Game:
         self.cards[2].holder = player2
         self.cards[3].holder = player2
         self.cards[4].holder = middle
-        self.current_player = self.cards[4].start_player
+
+    def get_middle_card_color(self):
+        for card in self.cards:
+            if card.holder == middle:
+                return card.start_player
+        return None
 
     def reset(self):
         self.board_state = copy.deepcopy(default_board)
         self.cards = cards
         self.pieces = pieces
-        self.current_player = None
         self.master_captured = False
+        self.last_move_index = -1
+        self.last_piece_id_moved = -1
         self.set_up()
 
     """Returns true if the game is in a winning state. 
@@ -118,15 +121,11 @@ class Game:
 
     def is_won(self):
         # There is a piece on the red shrine and it is blue
-        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].color == player2 and \
-                self.board_state[0][
-                    2].type == 'master':
+        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].color == player2 and self.board_state[0][2].type == 'master':
             return True
 
         # There is a piece on the blue shrine and it is red
-        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].color == player1 and \
-                self.board_state[4][
-                    2].type == 'master':
+        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].color == player1 and self.board_state[4][2].type == 'master':
             return True
 
         if self.master_captured:
@@ -136,54 +135,50 @@ class Game:
 
     """Uses a move from a card on a piece."""
 
-    def use_move(self, card, move_index, piece):
-        if self.move_legal(card, move_index, piece):
+    def use_move(self, card, move_index, piece, player_color):
+        if self.move_legal(card, move_index, piece, player_color):
             piece_position = self.get_piece_position_on_board(self.board_state, piece)
             move = card.moves[move_index]
-            if piece.color == player2:
-                self.remove_piece(self.board_state[piece_position[0] + move[0]][piece_position[1] + move[1]])
-                self.board_state[piece_position[0]][piece_position[1]] = None
-                self.board_state[piece_position[0] + move[0]][piece_position[1] + move[1]] = piece
-            else:
-                self.remove_piece(self.board_state[piece_position[0] - move[0]][piece_position[1] - move[1]])
-                self.board_state[piece_position[0]][piece_position[1]] = None
-                self.board_state[piece_position[0] - move[0]][piece_position[1] - move[1]] = piece
-            self.swap_cards(card)
-            return True
-        else:
-            return False
+            start_row, start_column = piece_position
+            end_row, end_column = self.get_end_position_of_piece(move, piece_position, piece.color)
+            if self.move_on_board(end_row, end_column, player_color):
+                self.board_state[start_row][start_column] = None
+                self.remove_piece(self.board_state[end_row][end_column])
+                self.board_state[end_row][end_column] = piece
+                self.swap_cards(card)
+                return True
+
+        return False
 
     """Checks if a move is legal. Also checks that the piece and the card are legal for the current player."""
 
-    def move_legal(self, card, move_index, piece):
-        # if holding the card, move index is valid and piece belongs to current turn player
-        if card.holder == self.current_player and 0 <= move_index < len(
-                card.moves) and piece.color == self.current_player:
+    def move_legal(self, card, move_index, piece, player_color):
+        return card.holder == player_color and 0 <= move_index < len(card.moves) and piece.color == player_color
 
-            piece_position = self.get_piece_position_on_board(self.board_state, piece)
-            move = card.moves[move_index]
-            if not (piece_position and move):
-                return False
-            # calculate where the piece will go
-            if piece.color == player2:
-                end_position = (piece_position[0] + move[0], piece_position[1] + move[1])
-            else:
-                end_position = (piece_position[0] - move[0], piece_position[1] - move[1])
-            x = end_position[0]
-            y = end_position[1]
-            # if the x and y of the move is still in the board
-            if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
-                # if the space is not a friendly piece
-                if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][
-                    y].color == self.current_player):
-                    return True
+    def move_on_board(self, x, y, player_color):
+        if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
+            if not (isinstance(self.board_state[x][y], Piece) and self.board_state[x][y].color == player_color):
+                return True
         return False
+
+    def get_end_position_of_piece(self, piece_position, move, piece_color):
+        if (not move) or (piece_position == (-1, -1)):
+            end_position = (-1, -1)
+        elif piece_color == player2:
+            end_position = (piece_position[0] + move[0], piece_position[1] + move[1])
+        else:
+            end_position = (piece_position[0] - move[0], piece_position[1] - move[1])
+        return end_position
+
+    def update_board(self, row, column, thing_that_is_here_now):
+        self.board_state[row][column] = thing_that_is_here_now
+
 
     """Gets the position of a piece on the board"""
 
     def get_piece_position_on_board(self, board, piece):
         if not piece:
-            return None
+            return -1, -1
         for i in range(0, len(board)):
             for j in range(0, len(board[i])):
                 if isinstance(board[i][j], Piece) and board[i][j].id == piece.id:
@@ -215,21 +210,9 @@ class Game:
                 # the middle has it now
                 card.holder = middle
 
-    def end_turn(self):
-        if self.is_won():
-            return self.current_player
-        if self.current_player == player2:
-            self.current_player = player1
-        else:
-            self.current_player = player2
-        return None
-
     def process_input(self, t):
         if t == "1":
-            print()
-            for card in self.cards:
-                print(str(card.name) + ": Held by " + str(card.holder))
-                print(card.moves)
+            self.print_cards()
             return None
         elif t == "2":
             self.print_board(self.board_state)
@@ -277,48 +260,21 @@ class Game:
             print(row_string)
         print()
 
+    def print_cards(self):
+        print()
+        for card in self.cards:
+            print(str(card.name) + ": Held by " + str(card.holder))
+            print(card.moves)
+
+
+
     def get_square(self, row, column):
         if self.board_state[row][column]:
             return tuple((self.board_state[row][column].color, self.board_state[row][column].type))
         else:
             return tuple(("white", ""))
 
-    def get_pieces_from_board_state(self, board_state):
-        pieces = []
-        for row in board_state:
-            for space in row:
-                if isinstance(space, Piece):
-                    pieces.append(space)
-        return pieces
-
-    def get_new_card_list(self, cards, used_card):
-        card_list = []
-        for card in cards:
-            if card.holder == middle:
-                card.holder = self.current_player
-                card_list.append(card)
-            elif used_card.name != card.name:
-                card_list.append(card)
-        card_list.append(Card(used_card.name, used_card.moves, used_card.start_player, middle))
-        return card_list
-
     def move_list(self):
         moves = []
-        for card in self.cards:
-            if card.holder == self.current_player:
-                for move_index in range(0, len(card.moves)):
-                    for piece in pieces:
-                        if self.move_legal(card, move_index, piece):
-                            new_board_state = copy.deepcopy(self.board_state)
-                            new_pieces = self.get_pieces_from_board_state(new_board_state)
-                            new_cards = copy.deepcopy(self.cards)
-                            new_cards = self.get_new_card_list(new_cards, card)
-                            game_state = Game(new_board_state, new_cards, new_pieces)
-                            game_state.current_player = self.current_player
-                            game_state.use_move(card, move_index, piece)
-                            moves.append(Move(card, move_index, piece, game_state))
-        if len(moves) == 0:
-            print("yp")
-            pass
 
         return moves
