@@ -22,7 +22,7 @@ class Board:
 
     def __init__(self, middle_card):
         self.middle_card = middle_card
-        self.board_state = default_board
+        self.board_state = list(default_board)
         self.populate_board()
 
     def populate_board(self):
@@ -35,7 +35,7 @@ class Board:
                 piece = Piece(player2)
 
             piece.location = self.board_state[num][index%5]
-            self.board_state[num, index%5] = piece
+            self.board_state[num][index%5] = piece
             if index%5 == 2:
                 piece.master = True
 
