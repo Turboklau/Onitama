@@ -24,7 +24,7 @@ class First_Finley:
                                start[1] + mult * move[1]]
 
                         if board.is_possible_move(card, me, start, end):
-                            print("Player " + str(me + 1) + ": " + card.name)
+                            #print("Player " + str(me + 1) + ": " + card.name)
                             return card, piece.location, end
 
         print("No available moves (I'm probably lying)")

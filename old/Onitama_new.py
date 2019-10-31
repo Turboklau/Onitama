@@ -108,7 +108,7 @@ class Board:
         start_row, start_col = start
         end_row, end_col = end
         piece = self.board_state[start_row][start_col]
-        if isinstance(piece, Piece) and self.on_board_and_not_friendly(end_row, end_col, player) and card in player.hand:
+        if isinstance(piece, Piece) and self.on_board_and_not_friendly(end_row, end_col, player):
             for move in card.moves:
                 if (piece.player == player1 and end == [start_row + move[0], start_col + move[1]]) \
                         or (piece.player == player2 and end == [start_row - move[0], start_col - move[1]]):
@@ -122,6 +122,7 @@ class Board:
             return False
 
         return True
+
 
     def move_piece(self, card, player, start, end):
         if self.is_possible_move(card, player, start, end):
