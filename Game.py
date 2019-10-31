@@ -1,6 +1,10 @@
 from Board import Board
 from Card import Card
 from Player import Player
+from Robots.AssassinAndy import AssassinAndy
+from Robots.DirectDerek import DirectDerek
+from Robots.ErraticErin import ErraticErin
+from Robots.RandomRebecca import RandomRebecca
 from Robots.FirstFinley import First_Finley
 
 import tkinter as tk
@@ -90,7 +94,7 @@ class Game:
         Processes a legal move and changes the current player.
         Start and End are tuple co-ordinates of the move.
         """
-        assert self.board.move_piece(card, self.current, start, end)
+        self.board.move_piece(start, end)
 
         if self.players[self.current].hand[0] == card:
             self.players[self.current].hand[0], self.mid_card = self.mid_card, self.players[self.current].hand[0]
@@ -109,10 +113,12 @@ class Game:
             card, start, end = self.players[self.current].get_move(self.board, self.current, self.players)
             self.take_move(card, start, end)
             if self.board.is_won():
-                print("Someone won!")
                 self.board.print_board()
+                print()
+                print("Player " + str(1 - self.current + 1) + " won!")
                 break
 
+<<<<<<< HEAD
 class GUIGame(Game):
     def __init__(self, p1, p2):
         self.root = tk.Tk()
@@ -170,4 +176,10 @@ class GUIGame(Game):
 finley1 = First_Finley
 finley2 = First_Finley
 
-game = GUIGame(finley1.decide_move, finley2.decide_move)
+game = GUIGame(finley1.decide_move, finley2.decide_move)game = GUIGame(finley1.decide_move, finley2.decide_move)
+=======
+robot1 = AssassinAndy()
+robot2 = ErraticErin()
+
+game = Game(robot1, robot2, create_deck())
+>>>>>>> 31d7f8c995f21eec4b58b729f53ecd3763ce65be
