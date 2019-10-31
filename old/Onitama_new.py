@@ -66,11 +66,6 @@ class Game:
         
         self.current = 1 - self.current
 
-class GUIGame(Game):
-    def __init__(self, p1, p2, deck):
-        print("test")
-        #self.__init__(p1, p2, deck)
-
 class Board:
 
     def __init__(self):
@@ -238,4 +233,4 @@ def create_deck():
     Card("cobra", [(-1, 1), (0, -1), (1, 1)])
     ]
 
-game = GUIGame(first_finley, first_finley, create_deck())
+game = Game(first_finley, first_finley, create_deck())

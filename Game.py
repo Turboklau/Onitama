@@ -3,32 +3,69 @@ from Card import Card
 from Player import Player
 from Robots.FirstFinley import First_Finley
 
+import tkinter as tk
+from PIL import ImageTk, Image
+
 
 def create_deck():
+    names = "tiger dragon frog rabbit crab elephant goose rooster monkey mantis horse ox crane boar eel cobra".split()
+    moves = [
+        [(-2, 0), (1, 0)],
+        [(-1, -2), (-1, 2), (1, -1), (1, 1)],
+        [(-1, -1), (0, -2), (1, 1)],
+        [(-1, 1), (0, 2), (1, -1)],
+        [(-1, 0), (0, -2), (0, 2)],
+        [(-1, -1), (-1, 1), (0, -1), (0, 1)],
+        [(-1, -1), (0, -1), (0, 1), (1, 1)],
+        [(-1, 1), (0, -1), (0, 1), (1, -1)],
+        [(-1, -1), (-1, 1), (1, -1), (1, 1)],
+        [(-1, -1), (-1, 1), (1, 0)],
+        [(-1, 0), (0, -1), (1, 0)],
+        [(-1, 0), (0, 1), (1, 0)],
+        [(-1, 0), (1, -1), (1, 1)],
+        [(-1, 0), (0, -1), (0, 1)],
+        [(-1, -1), (0, 1), (1, -1)],
+        [(-1, 1), (0, -1), (1, 1)]
+        ]
+    
+    cards = {x:y for x in names for y in moves}
+    deck = []
+
+    for card in cards.keys():
+        deck.append(Card(card, cards[card], load_image(card)))
+
+    return deck
+
     return [
-    Card("tiger", [(-2, 0), (1, 0)]),
-    Card("dragon", [(-1, -2), (-1, 2), (1, -1), (1, 1)]),
-    Card("frog", [(-1, -1), (0, -2), (1, 1)]),
-    Card("rabbit", [(-1, 1), (0, 2), (1, -1)]),
-    Card("crab", [(-1, 0), (0, -2), (0, 2)]),
-    Card("elephant", [(-1, -1), (-1, 1), (0, -1), (0, 1)]),
-    Card("goose", [(-1, -1), (0, -1), (0, 1), (1, 1)]),
-    Card("rooster", [(-1, 1), (0, -1), (0, 1), (1, -1)]),
-    Card("monkey", [(-1, -1), (-1, 1), (1, -1), (1, 1)]),
-    Card("mantis", [(-1, -1), (-1, 1), (1, 0)]),
-    Card("horse", [(-1, 0), (0, -1), (1, 0)]),
-    Card("ox", [(-1, 0), (0, 1), (1, 0)]),
-    Card("crane", [(-1, 0), (1, -1), (1, 1)]),
-    Card("boar", [(-1, 0), (0, -1), (0, 1)]),
-    Card("eel", [(-1, -1), (0, 1), (1, -1)]),
-    Card("cobra", [(-1, 1), (0, -1), (1, 1)])
+    Card("tiger", [(-2, 0), (1, 0)], load_image(card)),
+    Card("dragon", [(-1, -2), (-1, 2), (1, -1), (1, 1)], load_image(card)),
+    Card("frog", [(-1, -1), (0, -2), (1, 1)], load_image(card)),
+    Card("rabbit", [(-1, 1), (0, 2), (1, -1)], load_image(card)),
+    Card("crab", [(-1, 0), (0, -2), (0, 2)], load_image(card)),
+    Card("elephant", [(-1, -1), (-1, 1), (0, -1), (0, 1)], load_image(card)),
+    Card("goose", [(-1, -1), (0, -1), (0, 1), (1, 1)], load_image(card)),
+    Card("rooster", [(-1, 1), (0, -1), (0, 1), (1, -1)], load_image(card)),
+    Card("monkey", [(-1, -1), (-1, 1), (1, -1), (1, 1)], load_image(card)),
+    Card("mantis", [(-1, -1), (-1, 1), (1, 0)], load_image(card)),
+    Card("horse", [(-1, 0), (0, -1), (1, 0)], load_image(card)),
+    Card("ox", [(-1, 0), (0, 1), (1, 0)], load_image(card)),
+    Card("crane", [(-1, 0), (1, -1), (1, 1)], load_image(card)),
+    Card("boar", [(-1, 0), (0, -1), (0, 1)], load_image(card)),
+    Card("eel", [(-1, -1), (0, 1), (1, -1)], load_image(card)),
+    Card("cobra", [(-1, 1), (0, -1), (1, 1)], load_image(card))
     ]
+
+def load_image(card):
+    img = Image.open("res/" + card +".png")
+    img = img.resize((200,200), Image.ANTIALIAS)
+    img = ImageTk.PhotoImage(img)
+    return img
 
 #JacobsNotes - look up Named Tuples
 
 class Game:
-    def __init__(self, p1, p2, deck):
-        self.deck = deck
+    def __init__(self, p1, p2):
+        self.deck = create_deck()
         self.players = [Player(p1), Player(p2)]
         self.deal_hands()  # creates self.mid_card
         self.board = Board()
@@ -76,7 +113,61 @@ class Game:
                 self.board.print_board()
                 break
 
+class GUIGame(Game):
+    def __init__(self, p1, p2):
+        self.root = tk.Tk()
+        super().__init__(p1, p2)
+        
+        #self.game = Game()
+
+        self.title = tk.Label(self.root,text="Onitama!", font=("Helvetica", 64))
+        self.title.grid(row=0,column=1)
+        self.create_board()
+        self.deal_hands()
+
+        self.rscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
+        self.rscore.grid(row=2,column=0)
+        self.bscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
+        self.bscore.grid(row=2,column=2)
+
+        self.root.mainloop()
+
+    def create_board(self):
+        pass
+
+    def deal_hands(self):
+        super().deal_hands()
+
+        #Create player 1 and player 2 hands
+        for i, j in enumerate([0,2]):
+            frame = tk.Frame(self.root)
+            frame.grid(row=1, column=j)
+            self.deal_hand(frame, self.players[i].hand)
+
+        #Create the mid card
+        frame = tk.Frame(self.root)
+        frame.grid(row=2, column=1)
+        self.deal_hand(frame, [self.mid_card])
+
+    def deal_hand(self, frame, hand):
+        title = tk.Label(frame,text="It's a hand")
+        title.grid(row=0,column=0)
+
+        for i, card in enumerate(hand):
+            panel = tk.Label(frame, image = card.image)
+            panel.grid(row=i+1,column=0)
+
+
+    def update_board(self):
+        pass
+
+    def update_actions(self):
+        pass
+
+    def hello():
+        pass
+
 finley1 = First_Finley
 finley2 = First_Finley
 
-game = Game(finley1.decide_move, finley2.decide_move, create_deck())
+game = GUIGame(finley1.decide_move, finley2.decide_move)
