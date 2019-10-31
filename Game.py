@@ -116,8 +116,45 @@ class GUIGame(Game):
 
         self.root.mainloop()
 
-    def create_board(self):
+    def main_loop(self):
         pass
+
+    def on_click(self, i, j, event):
+        card, start, end = self.players[self.current].get_move(self.board, self.current, self.players)
+        self.take_move(card, start, end)
+        self.update_board()
+        self.update_hands()
+        if self.board.is_won():
+            self.board.print_board()
+            print()
+            print("Player " + str(1 - self.current + 1) + " won!")
+            self.root.destroy()
+
+
+    def create_board(self):
+        self.gui_board = tk.Frame(self.root)
+        self.gui_board.grid(row=1,column=1)  
+
+        self.gui_labelgrid = [ [None]*5 for _ in range(5) ]
+
+        for i,row in enumerate(self.board.board_state):
+            for j,col in enumerate(row):
+                text = "   "
+                colour = "brown"
+
+                if col:
+                    text = " S "
+                    if col.master:
+                        text = " M "
+                    colour = {0:"red", 1:"blue"}[col.player]
+                #colour, kind = col.player
+                #text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
+                #text = {"master":'♕', "student":'♙', '':'‎‎‎‏‏‎ ‎'}[kind]
+
+                L = tk.Label(self.gui_board,text=text,bg=colour, font=('Courier', 80))
+                L.grid(row=i,column=j)
+                L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
+                self.gui_labelgrid[i][j] = L
 
     def deal_hands(self):
         super().deal_hands()
@@ -141,14 +178,10 @@ class GUIGame(Game):
             panel = tk.Label(frame, image = card.image)
             panel.grid(row=i+1,column=0)
 
-
     def update_board(self):
         pass
 
-    def update_actions(self):
-        pass
-
-    def hello():
+    def update_hands(self):
         pass
 
 #finley1 = First_Finley
@@ -159,5 +192,5 @@ class GUIGame(Game):
 robot1 = AssassinAndy()
 robot2 = ErraticErin()
 
-#game = GUIGame(robot1, robot2, root)
-game = Game(robot1, robot2)
+game = GUIGame(robot1, robot2, root)
+#game = Game(robot1, robot2)
