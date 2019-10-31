@@ -1,10 +1,13 @@
 #JacobsNotes - look up Named Tuples
 import random
 
-#####Torbenfixer
 player1 = 0
 player2 = 1
-#####
+
+color_code_red = '\x1b[0;31;47m'
+color_code_blue = '\x1b[0;34;47m'
+color_code_black = '\x1b[0;30;47m'
+color_code_end = '\x1b[0m'
 
 default_board = ([None, None, None, None, None],
                  [None, None, None, None, None],
@@ -27,7 +30,8 @@ class Game:
         Gets 5 random cards from the deck and deals 2 to each player.
         The remaining card is the middle card.
         """
-        cards = random.sample(self.deck, 5)
+        # cards = random.sample(self.deck, 5)
+        cards = self.deck[3:8]
 
         for p in self.players:
             p.hand = cards[0:2]
@@ -39,10 +43,12 @@ class Game:
         Prompts the current player to take a turn until the game ends.
         """
         while True:
+            self.board.print_board()
             card, start, end = self.players[self.current].get_move(self.board, self.current, self.players)
-            self.take_move(self, card, start, end)
-            if board.is_won:
+            self.take_move(card, start, end)
+            if self.board.is_won():
                 print("Someone won!")
+                self.board.print_board()
                 break
 
     def take_move(self, card, start, end): #Change to start, action as it's easy to calculate end?
@@ -69,12 +75,12 @@ class Board:
 
     def populate_board(self):
 
-        for index, num in enumerate([0, 0, 0, 0, 0, -1, -1, -1, -1, -1]):
+        for index, num in enumerate([0, 0, 0, 0, 0, 4, 4, 4, 4, 4]):
 
             if num == 0:
-                piece = Piece(0)
-            else:
                 piece = Piece(1)
+            else:
+                piece = Piece(0)
 
             self.pieces.add(piece)
             piece.location = [num, index%5]
@@ -83,10 +89,10 @@ class Board:
                 piece.master = True
 
     def is_won(self):
-        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].player == player2 and self.board_state[0][2].master:
+        if isinstance(self.board_state[0][2], Piece) and self.board_state[0][2].player == player1 and self.board_state[0][2].master:
             return True
 
-        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].player == player1 and self.board_state[4][2].master:
+        if isinstance(self.board_state[4][2], Piece) and self.board_state[4][2].player == player2 and self.board_state[4][2].master:
             return True
 
         return self.master_captured()
@@ -99,40 +105,60 @@ class Board:
         return num_masters < 2
 
     def is_possible_move(self, card, player, start, end):
-        start_x, start_y = start
-        end_x, end_y = end
-        piece = self.board_state[start_x][start_y]
-        if isinstance(piece, Piece) and self.on_board_and_not_friendly(end_x, end_y, player):
+        start_row, start_col = start
+        end_row, end_col = end
+        piece = self.board_state[start_row][start_col]
+        if isinstance(piece, Piece) and self.on_board_and_not_friendly(end_row, end_col, player):
             for move in card.moves:
-                if (player == player1 and end == (start_x + move[0], start_y + move[1])) \
-                        or (player == player2 and end == (start_x - move[0], start_y - move[1])):
+                if (piece.player == player1 and end == [start_row + move[0], start_col + move[1]]) \
+                        or (piece.player == player2 and end == [start_row - move[0], start_col - move[1]]):
                     return True
         return False
 
-    def on_board_and_not_friendly(self, x, y, player):
-        if 0 <= x < len(self.board_state[0]) and 0 <= y < len(self.board_state):
-            if isinstance(self.board_state[x][y], Piece):
-                return self.board_state[x][y].player == player
+    def on_board_and_not_friendly(self, row, col, player):
+        if not (0 <= row < len(self.board_state[0]) and 0 <= col < len(self.board_state)):
             return False
+        if isinstance(self.board_state[row][col], Piece) and self.board_state[row][col].player == player:
+            return False
+
+        return True
+
 
     def move_piece(self, card, player, start, end):
         if self.is_possible_move(card, player, start, end):
-            start_x, start_y = start
-            end_x, end_y = end
-            self.remove_piece(end_x, end_y)
-            self.board_state[end_x][end_y] = self.board_state[start_x][start_y]
-            self.board_state[start_x][start_y] = None
+            start_row, start_col = start
+            end_row, end_col = end
+            self.remove_piece(end_row, end_col)
+            self.board_state[start_row][start_col].location = [end_row, end_col]
+            self.board_state[end_row][end_col] = self.board_state[start_row][start_col]
+            self.board_state[start_row][start_col] = None
             return True
         else:
             return False
 
-    def remove_piece(self, end_x, end_y):
-        if isinstance(self.board_state[end_x][end_y], Piece):
+    def remove_piece(self, end_row, end_col):
+        if isinstance(self.board_state[end_row][end_col], Piece):
             for piece in self.pieces:
-                if piece.location == [end_x][end_y]:
+                if piece.location == [end_row, end_col]:
+                    piece.location = [-1, -1]
                     self.pieces.remove(piece)
                     return True
         return False
+
+    def print_board(self):
+        print()
+        for row in self.board_state:
+            row_string = ""
+            for space in row:
+                if isinstance(space, Piece):
+                    if space.player == player1:
+                        row_string += (color_code_red + "rp" + color_code_end)
+                    if space.player == player2:
+                        row_string += (color_code_blue + "bp" + color_code_end)
+                else:
+                    row_string += (color_code_black + "[]" + color_code_end)
+            print(row_string)
+        print()
 
 class Piece:
     def __init__(self, player, location=None, master=False):
@@ -158,7 +184,7 @@ class Card:
         self.image = image
 
 
-def FirstFinley(board, me, players):
+def first_finley(board, me, players):
     """First Finley always takes the first legal move he can find"""
 
     #Inverts movement matrix if playing for opposing side
@@ -182,7 +208,7 @@ def FirstFinley(board, me, players):
                            start[1]+ mult * move[1]]
 
                     if board.is_possible_move(card, me, start, end):
-                        print("whooooooo")
+                        print("Player " + str(me+1) + ": " + card.name)
                         return card, piece.location, end
     
     print("No available moves (I'm probably lying)")
@@ -207,4 +233,4 @@ def create_deck():
     Card("cobra", [(-1, 1), (0, -1), (1, 1)])
     ]
 
-game = Game(FirstFinley, FirstFinley, create_deck())
+game = Game(first_finley, first_finley, create_deck())
