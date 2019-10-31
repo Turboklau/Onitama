@@ -347,18 +347,6 @@ class Game:
     def undo(self):
         pass
 
-    def move_list(self):
-        moves = []
-        for card in self.cards:
-            if card.holder == self.current_player:
-                for move_index in range(0, len(card.moves)):
-                    for piece in pieces:
-                        if self.move_legal(card, move_index, piece):
-                            piece_position = self.get_piece_position_on_board(self.board_state, piece)
-                            move = card.moves[move_index]
-                            start_row, start_column = piece_position
-                            end_row, end_column = self.get_end_position_of_piece(move, piece_position, piece.color)
 
-        return moves
 
 
