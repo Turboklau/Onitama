@@ -68,19 +68,4 @@ class TacticalTanya:
 
     def evaluate_points(self, move):
         total_points = 0
-        if isinstance(move, Game):
-            return -1
-        else:
-            friendly_master_dead = True
-            enemy_master_dead = True
-            for piece in move.game_state.pieces:
-                if piece.type == "master":
-                    if piece.color == self.color:
-                        friendly_master_dead = False
-                    if piece.color != self.color:
-                        enemy_master_dead = False
-            if enemy_master_dead:
-                total_points += 110
-            if friendly_master_dead:
-                total_points -= 100
         return total_points

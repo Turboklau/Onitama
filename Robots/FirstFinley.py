@@ -28,6 +28,3 @@ class First_Finley:
                             return card, piece.location, end
 
         print("No available moves (I'm probably lying)")
-
-
-
