@@ -1,3 +1,6 @@
+from Robots.BaseAI import BaseAI
+
+
 class Player:
     def __init__(self, strategy, hand=[], score=0):
         self.strategy = strategy
@@ -5,4 +8,4 @@ class Player:
         self.score = score
 
     def get_move(self, board, player, players):
-        return self.strategy(None, board, player, players)
+        return self.strategy.decide_move(board, player, players)

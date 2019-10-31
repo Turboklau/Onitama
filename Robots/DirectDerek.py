@@ -6,22 +6,20 @@ from Robots.BaseAI import BaseAI
 
 class DirectDerek(BaseAI):
 
-    def evaluate_points(self, move):
+    def evaluate_points(self, board, me):
         friendly_master = None
-        for piece in move.game_state.pieces:
-            if piece.color == self.color and piece.type == "master":
+        for piece in board.pieces:
+            if piece.player == me and piece.master:
                 friendly_master = piece
-        return -self.total_distance_from_enemy_shrine(friendly_master, move.game_state)
+        return -self.total_distance_from_enemy_shrine(friendly_master)
 
-    def total_distance_from_enemy_shrine(self, friendly_master, game_state):
-        master_location = game_state.get_piece_position_on_board(game_state.board_state, friendly_master)
-        if not master_location:
+    def total_distance_from_enemy_shrine(self, friendly_master):
+        if not friendly_master:
             return math.inf
-        if friendly_master.color == "red":
-            return self.distance_between_locations(master_location, (4, 2))
+        if friendly_master.player == 1:
+            return self.distance_between_locations(friendly_master.location, (4, 2))
         else:
-            return self.distance_between_locations(master_location, (0, 2))
-
+            return self.distance_between_locations(friendly_master.location, (0, 2))
 
     def distance_between_locations(self, a, b):
         return math.sqrt((a[0]-b[0])**2 + (a[1]-b[1])**2)

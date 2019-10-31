@@ -1,5 +1,5 @@
 from OnitamaForRobots import Game
-from Robots.AssassinAndyAI import AssassinAndyAI
+from Robots.AssassinAndy import AssassinAndyAI
 from Robots.DirectDerek import DirectDerek
 from Robots.ErraticErin import ErraticErin
 from Robots.RandomRebecca import RandomRebecca

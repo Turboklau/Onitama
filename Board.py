@@ -71,18 +71,13 @@ class Board:
 
         return True
 
-
-    def move_piece(self, card, player, start, end):
-        if self.is_possible_move(card, player, start, end):
-            start_row, start_col = start
-            end_row, end_col = end
-            self.remove_piece(end_row, end_col)
-            self.board_state[start_row][start_col].location = [end_row, end_col]
-            self.board_state[end_row][end_col] = self.board_state[start_row][start_col]
-            self.board_state[start_row][start_col] = None
-            return True
-        else:
-            return False
+    def move_piece(self, start, end):
+        start_row, start_col = start
+        end_row, end_col = end
+        self.remove_piece(end_row, end_col)
+        self.board_state[start_row][start_col].location = [end_row, end_col]
+        self.board_state[end_row][end_col] = self.board_state[start_row][start_col]
+        self.board_state[start_row][start_col] = None
 
     def remove_piece(self, end_row, end_col):
         if isinstance(self.board_state[end_row][end_col], Piece):
@@ -100,9 +95,15 @@ class Board:
             for space in row:
                 if isinstance(space, Piece):
                     if space.player == player1:
-                        row_string += (color_code_red + "rp" + color_code_end)
+                        if space.master:
+                            row_string += (color_code_red + "mm" + color_code_end)
+                        else:
+                            row_string += (color_code_red + "ss" + color_code_end)
                     if space.player == player2:
-                        row_string += (color_code_blue + "bp" + color_code_end)
+                        if space.master:
+                            row_string += (color_code_blue + "mm" + color_code_end)
+                        else:
+                            row_string += (color_code_blue + "ss" + color_code_end)
                 else:
                     row_string += (color_code_black + "[]" + color_code_end)
             print(row_string)
