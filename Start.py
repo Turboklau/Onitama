@@ -9,9 +9,8 @@ from Game import Game, GUIGame
 
 
 robot1 = DirectDerek()
-robot2 = TreeAI(3)
+robot2 = DirectDerek()
 
-#game = GUIGame(robot1, robot2)
-game = Game(robot1, robot2)
+game = GUIGame(robot1, robot2)
 
 

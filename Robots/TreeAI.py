@@ -104,7 +104,6 @@ class TreeAI:
 
     def evaluate_points(self, board_state, me):
         score = 0
-        board = board_state[0].board_state
         pieces = board_state[0].pieces
         friendly_master = False
         enemy_master = False
