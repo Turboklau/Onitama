@@ -147,17 +147,19 @@ class GUIGame(Game):
             for j,col in enumerate(row):
                 text = "   "
                 colour = "brown"
+                relief = "sunken"
 
                 if col:
                     text = " S "
                     if col.master:
                         text = " M "
                     colour = {0:"red", 1:"blue"}[col.player]
+                    relief = "raised"
                 #colour, kind = col.player
                 #text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
                 #text = {"master":'♕', "student":'♙', '':'‎‎‎‏‏‎ ‎'}[kind]
 
-                L = tk.Label(self.gui_board,text=text,bg=colour, font=('Courier', 80))
+                L = tk.Label(self.gui_board,text=text,bg=colour, font=('Courier', 80), borderwidth=4, relief=relief)
                 L.grid(row=i,column=j)
                 L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
                 self.gui_labelgrid[i][j] = L
