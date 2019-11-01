@@ -28,7 +28,6 @@ def create_deck(gui):
         ]    
     cards = {x:y for x in names for y in moves}
     deck = []
-    print(len(cards))
     for card in cards.keys():
         if gui:
             deck.append(Card(card, cards[card], load_image(card)))
@@ -101,22 +100,18 @@ class Game:
 class GUIGame(Game):
     def __init__(self, p1, p2):
         self.root = tk.Tk()
+        self.gui_cards = []
         super().__init__(p1, p2, True)
         #self.game = Game()
-
+        
         self.title = tk.Label(self.root,text="Onitama!", font=("Helvetica", 64))
         self.title.grid(row=0,column=1)
+
         self.create_board()
-        self.deal_hands()
-
-        self.rscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
-        self.rscore.grid(row=2,column=0)
-        self.bscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
-        self.bscore.grid(row=2,column=2)
-
         self.root.mainloop()
 
     def main_loop(self):
+        #This is intentional, Tkinter handles its own main loop
         pass
 
     def on_click(self, i, j, event):
@@ -130,6 +125,11 @@ class GUIGame(Game):
             print("Player " + str(1 - self.current + 1) + " won!")
             self.root.destroy()
 
+    def create_titlescore(self):
+        self.rscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
+        self.rscore.grid(row=2,column=0)
+        self.bscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
+        self.bscore.grid(row=2,column=2)
 
     def create_board(self):
         self.gui_board = tk.Frame(self.root)
@@ -180,10 +180,19 @@ class GUIGame(Game):
         title.grid(row=0,column=0)
 
         for i, card in enumerate(hand):
-            #print(type(card.image))
             panel = tk.Label(frame, image = card.image)
             panel.grid(row=i+1,column=0)
+            self.gui_cards.append(panel)
 
 
     def update_hands(self):
-        pass
+        cards = []
+        for p in self.players:
+            cards += p.hand
+        cards.append(self.mid_card)
+        for i in range(len(cards)):
+            self.gui_cards[i]['image'] = cards[i].image
+        for i in self.gui_cards:
+            print(i['image'])
+
+        
