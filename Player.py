@@ -7,5 +7,5 @@ class Player:
         self.hand = hand
         self.score = score
 
-    def get_move(self, board, player, players):
-        return self.strategy.decide_move(board, player, players)
+    def get_move(self, board, player, players, mid_card):
+        return self.strategy.decide_move(board, player, players, mid_card)
