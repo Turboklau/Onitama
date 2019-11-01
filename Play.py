@@ -10,7 +10,7 @@ from Game import Game, GUIGame
 robot1 = AssassinAndy()
 robot2 = ErraticErin()
 
-game = GUIGame(robot1, robot2)
-#game = Game(robot1, robot2)
+#game = GUIGame(robot1, robot2)
+game = Game(robot1, robot2)
 
 
