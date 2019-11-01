@@ -11,7 +11,7 @@ from Game import Game, GUIGame
 robot1 = TreeAI(1)
 robot2 = TreeAI(1)
 
-# game = GUIGame(robot1, robot2)
+#game = GUIGame(robot1, robot2)
 game = Game(robot1, robot2)
 
 

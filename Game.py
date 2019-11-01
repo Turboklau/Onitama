@@ -4,11 +4,9 @@ from Player import Player
 
 import tkinter as tk
 from PIL import Image, ImageTk
-
-#root = tk.Tk()
 import random
 
-def create_deck():
+def create_deck(gui):
     names = "tiger dragon frog rabbit crab elephant goose rooster monkey mantis horse ox crane boar eel cobra".split()
     moves = [
         [(-2, 0), (1, 0)],
@@ -32,7 +30,10 @@ def create_deck():
     deck = []
     print(len(cards))
     for card in cards.keys():
-        deck.append(Card(card, cards[card], load_image(card)))
+        if gui:
+            deck.append(Card(card, cards[card], load_image(card)))
+        else:
+            deck.append(Card(card, cards[card], None))
     return deck
 
 def load_image(card):
@@ -46,9 +47,9 @@ def load_image(card):
 #JacobsNotes - look up Named Tuples
 
 class Game:
-    def __init__(self, p1, p2):
-        self.root = tk.Tk()
-        self.deck = create_deck()
+    def __init__(self, p1, p2, gui=False):
+        self.gui = gui
+        self.deck = create_deck(gui)
         self.players = [Player(p1), Player(p2)]
         self.deal_hands()  # creates self.mid_card
         self.board = Board()
@@ -99,8 +100,8 @@ class Game:
 
 class GUIGame(Game):
     def __init__(self, p1, p2):
-        super().__init__(p1, p2)
-        
+        self.root = tk.Tk()
+        super().__init__(p1, p2, True)
         #self.game = Game()
 
         self.title = tk.Label(self.root,text="Onitama!", font=("Helvetica", 64))
