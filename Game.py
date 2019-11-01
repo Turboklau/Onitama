@@ -8,7 +8,9 @@ from Robots.RandomRebecca import RandomRebecca
 from Robots.FirstFinley import First_Finley
 
 import tkinter as tk
-from PIL import ImageTk, Image
+from PIL import Image
+import ImageTk
+
 root = tk.Tk()
 import random
 
@@ -41,7 +43,10 @@ def create_deck():
 
 def load_image(card):
     img = Image.open("res/" + card +".png")
-    #img = img.resize((200,200), Image.ANTIALIAS)
+    h = int(img.height//1.5)
+    w = int(img.width//1.5)
+    img = img.resize((w,h), Image.ANTIALIAS)
+    #img = ImageTk.PhotoImage(img)
     img = ImageTk.PhotoImage(img)
     return img
 
