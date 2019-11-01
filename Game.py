@@ -1,17 +1,11 @@
 from Board import Board
 from Card import Card
 from Player import Player
-from Robots.AssassinAndy import AssassinAndy
-from Robots.DirectDerek import DirectDerek
-from Robots.ErraticErin import ErraticErin
-from Robots.RandomRebecca import RandomRebecca
-from Robots.FirstFinley import First_Finley
 
 import tkinter as tk
-from PIL import Image
-import ImageTk
+from PIL import Image, ImageTk
 
-root = tk.Tk()
+#root = tk.Tk()
 import random
 
 def create_deck():
@@ -35,8 +29,8 @@ def create_deck():
         [(-1, 1), (0, -1), (1, 1)]
         ]    
     cards = {x:y for x in names for y in moves}
-
     deck = []
+    print(len(cards))
     for card in cards.keys():
         deck.append(Card(card, cards[card], load_image(card)))
     return deck
@@ -46,7 +40,6 @@ def load_image(card):
     h = int(img.height//1.5)
     w = int(img.width//1.5)
     img = img.resize((w,h), Image.ANTIALIAS)
-    #img = ImageTk.PhotoImage(img)
     img = ImageTk.PhotoImage(img)
     return img
 
@@ -54,6 +47,7 @@ def load_image(card):
 
 class Game:
     def __init__(self, p1, p2):
+        self.root = tk.Tk()
         self.deck = create_deck()
         self.players = [Player(p1), Player(p2)]
         self.deal_hands()  # creates self.mid_card
@@ -104,8 +98,7 @@ class Game:
                 break
 
 class GUIGame(Game):
-    def __init__(self, p1, p2, root):
-        self.root = root
+    def __init__(self, p1, p2):
         super().__init__(p1, p2)
         
         #self.game = Game()
@@ -156,13 +149,16 @@ class GUIGame(Game):
                     colour = {0:"red", 1:"blue"}[col.player]
                     relief = "raised"
                 #colour, kind = col.player
-                #text = {"master":' M ', "student":' S ', '':'‎‎‎‏‏‎   ‎'}[kind]
-                #text = {"master":'♕', "student":'♙', '':'‎‎‎‏‏‎ ‎'}[kind]
+                #text = {"maser":, "student":' S ', '':'}[kind]
+                #text = {"master":'', "student":'', '': '}[kind]
 
                 L = tk.Label(self.gui_board,text=text,bg=colour, font=('Courier', 80), borderwidth=4, relief=relief)
                 L.grid(row=i,column=j)
                 L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
                 self.gui_labelgrid[i][j] = L
+
+    def update_board(self):
+        pass
 
     def deal_hands(self):
         super().deal_hands()
@@ -183,22 +179,10 @@ class GUIGame(Game):
         title.grid(row=0,column=0)
 
         for i, card in enumerate(hand):
+            #print(type(card.image))
             panel = tk.Label(frame, image = card.image)
             panel.grid(row=i+1,column=0)
 
-    def update_board(self):
-        pass
 
     def update_hands(self):
         pass
-
-#finley1 = First_Finley
-#finley2 = First_Finley
-
-#game = GUIGame(finley1.decide_move, finley2.decide_move)
-#=======
-robot1 = AssassinAndy()
-robot2 = ErraticErin()
-
-game = GUIGame(robot1, robot2, root)
-#game = Game(robot1, robot2)
