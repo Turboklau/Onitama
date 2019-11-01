@@ -10,6 +10,7 @@ from Robots.FirstFinley import First_Finley
 import tkinter as tk
 from PIL import ImageTk, Image
 root = tk.Tk()
+import random
 
 def create_deck():
     names = "tiger dragon frog rabbit crab elephant goose rooster monkey mantis horse ox crane boar eel cobra".split()
@@ -40,7 +41,7 @@ def create_deck():
 
 def load_image(card):
     img = Image.open("res/" + card +".png")
-    img = img.resize((200,200), Image.ANTIALIAS)
+    #img = img.resize((200,200), Image.ANTIALIAS)
     img = ImageTk.PhotoImage(img)
     return img
 
@@ -60,8 +61,8 @@ class Game:
         Gets 5 random cards from the deck and deals 2 to each player.
         The remaining card is the middle card.
         """
-        # cards = random.sample(self.deck, 5)
-        cards = self.deck[3:8]
+        cards = random.sample(self.deck, 5)
+        #cards = self.deck[3:8]
 
         for p in self.players:
             p.hand = cards[0:2]
