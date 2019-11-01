@@ -1,7 +1,6 @@
 import copy
 import math
 
-from OnitamaForRobots import Game
 
 """Tanya can see the future. Tanya makes moves using a game tree."""
 #https://jsfiddle.net/Laa0p1mh/3/

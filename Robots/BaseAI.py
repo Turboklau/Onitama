@@ -16,7 +16,7 @@ class BaseAI():
     def __init__(self):
         pass
 
-    def decide_move(self, board, me, players):
+    def decide_move(self, board, me, players, mid_card):
         # Inverts movement matrix if playing for opposing side
 
         mult = 1
@@ -26,7 +26,7 @@ class BaseAI():
         best_move_card = None
         best_move_start = None
         best_move_end = None
-        best_move_points = -999999999
+        best_move_points = -math.inf
 
         my_hand = players[me].hand
         # For every card

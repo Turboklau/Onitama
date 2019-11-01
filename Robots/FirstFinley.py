@@ -1,6 +1,6 @@
-class First_Finley:
+class FirstFinley:
 
-    def decide_move(self, board, me, players):
+    def decide_move(self, board, me, players, mid_card):
         """First Finley always takes the first legal move he can find"""
 
         # Inverts movement matrix if playing for opposing side
@@ -24,7 +24,7 @@ class First_Finley:
                                start[1] + mult * move[1]]
 
                         if board.is_possible_move(card, me, start, end):
-                            #print("Player " + str(me + 1) + ": " + card.name)
+                            print("Player " + str(me + 1) + ": " + card.name)
                             return card, piece.location, end
 
         print("No available moves (I'm probably lying)")
