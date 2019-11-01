@@ -58,11 +58,8 @@ class TreeAI:
                                start[1] + mult * move[1]]
                         if board.is_possible_move(card, me, start, end):
                             dirty_board = copy.deepcopy(board)
-                            dirty_players = copy.deepcopy(players)
-                            dirty_mid_card = copy.deepcopy(mid_card)
-                            self.dirty_swap(dirty_players, me, card, dirty_mid_card)
                             dirty_board.move_piece(start, end)
-                            board_states.append((dirty_board, dirty_players, dirty_mid_card, start, end))
+                            board_states.append((dirty_board, players, mid_card, start, end))
 
         return board_states
 
@@ -104,7 +101,6 @@ class TreeAI:
 
     def evaluate_points(self, board_state, me):
         score = 0
-        board = board_state[0].board_state
         pieces = board_state[0].pieces
         friendly_master = False
         enemy_master = False
