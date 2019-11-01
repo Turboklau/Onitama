@@ -1,6 +1,3 @@
-from Robots.BaseAI import BaseAI
-
-
 class Player:
     def __init__(self, strategy, hand=[], score=0):
         self.strategy = strategy
