@@ -4,7 +4,7 @@ from Player import Player
 
 import tkinter as tk
 from PIL import Image, ImageTk
-import random
+import random, time
 
 def create_deck(gui):
     names = "tiger dragon frog rabbit crab elephant goose rooster monkey mantis horse ox crane boar eel cobra".split()
@@ -60,8 +60,8 @@ class Game:
         Gets 5 random cards from the deck and deals 2 to each player.
         The remaining card is the middle card.
         """
-        cards = random.sample(self.deck, 5)
-        #cards = self.deck[3:8]
+        #cards = random.sample(self.deck, 5)
+        cards = [self.deck[0] for i in range(5)]
 
         for p in self.players:
             p.hand = cards[0:2]
@@ -115,15 +115,15 @@ class GUIGame(Game):
         pass
 
     def on_click(self, i, j, event):
-        card, start, end = self.players[self.current].get_move(self.board, self.current, self.players)
-        self.take_move(card, start, end)
-        self.update_board()
-        self.update_hands()
-        if self.board.is_won():
+        if not self.board.is_won():
+            card, start, end = self.players[self.current].get_move(self.board, self.current, self.players, self.mid_card)
+            self.take_move(card, start, end)
+            self.update_board()
+            self.update_hands()
+        else:
             self.board.print_board()
             print()
             print("Player " + str(1 - self.current + 1) + " won!")
-            self.root.destroy()
 
     def create_titlescore(self):
         self.rscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
@@ -159,7 +159,24 @@ class GUIGame(Game):
                 self.gui_labelgrid[i][j] = L
 
     def update_board(self):
-        pass
+        for i, row in enumerate(self.board.board_state):
+            for j,col in enumerate(row):
+                text = "   "
+                colour = "brown"
+                relief = "sunken"
+
+                if col:
+                    text = " S "
+                    if col.master:
+                        text = " M "
+                    colour = {0:"red", 1:"blue"}[col.player]
+                    relief = "raised"
+
+                self.gui_labelgrid[i][j]['text'] = text
+                self.gui_labelgrid[i][j]['relief'] = relief
+                self.gui_labelgrid[i][j]['bg'] = colour
+
+
 
     def deal_hands(self):
         super().deal_hands()
@@ -192,7 +209,5 @@ class GUIGame(Game):
         cards.append(self.mid_card)
         for i in range(len(cards)):
             self.gui_cards[i]['image'] = cards[i].image
-        for i in self.gui_cards:
-            print(i['image'])
 
         

@@ -8,10 +8,10 @@ from Robots.TreeAI import TreeAI
 from Game import Game, GUIGame
 
 
-robot1 = DirectDerek()
-robot2 = TreeAI(3)
+robot1 = FirstFinley()
+robot2 = FirstFinley()
 
-#game = GUIGame(robot1, robot2)
-game = Game(robot1, robot2)
+game = GUIGame(robot1, robot2)
+#game = Game(robot1, robot2)
 
 
