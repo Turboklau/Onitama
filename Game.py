@@ -3,7 +3,7 @@ from Card import Card
 from Player import Player
 
 import tkinter as tk
-from PIL import Image, ImageTk
+# from PIL import Image, ImageTk
 import random, time
 
 def create_deck(gui):
@@ -92,7 +92,8 @@ class Game:
         """
         while True:
             self.board.print_board()
-            card, start, end = self.players[self.current].get_move(self.board, self.current, self.players, self.mid_card)
+
+            card, start, end = self.players[self.current].get_move(self)
             if card in self.players[self.current].hand:
                 self.take_move(card, start, end)
             if self.board.is_won():
@@ -120,7 +121,7 @@ class GUIGame(Game):
 
     def on_click(self, i, j, event):
         if not self.board.is_won():
-            card, start, end = self.players[self.current].get_move(self.board, self.current, self.players, self.mid_card)
+            card, start, end = self.players[self.current].get_move(self)
             self.take_move(card, start, end)
             self.update_board()
             self.update_hands()

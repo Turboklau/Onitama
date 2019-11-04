@@ -1,4 +1,4 @@
-from Game import GUIGame
+from Game import GUIGame, Game
 from Robots.AssassinAndy import AssassinAndy
 from Robots.DirectDerek import DirectDerek
 from Robots.TreeAI import TreeAI
@@ -7,8 +7,7 @@ from Robots.KillerKyle import KillerKyle
 from Robots.CowardlyCandice import CowardlyCandice
 from Robots.SadisticSarah import SadisticSarah
 
-robot1 = CowardlyCandice()
+robot1 = TreeAI(3)
 robot2 = KillerKyle()
-robot3 = SadisticSarah()
 
-game = GUIGame(robot1, robot2)
+game = Game(robot1, robot2)

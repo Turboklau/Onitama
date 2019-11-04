@@ -12,7 +12,7 @@ board_values = [
     [-1, 0, 0, 0, -1]
 ]
 """
-What's better than two AIs?
+What's better than two AIs? TreeAI
 Need to sort out the cards with the min max tree stuff
 """
 
@@ -28,7 +28,6 @@ class TreeAI:
         me = robotInfo.get_me()
         board = robotInfo.get_board_class()
         me_hand = robotInfo.get_hand(me)
-        you_hand = robotInfo.get_hand(1-me)
         mid_card = robotInfo.get_mid_card()
 
         best_move_card = None
@@ -51,7 +50,6 @@ class TreeAI:
         print("Player " + str(me + 1) + ": " + best_move_card.name + " worth " + str(best_move_points))
         return best_move_card, best_move_start, best_move_end
 
-
     def get_new_board_states(self, board, me, me_hand, mid_card):
         mult = 1
         if me == 1:
@@ -68,25 +66,17 @@ class TreeAI:
                         end = [start[0] + mult * move[0],
                                start[1] + mult * move[1]]
                         if board.is_possible_move(me_hand[card_index], me, start, end):
-                            new_board = robotInfo.get_board_class()
-                            me_hand = robotInfo.get_hand(me)
-                            you_hand = robotInfo.get_hand(1 - me)
-                            mid_card = robotInfo.get_mid_card()
 
-                            board.board_state.move_piece(start, end)
-                            board_states.append((board, players, mid_card, start, end))
+                            me_hand[card_index], mid_card = mid_card, me_hand[card_index]
 
+                            new_board = copy.deepcopy(board)
+                            new_board.move_piece(start, end)
+
+                            board_states.append((new_board, me_hand, mid_card, start, end))
         return board_states
 
-    def dirty_swap(self, players, me, card, mid_card):
-        if players[me].hand[0] == card:
-            players[me].hand[0], mid_card = mid_card, players[me].hand[0]
-
-        elif players[me].hand[1] == card:
-            players[me].hand[1], mid_card = mid_card, players[me].hand[1]
-
     def minimax(self, depth, board_state, alpha, beta, isMaximisingPlayer, me):
-        if depth == 0:
+        if depth == 0 or board_state[0].is_won():
             return self.evaluate_points(board_state, me)
 
         new_board_states = self.get_new_board_states(board_state[0], me, board_state[1], board_state[2])
@@ -119,18 +109,22 @@ class TreeAI:
         pieces = board_state[0].pieces
         friendly_master = False
         enemy_master = False
+        num_enemy = 0
+        num_friendly = 0
         for piece in pieces:
             if piece.player == me:
                 score += board_values[piece.location[0]][piece.location[1]]
                 if piece.master:
                     friendly_master = True
+                num_friendly += 1
             else:
                 score -= board_values[piece.location[0]][piece.location[1]]
                 if piece.master:
                     enemy_master = True
-
+                num_enemy += 1
         if not friendly_master:
             score -= 100
         if not enemy_master:
             score += 120
+        score += (num_friendly - num_enemy) * 20
         return score

@@ -1,3 +1,4 @@
+import random
 
 from Robots.BaseAI import BaseAI
 
@@ -19,4 +20,4 @@ class SadisticSarah(BaseAI):
 								if board.board_state[i+x][j+y].player == 1-me:
 									mod += 5
 
-		return -len(board.pieces) - mod
+		return -len(board.pieces)*100 - mod - random.uniform(0, 1)

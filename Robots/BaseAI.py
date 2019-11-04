@@ -1,12 +1,4 @@
-"""There are several ways to motivate the AI:
-1: Minimum distance between its own pieces and enemy pieces << This is easy but not really a win condition
-2: Minimum distance between its own pieces and enemy master << Assassin Andy
-3: Minimum distance between its own master and enemy shrine << Suicide Sam
-4: Maximum distance between its own master and enemy pieces
-5: Maximum distance between its own shrine and enemy master << This is hard to do with a depth of 1
-6: Maximum difference in number of pieces
-7: Being in the winning state (i.e. if there is a move that wins, take it)
-"""
+
 import copy
 import math
 
@@ -16,8 +8,11 @@ class BaseAI():
     def __init__(self):
         pass
 
-    def decide_move(self, board, me, players, mid_card):
+    def decide_move(self, robotinfo):
         # Inverts movement matrix if playing for opposing side
+
+        me = robotinfo.get_me()
+        board = robotinfo.get_board_class()
 
         mult = 1
         if me == 1:
@@ -28,7 +23,7 @@ class BaseAI():
         best_move_end = None
         best_move_points = -math.inf
 
-        my_hand = players[me].hand
+        my_hand = robotinfo.get_hand(me)
         # For every card
         for card in my_hand:
             # For every move
