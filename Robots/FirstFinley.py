@@ -1,6 +1,6 @@
 class FirstFinley:
 
-    def decide_move(self, board, me, players, mid_card):
+    def decide_move(self, board, me, players):
         """First Finley always takes the first legal move he can find"""
 
         # Inverts movement matrix if playing for opposing side

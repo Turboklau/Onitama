@@ -6,5 +6,5 @@ from Robots.BaseAI import BaseAI
 
 class RandomRebecca(BaseAI):
 
-    def evaluate_points(self, board, me):
+    def evaluate_points(self, board, me, players):
         return random.randint(0, 1000)

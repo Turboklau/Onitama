@@ -6,5 +6,5 @@ from Robots.BaseAI import BaseAI
 
 class KillerKyle(BaseAI):
 
-    def evaluate_points(self, board, me):
+    def evaluate_points(self, board, me, players):
         return -len(board.pieces)

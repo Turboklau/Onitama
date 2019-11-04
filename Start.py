@@ -6,8 +6,11 @@ from Robots.ErraticErin import ErraticErin
 from Robots.KillerKyle import KillerKyle
 from Robots.CowardlyCandice import CowardlyCandice
 from Robots.SadisticSarah import SadisticSarah
+from Robots.ParanoidPam import ParanoidPam
 
 robot1 = TreeAI(3)
 robot2 = KillerKyle()
+robot3 = SadisticSarah()
+robot4 = ParanoidPam(True)
 
 game = Game(robot1, robot2)
