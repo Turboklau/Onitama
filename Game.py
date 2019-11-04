@@ -61,10 +61,10 @@ class Game:
         The remaining card is the middle card.
         """
         # cards = random.sample(self.deck, 5)
-        cards = [self.deck[1] for i in range(5)]
+        cards = [self.deck[6] for i in range(5)]
 
         for p in self.players:
-            p.hand = cards[0:2]
+            p.hand = [cards[0]]
             cards = cards[2:]
         self.mid_card = cards[0]
 

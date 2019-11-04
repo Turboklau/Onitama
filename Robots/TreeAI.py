@@ -93,18 +93,19 @@ class TreeAI:
             return best_move_points
 
         else:
-            best_move_points = -math.inf
+            best_move_points = math.inf
             for i in range(0, len(new_board_states)):
                 new_board_state = new_board_states[i]
                 points = self.minimax(depth - 1, new_board_state, -math.inf, math.inf, not isMaximisingPlayer, 1 - me)
-                best_move_points = max(points, best_move_points)
-                beta = min(alpha, best_move_points)
+                best_move_points = min(points, best_move_points)
+                beta = min(beta, best_move_points)
                 if beta <= alpha:
                     break
             return best_move_points
 
 
     def evaluate_points(self, board_state, me):
+        print("EVVVVVVVVVVv")
         score = 0
         pieces = board_state[0].pieces
         friendly_master = False
