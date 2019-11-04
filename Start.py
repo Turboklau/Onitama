@@ -4,8 +4,10 @@ from Robots.TreeAI import TreeAI
 from Robots.ErraticErin import ErraticErin
 from Robots.KillerKyle import KillerKyle
 from Robots.CowardlyCandice import CowardlyCandice
+from Robots.SadisticSarah import SadisticSarah
 
 robot1 = CowardlyCandice()
 robot2 = KillerKyle()
+robot3 = SadisticSarah()
 
-game = GUIGame(robot2, robot2)
+game = GUIGame(robot2, robot3)
