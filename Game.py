@@ -93,7 +93,8 @@ class Game:
         while True:
             self.board.print_board()
             card, start, end = self.players[self.current].get_move(self.board, self.current, self.players, self.mid_card)
-            self.take_move(card, start, end)
+            if card in self.players[self.current].hand:
+                self.take_move(card, start, end)
             if self.board.is_won():
                 self.board.print_board()
                 print()
