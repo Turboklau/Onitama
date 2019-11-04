@@ -38,7 +38,7 @@ def create_deck(gui):
     return deck
 
 def load_image(card):
-    img = Image.open("res/" + card +".png")
+    img = Image.open("../res/" + card +".png")
     h = int(img.height//1.5)
     w = int(img.width//1.5)
     img = img.resize((w,h), Image.ANTIALIAS)
