@@ -21,3 +21,13 @@ class SadisticSarah(BaseAI):
 									mod += 5
 
 		return -len(board.pieces) - mod
+
+
+	def in_danger(self, board, piece):
+
+		me = piece.player
+
+		for enemy_piece in board.pieces:
+			if enemy_piece.player != me:
+				x, y = piece.location
+				for card in 
