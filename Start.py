@@ -10,7 +10,7 @@ from Robots.ParanoidPam import ParanoidPam
 robot1 = CowardlyCandice()
 robot2 = KillerKyle()
 robot3 = SadisticSarah()
-robot4 = ParanoidPam()
+robot4 = ParanoidPam(True)
 
 #Red, Blue
-game = GUIGame(robot2, robot4)
+game = GUIGame(robot3, robot4)

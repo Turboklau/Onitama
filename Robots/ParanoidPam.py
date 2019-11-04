@@ -22,9 +22,9 @@ class ParanoidPam(BaseAI):
 	def in_danger(self, board, location, players, me):
 		enemy = 1 - me
 		
-		flip = 1
+		flip = -1
 		if me == 1:
-			flip = -1
+			flip = 1
 
 		for enemy_piece in board.pieces:
 			if enemy_piece.player != me:
