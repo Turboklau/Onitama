@@ -60,9 +60,8 @@ class Game:
         Gets 5 random cards from the deck and deals 2 to each player.
         The remaining card is the middle card.
         """
-        cards = random.sample(self.deck, 5)
-        #cards = [self.deck[0] for i in range(5)]
-        #print(self.deck[0].moves)
+        # cards = random.sample(self.deck, 5)
+        cards = [self.deck[1] for i in range(5)]
 
         for p in self.players:
             p.hand = cards[0:2]

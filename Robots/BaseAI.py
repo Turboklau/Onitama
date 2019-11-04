@@ -38,7 +38,7 @@ class BaseAI():
                         if board.is_possible_move(card, me, start, end):
                             dirty_board = copy.deepcopy(board)
                             dirty_board.move_piece(start, end)
-                            points = self.evaluate_points(dirty_board, me, players)
+                            points = self.evaluate_points(dirty_board, me, robotinfo)
                             if points > best_move_points:
                                 best_move_card, best_move_start, best_move_end, best_move_points = card, start, end, points
 
@@ -48,5 +48,5 @@ class BaseAI():
         else:
             print("No available moves")
 
-    def evaluate_points(self, board, me):
+    def evaluate_points(self, board, me, players):
         return 0
