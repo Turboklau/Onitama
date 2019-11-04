@@ -12,6 +12,8 @@ board_values = [
     [-1, 0, 0, 0, -1]
 ]
 
+"""Need to sort out the cards witht the min max tree stuff"""
+
 class TreeAI:
 
     def __init__(self, depth):
@@ -41,22 +43,23 @@ class TreeAI:
         print("Player " + str(me + 1) + ": " + best_move_card.name + " worth " + str(best_move_points))
         return best_move_card, best_move_start, best_move_end
 
+
     def get_new_board_states(self, board, me, players, mid_card):
         mult = 1
         if me == 1:
             mult = -1
 
         board_states = []
-        for card in players[me].hand:
+        for card_index in range(0, len(players[me].hand)):
             # For every move
-            for move in card.moves:
+            for move in players[me].hand[card_index].moves:
                 # For every piece of mine
                 for piece in board.pieces:
                     if piece.player == me:
                         start = piece.location
                         end = [start[0] + mult * move[0],
                                start[1] + mult * move[1]]
-                        if board.is_possible_move(card, me, start, end):
+                        if board.is_possible_move(players[me].hand[card_index], me, start, end):
                             dirty_board = copy.deepcopy(board)
                             dirty_board.move_piece(start, end)
                             board_states.append((dirty_board, players, mid_card, start, end))
