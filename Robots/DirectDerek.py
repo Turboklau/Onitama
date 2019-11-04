@@ -7,7 +7,7 @@ from Robots.BaseAI import BaseAI
 
 class DirectDerek(BaseAI):
 
-    def evaluate_points(self, board, me):
+    def evaluate_points(self, board, me, players):
         friendly_master = None
         for piece in board.pieces:
             if piece.player == me and piece.master:

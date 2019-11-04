@@ -28,8 +28,6 @@ def create_deck(gui):
         ]    
     cards = dict(zip(names,moves))
     deck = []
-    for card in cards:
-        print(card, cards[card])
     for card in cards.keys():
         if gui:
             deck.append(Card(card, cards[card], load_image(card)))

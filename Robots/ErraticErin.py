@@ -8,7 +8,7 @@ from Robots.BaseAI import BaseAI
 
 class ErraticErin(BaseAI):
 
-    def evaluate_points(self, board, me):
+    def evaluate_points(self, board, me, players):
         winning_move = True
         for row in board.board_state:
             for space in row:

@@ -7,7 +7,7 @@ from Robots.BaseAI import BaseAI
 
 class SadisticSarah(BaseAI):
 
-	def evaluate_points(self, board, me):
+	def evaluate_points(self, board, me, players):
 		mod = 0
 		for piece in board.pieces:
 			if piece.player == me:
