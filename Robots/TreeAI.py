@@ -68,6 +68,12 @@ class TreeAI:
                         end = [start[0] + mult * move[0],
                                start[1] + mult * move[1]]
                         if board.is_possible_move(me_hand[card_index], me, start, end):
+                            new_board = robotInfo.get_board_class()
+                            me_hand = robotInfo.get_hand(me)
+                            you_hand = robotInfo.get_hand(1 - me)
+                            mid_card = robotInfo.get_mid_card()
+
+                            board.board_state.move_piece(start, end)
                             board_states.append((board, players, mid_card, start, end))
 
         return board_states

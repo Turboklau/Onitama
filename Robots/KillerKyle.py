@@ -1,7 +1,7 @@
 
 from Robots.BaseAI import BaseAI
 
-"""Andy minimises the total distance between his pieces and the enemy master."""
+"""Kyle drinks monster and kicks holes in walls."""
 
 
 class KillerKyle(BaseAI):

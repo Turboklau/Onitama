@@ -1,4 +1,5 @@
 from Game import GUIGame
+from Robots.AssassinAndy import AssassinAndy
 from Robots.DirectDerek import DirectDerek
 from Robots.TreeAI import TreeAI
 from Robots.ErraticErin import ErraticErin
@@ -8,4 +9,4 @@ from Robots.CowardlyCandice import CowardlyCandice
 robot1 = CowardlyCandice()
 robot2 = KillerKyle()
 
-game = GUIGame(robot2, robot2)
+game = GUIGame(robot1, robot2)
