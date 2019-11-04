@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="238b6650-83d0-4c6d-8b3c-7a7873b6724e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TM.iml" afterDir="false" />
+    <list default="true" id="238b6650-83d0-4c6d-8b3c-7a7873b6724e" name="Default Changelist" comment="Moved the files around even more">
+      <change afterPath="$PROJECT_DIR$/Robots/CowardlyCandice.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_treeAI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Card.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Piece.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Piece.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robotinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Robotinfo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/AssassinAndy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/BaseAI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/DirectDerek.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/ErraticErin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/FirstFinley.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/RandomRebecca.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/TacticalTanya.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/TreeAI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Start.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/Board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card.py" beforeDir="false" afterPath="$PROJECT_DIR$/Card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Piece.py" beforeDir="false" afterPath="$PROJECT_DIR$/Piece.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robotinfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robotinfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/AssassinAndy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/BaseAI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/DirectDerek.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/ErraticErin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/FirstFinley.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/RandomRebecca.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/TacticalTanya.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/TreeAI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Robots/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robots/KillerKyle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Start.py" beforeDir="false" afterPath="$PROJECT_DIR$/Start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,18 +31,19 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard.coverage" NAME="Nosetests for test_board.TestBoard Coverage Results" MODIFIED="1572829971431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/Onitama$Nosetests_in_test_board_py.coverage" NAME="Nosetests in test_board.py Coverage Results" MODIFIED="1572827041734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/Onitama$Nosetests_in_test_board_py.coverage" NAME="Nosetests in test_board.py Coverage Results" MODIFIED="1572834052749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_is_possible_move.coverage" NAME="Nosetests for test_board.TestBoard.test_is_possible_move Coverage Results" MODIFIED="1572829334603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onitama$Play.coverage" NAME="Play Coverage Results" MODIFIED="1572582416166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_remove_piece.coverage" NAME="Nosetests for test_board.TestBoard.test_remove_piece Coverage Results" MODIFIED="1572829965673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onikawa$SimpleSamAi.coverage" NAME="SimpleSamAi Coverage Results" MODIFIED="1572234134750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_treeAI_TestTreeAI_test_get_new_board_states.coverage" NAME="Nosetests for test_treeAI.TestTreeAI.test_get_new_board_states Coverage Results" MODIFIED="1572835466529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_master_captured.coverage" NAME="Nosetests for test_board.TestBoard.test_master_captured Coverage Results" MODIFIED="1572828373436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onikawa$Game.coverage" NAME="Game Coverage Results" MODIFIED="1572151944961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onitama$Game__1_.coverage" NAME="Game (1) Coverage Results" MODIFIED="1572581962447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onikawa$AssassinAndyAI.coverage" NAME="AssassinAndyAI Coverage Results" MODIFIED="1572236522302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_populate_board.coverage" NAME="Nosetests for test_board.TestBoard.test_populate_board Coverage Results" MODIFIED="1572827657146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onikawa$OnitamaArena.coverage" NAME="OnitamaArena Coverage Results" MODIFIED="1572241254653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Onitama$Start.coverage" NAME="Start Coverage Results" MODIFIED="1572594737122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Onitama$Start.coverage" NAME="Start Coverage Results" MODIFIED="1572831098073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_is_won.coverage" NAME="Nosetests for test_board.TestBoard.test_is_won Coverage Results" MODIFIED="1572828331990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onikawa$OnitamaForRobots.coverage" NAME="OnitamaForRobots Coverage Results" MODIFIED="1572236519660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_move_piece.coverage" NAME="Nosetests for test_board.TestBoard.test_move_piece Coverage Results" MODIFIED="1572830601106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
@@ -124,74 +124,65 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="png" value="7" />
-          <entry key="py" value="30" />
+          <entry key="py" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="7" />
-          <entry key="Python" value="30" />
+          <entry key="Python" value="46" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5600" />
-          <entry key="txt" value="276" />
+          <entry key="py" value="6309" />
+          <entry key="txt" value="444" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="276" />
-          <entry key="Python" value="5600" />
+          <entry key="PLAIN_TEXT" value="444" />
+          <entry key="Python" value="6309" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Robots/TreeAI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Board.py">
+        <entry file="file://$PROJECT_DIR$/Robots/CowardlyCandice.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Card.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Game.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-555">
-              <caret line="23" column="33" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="33" />
+            <state relative-caret-position="105">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
               <folding>
-                <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test_board.py">
+        <entry file="file://$PROJECT_DIR$/Robots/AssassinAndy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="126" column="37" lean-forward="true" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+            <state>
+              <caret selection-end-line="28" selection-end-column="57" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
-                <marker date="1572830606660" expanded="true" signature="151:186" ph="..." />
-                <marker date="1572830606660" expanded="true" signature="1061:1066" ph="..." />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/boar.png">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -248,14 +239,20 @@
         <option value="$PROJECT_DIR$/Robots/FirstFinley.py" />
         <option value="$PROJECT_DIR$/Play.py" />
         <option value="$PROJECT_DIR$/Board.py" />
-        <option value="$PROJECT_DIR$/Start.py" />
-        <option value="$PROJECT_DIR$/Game.py" />
         <option value="$PROJECT_DIR$/Robots/TreeAI.py" />
         <option value="$PROJECT_DIR$/Robotinfo.py" />
         <option value="$PROJECT_DIR$/src/Robots/DirectDerek.py" />
         <option value="$PROJECT_DIR$/src/Start.py" />
         <option value="$PROJECT_DIR$/test/test_board.py" />
+        <option value="$PROJECT_DIR$/src/Game.py" />
         <option value="$PROJECT_DIR$/src/Board.py" />
+        <option value="$PROJECT_DIR$/src/Robotinfo.py" />
+        <option value="$PROJECT_DIR$/src/Robots/TreeAI.py" />
+        <option value="$PROJECT_DIR$/test/test_treeAI.py" />
+        <option value="$PROJECT_DIR$/Game.py" />
+        <option value="$PROJECT_DIR$/Robots/KillerKyle.py" />
+        <option value="$PROJECT_DIR$/Start.py" />
+        <option value="$PROJECT_DIR$/Robots/CowardlyCandice.py" />
       </list>
     </option>
   </component>
@@ -289,7 +286,7 @@
             <path>
               <item name="Onitama" type="b2602c69:ProjectViewProjectNode" />
               <item name="Onitama" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Robots" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Onitama" type="b2602c69:ProjectViewProjectNode" />
@@ -322,6 +319,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/Robots" />
     </key>
@@ -338,7 +336,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Nosetests for test_board.TestBoard.test_move_piece">
+  <component name="RunManager" selected="Python tests.Nosetests for test_treeAI.TestTreeAI.test_get_new_board_states">
+    <configuration name="Start" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="TM" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Start.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Nosetests for test_board.TestBoard" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <module name="TM" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -352,38 +372,6 @@
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_board.TestBoard&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Nosetests for test_board.TestBoard.test_is_possible_move" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <module name="TM" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_board.TestBoard.test_is_possible_move&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Nosetests for test_board.TestBoard.test_master_captured" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
-      <module name="TM" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_board.TestBoard.test_master_captured&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -403,7 +391,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Nosetests for test_board.TestBoard.test_remove_piece" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+    <configuration name="Nosetests for test_treeAI.TestTreeAI.test_get_new_board_states" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
       <module name="TM" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -415,24 +403,40 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_regexPattern" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_board.TestBoard.test_remove_piece&quot;" />
+      <option name="_new_target" value="&quot;test_treeAI.TestTreeAI.test_get_new_board_states&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Nosetests in test_board.py" type="tests" factoryName="Nosetests" temporary="true" nameIsGenerated="true">
+      <module name="TM" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_board.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python tests.Nosetests for test_board.TestBoard.test_master_captured" />
-      <item itemvalue="Python tests.Nosetests for test_board.TestBoard.test_is_possible_move" />
       <item itemvalue="Python tests.Nosetests for test_board.TestBoard.test_move_piece" />
-      <item itemvalue="Python tests.Nosetests for test_board.TestBoard.test_remove_piece" />
       <item itemvalue="Python tests.Nosetests for test_board.TestBoard" />
+      <item itemvalue="Python.Start" />
+      <item itemvalue="Python tests.Nosetests in test_board.py" />
+      <item itemvalue="Python tests.Nosetests for test_treeAI.TestTreeAI.test_get_new_board_states" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Nosetests for test_treeAI.TestTreeAI.test_get_new_board_states" />
+        <item itemvalue="Python tests.Nosetests in test_board.py" />
+        <item itemvalue="Python.Start" />
         <item itemvalue="Python tests.Nosetests for test_board.TestBoard.test_move_piece" />
         <item itemvalue="Python tests.Nosetests for test_board.TestBoard" />
-        <item itemvalue="Python tests.Nosetests for test_board.TestBoard.test_remove_piece" />
-        <item itemvalue="Python tests.Nosetests for test_board.TestBoard.test_is_possible_move" />
-        <item itemvalue="Python tests.Nosetests for test_board.TestBoard.test_master_captured" />
       </list>
     </recent_temporary>
   </component>
@@ -539,16 +543,24 @@
       <option name="project" value="LOCAL" />
       <updated>1572826178240</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Moved the files around even more and wrote some sick unit tests for the board class. Now that I'm done procrastinating I should try the tree stuff again...">
+      <created>1572831080989</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1572831080989</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Moved the files around even more">
+      <created>1572833899700</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1572833899700</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Nosetests_for_test_board_TestBoard_test_move_piece - 2019.11.04 at 14h 07m 40s.xml">
-      <configuration name="Nosetests for test_board.TestBoard.test_move_piece" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Nosetests_for_test_board_TestBoard_test_move_piece - 2019.11.04 at 14h 08m 15s.xml">
-      <configuration name="Nosetests for test_board.TestBoard.test_move_piece" configurationId="tests" />
-    </history-entry>
     <history-entry file="Nosetests_for_test_board_TestBoard_test_move_piece - 2019.11.04 at 14h 09m 07s.xml">
       <configuration name="Nosetests for test_board.TestBoard.test_move_piece" configurationId="tests" />
     </history-entry>
@@ -573,26 +585,41 @@
     <history-entry file="Nosetests_for_test_board_TestBoard_test_move_piece - 2019.11.04 at 14h 23m 21s.xml">
       <configuration name="Nosetests for test_board.TestBoard.test_move_piece" configurationId="tests" />
     </history-entry>
+    <history-entry file="Nosetests_in_test_board_py - 2019.11.04 at 15h 20m 53s.xml">
+      <configuration name="Nosetests in test_board.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Nosetests_for_test_treeAI_TestTreeAI_test_get_new_board_states - 2019.11.04 at 15h 44m 26s.xml">
+      <configuration name="Nosetests for test_treeAI.TestTreeAI.test_get_new_board_states" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1680" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1493268" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1493268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.29180327" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.499388" visible="true" weight="0.31525424" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.499388" weight="0.39096045" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.27457628" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299435" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.2440678" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.54915255" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.500612" side_tool="true" weight="0.32768363" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.499388" weight="0.32768363" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.499388" visible="true" weight="0.32768363" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3299435" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -620,7 +647,9 @@
     <MESSAGE value="Removed copying cards" />
     <MESSAGE value="Added one line of documentation" />
     <MESSAGE value="Made some small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made some small changes" />
+    <MESSAGE value="Moved the files around even more and wrote some sick unit tests for the board class. Now that I'm done procrastinating I should try the tree stuff again..." />
+    <MESSAGE value="Moved the files around even more" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved the files around even more" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test1.py" />
@@ -628,14 +657,14 @@
     <entry file="file://$PROJECT_DIR$/OnitamaArena.py" />
     <entry file="file://$PROJECT_DIR$/Robots/AssassinAndyAI.py" />
     <entry file="file://$PROJECT_DIR$/OnitamaForRobots.py" />
-    <entry file="file://$PROJECT_DIR$/src/Robots/ErraticErin.py">
+    <entry file="file://$PROJECT_DIR$/Robots/ErraticErin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="6" column="110" selection-start-line="6" selection-start-column="110" selection-end-line="6" selection-end-column="110" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Robots/RandomRebecca.py">
+    <entry file="file://$PROJECT_DIR$/Robots/RandomRebecca.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
@@ -660,87 +689,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ImageTk.py" />
     <entry file="file://$PROJECT_DIR$/Play.py" />
-    <entry file="file://$PROJECT_DIR$/src/Robots/BaseAI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="50" column="71" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Robots/FirstFinley.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Robots/AssassinAndy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.py">
+    <entry file="file://$PROJECT_DIR$/Player.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Robots/TreeAI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/boar.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/crane.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Piece.py">
+    <entry file="file://$PROJECT_DIR$/Piece.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Robots/DirectDerek.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Robotinfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="32" lean-forward="true" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Robots/TacticalTanya.py">
+    <entry file="file://$PROJECT_DIR$/Robots/TacticalTanya.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="610">
           <caret line="62" column="30" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
@@ -750,35 +716,135 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/boar.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robotinfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <marker date="1572834909091" expanded="true" signature="345:348" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_board.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="126" column="37" lean-forward="true" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+        <state relative-caret-position="30">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="23" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
             <marker date="1572830606660" expanded="true" signature="151:186" ph="..." />
             <marker date="1572830606660" expanded="true" signature="1061:1066" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.py">
+    <entry file="file://$PROJECT_DIR$/test/test_treeAI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-555">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="33" />
+        <state relative-caret-position="75">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <marker date="1572836218304" expanded="true" signature="264:590" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/DirectDerek.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Board.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/BaseAI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="46" column="57" lean-forward="true" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Card.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/FirstFinley.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="77" lean-forward="true" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Card.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.py">
+    <entry file="file://$PROJECT_DIR$/Start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+        <state relative-caret-position="135">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/KillerKyle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/TreeAI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="36" column="34" lean-forward="true" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/AssassinAndy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="28" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/CowardlyCandice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

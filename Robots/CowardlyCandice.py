@@ -5,7 +5,7 @@ from Robots.BaseAI import BaseAI
 """Andy minimises the total distance between his pieces and the enemy master."""
 
 
-class AssassinAndy(BaseAI):
+class CowardlyCandice(BaseAI):
 
     def evaluate_points(self, board, me):
         enemy_master = None
@@ -15,7 +15,7 @@ class AssassinAndy(BaseAI):
                 pieces.append(piece)
             elif piece.master:
                 enemy_master = piece
-        return -self.total_distance_from_master(pieces, enemy_master)
+        return self.total_distance_from_master(pieces, enemy_master)
 
     def total_distance_from_master(self, pieces, enemy_master):
         total_distance = 0

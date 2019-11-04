@@ -13,14 +13,17 @@ class Robotinfo():
 	def get_hand(self, player):
 		return self.game.players[player].hand
 
-	def get_midcardself(self):
+	def get_mid_card(self):
 		return self.game.mid_card
 
 	def get_cards(self):
 		cards = []
 		for player in self.game.players:
 			cards += player.hand
-		return cards + self.get_midcard()
+		return cards + self.get_mid_card()
 
 	def in_hand(self, card, player):
 		return card in self.get_hand(player)
+
+	def get_me(self):
+		return self.game.current
