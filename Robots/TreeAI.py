@@ -44,7 +44,11 @@ class TreeAI:
         self.depth = depth
 
     def decide_move(self, robotInfo):
-        # Inverts movement matrix if playing for opposing side
+        """
+        Decides which move to play. Finds the possible board states and runs a for loop over them, then assigns points
+        to them. Calls minimax function to do this. The state with the most points gets saved, and passed back.
+        Returns a card, a start and an end.
+        """
 
         me = robotInfo.get_me()
         board = robotInfo.get_board_class()
@@ -73,6 +77,11 @@ class TreeAI:
         return best_move_card, best_move_start, best_move_end
 
     def get_new_board_states(self, board, me, player_hands, mid_card):
+        """
+        Finds all the possible moves the current player can make and generates a list of possible board states using
+        them. A board state includes a board class(board state and piece list), the new hands, the new mid card. and the
+        start and end of the move.
+        """
         mult = 1
         if me == 1:
             mult = -1
@@ -89,15 +98,8 @@ class TreeAI:
                                start[1] + mult * move[1]]
                         if board.is_possible_move(player_hands[me][card_index], me, start, end):
 
-                            new_hands = [[None, None], [None, None]]
-
-                            new_hands[me][0] = card_dict.get(player_hands[me][0].name)
-                            new_hands[me][1] = card_dict.get(player_hands[me][1].name)
-                            new_hands[1-me][0] = card_dict.get(player_hands[1-me][0].name)
-                            new_hands[1-me][1] = card_dict.get(player_hands[1-me][1].name)
-
+                            new_hands = self.get_hand_copy(player_hands, me)
                             new_mid = card_dict.get(player_hands[me][card_index].name)
-
                             new_hands[me][card_index] = card_dict.get(mid_card.name)
 
                             new_board = copy.deepcopy(board)
@@ -107,7 +109,30 @@ class TreeAI:
 
         return board_states
 
+    def get_hand_copy(self, player_hands, me):
+        """
+        Gets a copy of the hand of each player using the card dictionary. As a result, the card objects are not equal to
+        the card objects back home in the Game class.
+        """
+        new_hands = [[None, None], [None, None]]
+
+        new_hands[me][0] = card_dict.get(player_hands[me][0].name)
+        new_hands[me][1] = card_dict.get(player_hands[me][1].name)
+        new_hands[1 - me][0] = card_dict.get(player_hands[1 - me][0].name)
+        new_hands[1 - me][1] = card_dict.get(player_hands[1 - me][1].name)
+
+        return new_hands
+
+
     def minimax(self, depth, board_state, alpha, beta, player, root_player):
+        """
+        It's minimax! This is complicated, so probably watch a youtube video on it. But here's the rundown:
+        depth is the depth of the game tree. It can also be thought of as 'number of moves into the future'
+        alpha and beta are used for pruning, when a bunch of bad moves are found. This saves computation time.
+        board_state is what is evaluated for points. The more points a move has, the more likely it will be chosen.
+        player is the player evaluating the level of the tree. Basically isMaximisingPlayer.
+        root_player is the player at the root of the tree, who is trying to maximise their score.
+        """
         if depth == 0 or board_state[0].is_won():
             points = self.evaluate_points(board_state, root_player)
             return points
