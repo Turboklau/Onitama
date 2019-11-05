@@ -27,15 +27,17 @@ class TreeAI:
 
         me = robotInfo.get_me()
         board = robotInfo.get_board_class()
-        me_hand = robotInfo.get_hand(me)
         mid_card = robotInfo.get_mid_card()
+        player_hands = [None, None]
+        player_hands[me] = robotInfo.get_hand(me)
+        player_hands[1-me] = robotInfo.get_hand(1-me)
 
         best_move_card = None
         best_move_start = None
         best_move_end = None
         best_move_points = -math.inf
 
-        new_board_states = self.get_new_board_states(board, me, me_hand, mid_card)
+        new_board_states = self.get_new_board_states(board, me, player_hands, mid_card)
 
         for i in range(0, len(new_board_states)):
             new_board_state = new_board_states[i]
@@ -49,29 +51,28 @@ class TreeAI:
         print("Player " + str(me + 1) + ": " + best_move_card.name + " worth " + str(best_move_points))
         return best_move_card, best_move_start, best_move_end
 
-    def get_new_board_states(self, board, me, me_hand, mid_card):
+    def get_new_board_states(self, board, me, player_hands, mid_card):
         mult = 1
         if me == 1:
             mult = -1
 
         board_states = []
-        for card_index in range(0, len(me_hand)):
+        for card_index in range(0, len(player_hands[me])):
             # For every move
-            for move in me_hand[card_index].moves:
+            for move in player_hands[me][card_index].moves:
                 # For every piece of mine
                 for piece in board.pieces:
                     if piece.player == me:
                         start = piece.location
                         end = [start[0] + mult * move[0],
                                start[1] + mult * move[1]]
-                        if board.is_possible_move(me_hand[card_index], me, start, end):
-
-                            me_hand[card_index], mid_card = mid_card, me_hand[card_index]
+                        if board.is_possible_move(player_hands[me][card_index], me, start, end):
+                            player_hands[me][card_index], mid_card = mid_card, player_hands[me][card_index]
 
                             new_board = copy.deepcopy(board)
                             new_board.move_piece(start, end)
 
-                            board_states.append((new_board, me_hand, mid_card, start, end))
+                            board_states.append((new_board, player_hands, mid_card, start, end))
         return board_states
 
     def minimax(self, depth, board_state, alpha, beta, player, root_player):
