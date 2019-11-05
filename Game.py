@@ -3,7 +3,7 @@ from Card import Card
 from Player import Player
 
 import tkinter as tk
-# from PIL import Image, ImageTk
+from PIL import Image, ImageTk
 import random, time
 
 def create_deck(gui):
@@ -100,17 +100,22 @@ class Game:
                 print("Player " + str(1 - self.current + 1) + " won!")
                 break
 
+    def reset(self):
+        self.deal_hands()  # creates self.mid_card
+        self.board.reset()
+        self.current = 0
+
 class GUIGame(Game):
     def __init__(self, p1, p2):
         self.root = tk.Tk()
         self.gui_cards = []
         super().__init__(p1, p2, True)
-        #self.game = Game()
         
         self.title = tk.Label(self.root,text="Onitama!", font=("Helvetica", 64))
         self.title.grid(row=0,column=1)
 
         self.create_board()
+        self.create_titlescore()
         self.root.mainloop()
 
     def main_loop(self):
@@ -121,18 +126,25 @@ class GUIGame(Game):
         if not self.board.is_won():
             card, start, end = self.players[self.current].get_move(self)
             self.take_move(card, start, end)
-            self.update_board()
-            self.update_hands()
         else:
             self.board.print_board()
             print()
             print("Player " + str(1 - self.current + 1) + " won!")
+            self.players[1-self.current].score += 1
+            self.update_titlescore()
+            self.reset()
+        self.update_board()
+        self.update_hands()
 
     def create_titlescore(self):
-        self.rscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
-        self.rscore.grid(row=2,column=0)
-        self.bscore = tk.Label(self.root,text=0, font=("Helvetica", 64))
-        self.bscore.grid(row=2,column=2)
+        self.score0 = tk.Label(self.root,text=0, font=("Helvetica", 64))
+        self.score0.grid(row=2,column=0)
+        self.score1 = tk.Label(self.root,text=0, font=("Helvetica", 64))
+        self.score1.grid(row=2,column=2)
+
+    def update_titlescore(self):
+        self.score0['text'] = self.players[0].score
+        self.score1['text'] = self.players[1].score
 
     def create_board(self):
         self.gui_board = tk.Frame(self.root)
@@ -178,8 +190,6 @@ class GUIGame(Game):
                 self.gui_labelgrid[i][j]['text'] = text
                 self.gui_labelgrid[i][j]['relief'] = relief
                 self.gui_labelgrid[i][j]['bg'] = colour
-
-
 
     def deal_hands(self):
         super().deal_hands()
