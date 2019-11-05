@@ -6,6 +6,9 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import random, time
 
+import sys
+sys.setrecursionlimit(20000)
+
 def create_deck(gui):
     names = "tiger dragon frog rabbit crab elephant goose rooster monkey mantis horse ox crane boar eel cobra".split()
     moves = [
@@ -27,7 +30,6 @@ def create_deck(gui):
         [(-1, 1), (0, -1), (1, 1)]
         ]    
     cards = dict(zip(names,moves))
-    print(cards)
     deck = []
     for card in cards.keys():
         if gui:
@@ -54,7 +56,10 @@ class Game:
         self.deal_hands()  # creates self.mid_card
         self.board = Board()
         self.current = 0
+        self.turns = 0
+        
         self.main_loop()
+
 
     def deal_hands(self):
         """
@@ -74,6 +79,7 @@ class Game:
         Processes a legal move and changes the current player.
         Start and End are tuple co-ordinates of the move.
         """
+        self.turns += 1
         self.board.move_piece(start, end)
 
         if self.players[self.current].hand[0].name == card.name:
@@ -104,12 +110,15 @@ class Game:
         self.deal_hands()  # creates self.mid_card
         self.board.reset()
         self.current = 0
+        self.turns = 0
 
 class GUIGame(Game):
-    def __init__(self, p1, p2):
+    def __init__(self, p1, p2, battles=False):
         self.root = tk.Tk()
         self.gui_cards = []
         super().__init__(p1, p2, True)
+
+        self.battles = battles #False or integer
         
         self.title = tk.Label(self.root,text="Onitama!", font=("Helvetica", 64))
         self.title.grid(row=0,column=1)
@@ -123,18 +132,27 @@ class GUIGame(Game):
         pass
 
     def on_click(self, i, j, event):
+        if self.turns > 100:
+            print("Draw!")
+            self.reset()
         if not self.board.is_won():
             card, start, end = self.players[self.current].get_move(self)
             self.take_move(card, start, end)
         else:
-            self.board.print_board()
+            self.battles -= 1
+            #self.board.print_board()
             print()
             print("Player " + str(1 - self.current + 1) + " won!")
             self.players[1-self.current].score += 1
             self.update_titlescore()
             self.reset()
+
         self.update_board()
         self.update_hands()
+
+        if self.battles > 0:
+            self.root.update()
+            self.on_click(i, j, event)
 
     def create_titlescore(self):
         self.score0 = tk.Label(self.root,text=0, font=("Helvetica", 64))
