@@ -12,7 +12,7 @@ board_values = [
     [-1, 0, 0, 0, -1]
 ]
 """
-What's better than two AIs? TreeAI
+What's better than two AIs? TreeAIs
 Need to sort out the cards with the min max tree stuff
 """
 
@@ -34,13 +34,12 @@ class TreeAI:
         best_move_start = None
         best_move_end = None
         best_move_points = -math.inf
-        isMaximisingPlayer = True
 
         new_board_states = self.get_new_board_states(board, me, me_hand, mid_card)
 
         for i in range(0, len(new_board_states)):
             new_board_state = new_board_states[i]
-            points = self.minimax(self.depth - 1, new_board_state, -math.inf, math.inf, not isMaximisingPlayer, 1-me)
+            points = self.minimax(self.depth - 1, new_board_state, -math.inf, math.inf, 1-me, me)
             if points >= best_move_points:
                 best_move_points = points
                 best_move_card = new_board_state[2]
@@ -75,17 +74,17 @@ class TreeAI:
                             board_states.append((new_board, me_hand, mid_card, start, end))
         return board_states
 
-    def minimax(self, depth, board_state, alpha, beta, isMaximisingPlayer, me):
+    def minimax(self, depth, board_state, alpha, beta, player, root_player):
         if depth == 0 or board_state[0].is_won():
-            return self.evaluate_points(board_state, me)
+            return self.evaluate_points(board_state, root_player)
 
-        new_board_states = self.get_new_board_states(board_state[0], me, board_state[1], board_state[2])
+        new_board_states = self.get_new_board_states(board_state[0], player, board_state[1], board_state[2])
 
-        if isMaximisingPlayer:
+        if player == root_player:
             best_move_points = -math.inf
             for i in range(0, len(new_board_states)):
                 new_board_state = new_board_states[i]
-                points = self.minimax(depth - 1, new_board_state, -math.inf, math.inf, not isMaximisingPlayer, 1 - me)
+                points = self.minimax(depth-1, new_board_state, -math.inf, math.inf, 1-player, root_player)
                 best_move_points = max(points, best_move_points)
                 alpha = max(alpha, best_move_points)
                 if beta <= alpha:
@@ -96,7 +95,7 @@ class TreeAI:
             best_move_points = math.inf
             for i in range(0, len(new_board_states)):
                 new_board_state = new_board_states[i]
-                points = self.minimax(depth - 1, new_board_state, -math.inf, math.inf, not isMaximisingPlayer, 1 - me)
+                points = self.minimax(depth-1, new_board_state, -math.inf, math.inf, 1-player, root_player)
                 best_move_points = min(points, best_move_points)
                 beta = min(beta, best_move_points)
                 if beta <= alpha:
@@ -104,8 +103,7 @@ class TreeAI:
             return best_move_points
 
 
-    def evaluate_points(self, board_state, me):
-        print("EVVVVVVVVVVv")
+    def evaluate_points(self, board_state, root_player):
         score = 0
         pieces = board_state[0].pieces
         friendly_master = False
@@ -113,7 +111,7 @@ class TreeAI:
         num_enemy = 0
         num_friendly = 0
         for piece in pieces:
-            if piece.player == me:
+            if piece.player == root_player:
                 score += board_values[piece.location[0]][piece.location[1]]
                 if piece.master:
                     friendly_master = True
