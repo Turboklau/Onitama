@@ -17,7 +17,7 @@ robot0 = TacticalTanya(1)
 
 
 robot2 = KillerKyle()
-robot1 = TacticalTanya(4)
+robot1 = TacticalTanya(2)
 robot2 = LieutenantLarry(4)
 robot3 = SadisticSarah()
 robot4 = ParanoidPam()
