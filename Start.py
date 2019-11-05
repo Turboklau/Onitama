@@ -11,7 +11,7 @@ from Robots.SadisticSarah import SadisticSarah
 from Robots.ParanoidPam import ParanoidPam
 from Robots.RandomRebecca import RandomRebecca
 
-robot1 = TacticalTanya(2)
+robot1 = TacticalTanya(1)
 robot0 = TacticalTanya(1)
 #robot10 = TacticalTanya(0)
 
@@ -25,7 +25,7 @@ robot5 = DirectDerek()
 robot6 = CowardlyCandice()
 robot7 = AssassinAndy()
 robot8 = ErraticErin()
-robot8 = RandomRebecca()
+#robot8 = RandomRebecca()
 
 
-game = GUIGame(robot0, robot1, battles=100)
+game = GUIGame(robot5, robot8, battles=100)
