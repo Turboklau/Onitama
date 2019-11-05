@@ -76,10 +76,10 @@ class Game:
         """
         self.board.move_piece(start, end)
 
-        if self.players[self.current].hand[0] == card:
+        if self.players[self.current].hand[0].name == card.name:
             self.players[self.current].hand[0], self.mid_card = self.mid_card, self.players[self.current].hand[0]
 
-        elif self.players[self.current].hand[1] == card:
+        elif self.players[self.current].hand[1].name == card.name:
             self.players[self.current].hand[1], self.mid_card = self.mid_card, self.players[self.current].hand[1]
 
         self.current = 1 - self.current

@@ -7,7 +7,7 @@ from Robots.BaseAI import BaseAI
 
 class CowardlyCandice(BaseAI):
 
-    def evaluate_points(self, board, me, players):
+    def evaluate_points(self, board, me, robotinfo):
         friendly_master = None
         pieces = []
         for piece in board.pieces:
