@@ -27,6 +27,7 @@ def create_deck(gui):
         [(-1, 1), (0, -1), (1, 1)]
         ]    
     cards = dict(zip(names,moves))
+    print(cards)
     deck = []
     for card in cards.keys():
         if gui:
@@ -60,11 +61,11 @@ class Game:
         Gets 5 random cards from the deck and deals 2 to each player.
         The remaining card is the middle card.
         """
-        # cards = random.sample(self.deck, 5)
-        cards = [self.deck[6] for i in range(5)]
+        cards = random.sample(self.deck, 5)
+        # cards = [self.deck[6] for i in range(5)]
 
         for p in self.players:
-            p.hand = [cards[0]]
+            p.hand = cards[0:2]
             cards = cards[2:]
         self.mid_card = cards[0]
 
@@ -91,7 +92,7 @@ class Game:
             self.board.print_board()
 
             card, start, end = self.players[self.current].get_move(self)
-            if card in self.players[self.current].hand:
+            if card.name in [self.players[self.current].hand[0].name, self.players[self.current].hand[1].name]:
                 self.take_move(card, start, end)
             if self.board.is_won():
                 self.board.print_board()

@@ -2,6 +2,7 @@ import copy
 import math
 import random
 
+from Card import Card
 from Piece import Piece
 
 board_values = [
@@ -11,6 +12,32 @@ board_values = [
     [0, 0.5, 1, 0.5, 0],
     [-1, 0, 0, 0, -1]
 ]
+
+names = "tiger dragon frog rabbit crab elephant goose rooster monkey mantis horse ox crane boar eel cobra".split()
+moves = [
+    [(-2, 0), (1, 0)],
+    [(-1, -2), (-1, 2), (1, -1), (1, 1)],
+    [(-1, -1), (0, -2), (1, 1)],
+    [(-1, 1), (0, 2), (1, -1)],
+    [(-1, 0), (0, -2), (0, 2)],
+    [(-1, -1), (-1, 1), (0, -1), (0, 1)],
+    [(-1, -1), (0, -1), (0, 1), (1, 1)],
+    [(-1, 1), (0, -1), (0, 1), (1, -1)],
+    [(-1, -1), (-1, 1), (1, -1), (1, 1)],
+    [(-1, -1), (-1, 1), (1, 0)],
+    [(-1, 0), (0, -1), (1, 0)],
+    [(-1, 0), (0, 1), (1, 0)],
+    [(-1, 0), (1, -1), (1, 1)],
+    [(-1, 0), (0, -1), (0, 1)],
+    [(-1, -1), (0, 1), (1, -1)],
+    [(-1, 1), (0, -1), (1, 1)]
+    ]
+card_dict = dict()
+
+for i in range(0, len(names)):
+    card_dict[names[i]] = Card(names[i], moves[i])
+
+
 """
 What's better than two AIs? TreeAIs
 Need to sort out the cards with the min max tree stuff
@@ -67,17 +94,29 @@ class TreeAI:
                         end = [start[0] + mult * move[0],
                                start[1] + mult * move[1]]
                         if board.is_possible_move(player_hands[me][card_index], me, start, end):
-                            player_hands[me][card_index], mid_card = mid_card, player_hands[me][card_index]
+
+                            new_hands = [[None, None], [None, None]]
+
+                            new_hands[me][0] = card_dict.get(player_hands[me][0].name)
+                            new_hands[me][1] = card_dict.get(player_hands[me][1].name)
+                            new_hands[1-me][0] = card_dict.get(player_hands[1-me][0].name)
+                            new_hands[1-me][1] = card_dict.get(player_hands[1-me][1].name)
+
+                            new_mid = card_dict.get(player_hands[me][card_index].name)
+
+                            new_hands[me][card_index] = card_dict.get(mid_card.name)
 
                             new_board = copy.deepcopy(board)
                             new_board.move_piece(start, end)
 
-                            board_states.append((new_board, player_hands, mid_card, start, end))
+                            board_states.append((new_board, new_hands, new_mid, start, end))
+
         return board_states
 
     def minimax(self, depth, board_state, alpha, beta, player, root_player):
         if depth == 0 or board_state[0].is_won():
-            return self.evaluate_points(board_state, root_player)
+            points = self.evaluate_points(board_state, root_player)
+            return points
 
         new_board_states = self.get_new_board_states(board_state[0], player, board_state[1], board_state[2])
 

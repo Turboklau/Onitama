@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="238b6650-83d0-4c6d-8b3c-7a7873b6724e" name="Default Changelist" comment="">
+    <list default="true" id="238b6650-83d0-4c6d-8b3c-7a7873b6724e" name="Default Changelist" comment="I think I fixed the hand issue too">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/Board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Robots/TreeAI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robots/TreeAI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Start.py" beforeDir="false" afterPath="$PROJECT_DIR$/Start.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +28,7 @@
     <SUITE FILE_PATH="coverage/Onikawa$AssassinAndyAI.coverage" NAME="AssassinAndyAI Coverage Results" MODIFIED="1572236522302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_populate_board.coverage" NAME="Nosetests for test_board.TestBoard.test_populate_board Coverage Results" MODIFIED="1572827657146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onikawa$OnitamaArena.coverage" NAME="OnitamaArena Coverage Results" MODIFIED="1572241254653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Onitama$Start.coverage" NAME="Start Coverage Results" MODIFIED="1572914249733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Onitama$Start.coverage" NAME="Start Coverage Results" MODIFIED="1572922521821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_is_won.coverage" NAME="Nosetests for test_board.TestBoard.test_is_won Coverage Results" MODIFIED="1572828331990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Onikawa$OnitamaForRobots.coverage" NAME="OnitamaForRobots Coverage Results" MODIFIED="1572236519660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_move_piece.coverage" NAME="Nosetests for test_board.TestBoard.test_move_piece Coverage Results" MODIFIED="1572830601106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
@@ -109,37 +111,37 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="png" value="7" />
-          <entry key="py" value="74" />
+          <entry key="py" value="77" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="7" />
-          <entry key="Python" value="74" />
+          <entry key="Python" value="77" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="103" />
-          <entry key="py" value="8100" />
-          <entry key="txt" value="680" />
+          <entry key="py" value="8906" />
+          <entry key="txt" value="714" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="680" />
-          <entry key="Python" value="8203" />
+          <entry key="PLAIN_TEXT" value="714" />
+          <entry key="Python" value="9009" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Robots/TreeAI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="81" column="75" selection-start-line="81" selection-start-column="75" selection-end-line="81" selection-end-column="75" />
+            <state relative-caret-position="908">
+              <caret line="168" selection-start-line="168" selection-end-line="168" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -150,8 +152,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+            <state relative-caret-position="144">
+              <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -162,8 +164,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Board.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+            <state relative-caret-position="225">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -222,14 +224,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Start.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="225">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Robots/ParanoidPam.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -303,10 +314,10 @@
         <option value="$PROJECT_DIR$/Player.py" />
         <option value="$PROJECT_DIR$/Robots/BaseAI.py" />
         <option value="$PROJECT_DIR$/s.py" />
-        <option value="$PROJECT_DIR$/Start.py" />
         <option value="$PROJECT_DIR$/Board.py" />
-        <option value="$PROJECT_DIR$/Game.py" />
         <option value="$PROJECT_DIR$/Robots/TreeAI.py" />
+        <option value="$PROJECT_DIR$/Game.py" />
+        <option value="$PROJECT_DIR$/Start.py" />
       </list>
     </option>
   </component>
@@ -668,7 +679,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572914013014</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="I think I fixed the hand issue too">
+      <created>1572914270185</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1572914270185</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -721,8 +739,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.29180327" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.499388" visible="true" weight="0.22711864" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.41920903" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.499388" visible="true" weight="0.4463277" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5378531" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3299435" />
@@ -791,7 +809,8 @@
     <MESSAGE value="Everything totally works :)" />
     <MESSAGE value="Started working on the smart boy, still hard though. Why is it so hard?" />
     <MESSAGE value="I can hardly believe it, but it works!" />
-    <option name="LAST_COMMIT_MESSAGE" value="I can hardly believe it, but it works!" />
+    <MESSAGE value="I think I fixed the hand issue too" />
+    <option name="LAST_COMMIT_MESSAGE" value="I think I fixed the hand issue too" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test1.py" />
@@ -841,9 +860,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test_treeAI.py" />
-    <entry file="file://$PROJECT_DIR$/Card.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -851,6 +867,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -900,13 +919,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/s.py" />
-    <entry file="file://$PROJECT_DIR$/Board.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Robots/CowardlyCandice.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -914,13 +926,6 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/FirstFinley.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -951,20 +956,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Start.py">
+    <entry file="file://$PROJECT_DIR$/Robots/FirstFinley.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="390">
+          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Card.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Board.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="50" column="36" lean-forward="true" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+        <state relative-caret-position="144">
+          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -973,10 +985,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Robots/TreeAI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="81" column="75" selection-start-line="81" selection-start-column="75" selection-end-line="81" selection-end-column="75" />
+        <state relative-caret-position="908">
+          <caret line="168" selection-start-line="168" selection-end-line="168" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robots/ParanoidPam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>

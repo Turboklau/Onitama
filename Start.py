@@ -8,8 +8,8 @@ from Robots.CowardlyCandice import CowardlyCandice
 from Robots.SadisticSarah import SadisticSarah
 from Robots.ParanoidPam import ParanoidPam
 
-robot1 = TreeAI(2)
-robot2 = DirectDerek()
+robot1 = TreeAI(4)
+robot2 = KillerKyle()
 robot3 = SadisticSarah()
 robot4 = ParanoidPam(True)
 

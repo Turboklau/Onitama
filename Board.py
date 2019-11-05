@@ -27,25 +27,18 @@ class Board:
         Generates a list of pieces and places them on the board. Currently make 4 students and one master for each player.
         Sets the master locations to the centre of each players' starting row, which are the top and bottom of the board.
         """
-        # for index, num in enumerate([0, 0, 0, 0, 0, 4, 4, 4, 4, 4]):
-        #
-        #     if num == 0:
-        #         piece = Piece(1)
-        #     else:
-        #         piece = Piece(0)
-        #
-        #     self.pieces.add(piece)
-        #     piece.location = [num, index%5]
-        #     self.board_state[num][index%5] = piece
-        #     if index%5 == 2:
-        #         piece.master = True
+        for index, num in enumerate([0, 0, 0, 0, 0, 4, 4, 4, 4, 4]):
 
-        piecer = Piece(0, [4,2], True)
-        pieceb = Piece(1, [3,3], True)
-        self.board_state[4][2] = piecer
-        self.board_state[3][3] = pieceb
-        self.pieces.add(pieceb)
-        self.pieces.add(piecer)
+            if num == 0:
+                piece = Piece(1)
+            else:
+                piece = Piece(0)
+
+            self.pieces.add(piece)
+            piece.location = [num, index%5]
+            self.board_state[num][index%5] = piece
+            if index%5 == 2:
+                piece.master = True
 
 
     def is_won(self):
