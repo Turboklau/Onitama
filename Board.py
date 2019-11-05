@@ -17,8 +17,8 @@ color_code_end = '\x1b[0m'
 
 class Board:
 
-    def __init__(self):
-        self.board_state = [[None for i in range(5)] for i in range(5)]
+    def __init__(self, size=[5,5]):
+        self.board_state = [[None for i in range(size[0])] for i in range(size[1])]
         self.pieces = set()
         self.populate_board()
 
