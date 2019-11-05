@@ -1,6 +1,7 @@
 from Game import GUIGame, Game
 from Robots.AssassinAndy import AssassinAndy
 from Robots.DirectDerek import DirectDerek
+from Robots.LieutenantLarry import LieutenantLarry
 from Robots.TacticalTanya import TacticalTanya
 from Robots.TreeAI import TreeAI
 from Robots.ErraticErin import ErraticErin
@@ -14,7 +15,10 @@ robot1 = TacticalTanya(2)
 robot0 = TacticalTanya(1)
 #robot10 = TacticalTanya(0)
 
+
 robot2 = KillerKyle()
+robot1 = TacticalTanya(4)
+robot2 = LieutenantLarry(4)
 robot3 = SadisticSarah()
 robot4 = ParanoidPam()
 robot5 = DirectDerek()
