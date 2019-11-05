@@ -14,5 +14,6 @@ robot1 = TacticalTanya(4)
 robot2 = LieutenantLarry(4)
 robot3 = SadisticSarah()
 robot4 = ParanoidPam(True)
+robot5 = DirectDerek()
 
-game = GUIGame(robot1, robot2)
+game = GUIGame(robot5, robot3)

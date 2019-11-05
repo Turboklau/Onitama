@@ -8,16 +8,17 @@ color_code_blue = '\x1b[0;34;47m'
 color_code_black = '\x1b[0;30;47m'
 color_code_end = '\x1b[0m'
 
-default_board = ([None, None, None, None, None],
-                 [None, None, None, None, None],
-                 [None, None, None, None, None],
-                 [None, None, None, None, None],
-                 [None, None, None, None, None])
+#default_board = ([None, None, None, None, None],
+#                 [None, None, None, None, None],
+#                 [None, None, None, None, None],
+#                 [None, None, None, None, None],
+#                 [None, None, None, None, None])
+
 
 class Board:
 
     def __init__(self):
-        self.board_state = list(default_board)
+        self.board_state = [[None for i in range(5)] for i in range(5)]
         self.pieces = set()
         self.populate_board()
 
@@ -140,3 +141,8 @@ class Board:
                     row_string += (color_code_black + "[]" + color_code_end)
             print(row_string)
         print()
+
+    def reset(self):
+        self.board_state = [[None for i in range(5)] for i in range(5)]
+        self.pieces = set()
+        self.populate_board()
