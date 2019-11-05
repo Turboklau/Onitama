@@ -43,7 +43,7 @@ class BaseAI():
                                 best_move_card, best_move_start, best_move_end, best_move_points = card, start, end, points
 
         if best_move_card and best_move_start and best_move_end:
-            print("Player " + str(me + 1) + ": " + best_move_card.name)
+            #print("Player " + str(me + 1) + ": " + best_move_card.name)
             return best_move_card, best_move_start, best_move_end
         else:
             print("No available moves")
