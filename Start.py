@@ -9,9 +9,9 @@ from Robots.CowardlyCandice import CowardlyCandice
 from Robots.SadisticSarah import SadisticSarah
 from Robots.ParanoidPam import ParanoidPam
 
-robot1 = TacticalTanya(1)
+robot1 = TacticalTanya(4)
 robot2 = KillerKyle()
 robot3 = SadisticSarah()
 robot4 = ParanoidPam(True)
 
-game = Game(robot1, robot2)
+game = GUIGame(robot1, robot1)

@@ -3,7 +3,7 @@ from Card import Card
 from Player import Player
 
 import tkinter as tk
-# from PIL import Image, ImageTk
+from PIL import Image, ImageTk
 import random, time
 
 def create_deck(gui):
