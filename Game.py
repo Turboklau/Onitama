@@ -113,8 +113,9 @@ class Game:
         self.turns = 0
 
 class GUIGame(Game):
-    def __init__(self, p1, p2, battles=False):
-        self.root = tk.Tk()
+    def __init__(self, p1, p2, root, battles=False):
+        # self.root = tk.Tk()
+        self.root = root
         self.gui_cards = []
         super().__init__(p1, p2, True)
 
@@ -216,19 +217,23 @@ class GUIGame(Game):
         for i, j in enumerate([0,2]):
             frame = tk.Frame(self.root)
             frame.grid(row=1, column=j)
-            self.deal_hand(frame, self.players[i].hand)
+            self.deal_hand(frame, self.players[i].hand, i+1)
 
         #Create the mid card
         frame = tk.Frame(self.root)
         frame.grid(row=2, column=1)
-        self.deal_hand(frame, [self.mid_card])
+        self.deal_hand(frame, [self.mid_card], None)
 
-    def deal_hand(self, frame, hand):
-        title = tk.Label(frame,text="It's a hand")
+
+    def deal_hand(self, frame, hand, player):
+        if player:
+            title = tk.Label(frame,text="Player " + str(player) + " hand")
+        else:
+            title = tk.Label(frame, text="Middle Card")
         title.grid(row=0,column=0)
 
         for i, card in enumerate(hand):
-            panel = tk.Label(frame, image = card.image)
+            panel = tk.Button(frame, image = card.image)
             panel.grid(row=i+1,column=0)
             self.gui_cards.append(panel)
 
@@ -240,5 +245,3 @@ class GUIGame(Game):
         cards.append(self.mid_card)
         for i in range(len(cards)):
             self.gui_cards[i]['image'] = cards[i].image
-
-        
