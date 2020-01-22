@@ -3,7 +3,7 @@ import copy
 import math
 
 
-class BaseAI():
+class BaseAI:
 
     def __init__(self):
         pass

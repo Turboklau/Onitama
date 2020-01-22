@@ -4,7 +4,7 @@ from Player import Player
 
 import tkinter as tk
 from PIL import Image, ImageTk
-import random, time
+import random
 
 import sys
 sys.setrecursionlimit(20000)
@@ -120,9 +120,6 @@ class GUIGame(Game):
         super().__init__(p1, p2, True)
 
         self.battles = battles #False or integer
-        
-        self.title = tk.Label(self.root,text="Onitama!", font=("Helvetica", 64))
-        self.title.grid(row=0,column=1)
 
         self.create_board()
         self.create_titlescore()
@@ -187,7 +184,7 @@ class GUIGame(Game):
                 #text = {"maser":, "student":' S ', '':'}[kind]
                 #text = {"master":'', "student":'', '': '}[kind]
 
-                L = tk.Label(self.gui_board,text=text,bg=colour, font=('Courier', 80), borderwidth=4, relief=relief)
+                L = tk.Label(self.gui_board,text=text,bg=colour, font=('Courier', 32), borderwidth=4, relief=relief)
                 L.grid(row=i,column=j)
                 L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
                 self.gui_labelgrid[i][j] = L

@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="238b6650-83d0-4c6d-8b3c-7a7873b6724e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Human.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TM.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Start.py" beforeDir="false" afterPath="$PROJECT_DIR$/Start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Robots/BaseAI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robots/BaseAI.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,232 +33,6 @@
     <SUITE FILE_PATH="coverage/Onikawa$OnitamaForRobots.coverage" NAME="OnitamaForRobots Coverage Results" MODIFIED="1572236519660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Onitama$Nosetests_for_test_board_TestBoard_test_move_piece.coverage" NAME="Nosetests for test_board.TestBoard.test_move_piece Coverage Results" MODIFIED="1572830601106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-601278466">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Python" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="py" value="4818" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Python" value="4818" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="2045167767">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.4" value="2" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="45" />
-          <entry key="py" value="7433" />
-          <entry key="txt" value="141" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="186" />
-          <entry key="Python" value="7433" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="py" value="10" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Python" value="10" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="176912159">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.25" value="2" />
-          <entry key="project.open.time.32" value="1" />
-          <entry key="project.open.time.33" value="1" />
-          <entry key="project.open.time.4" value="2" />
-          <entry key="project.opened" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="png" value="7" />
-          <entry key="py" value="113" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Image" value="7" />
-          <entry key="Python" value="113" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="Python Console" value="103" />
-          <entry key="py" value="12129" />
-          <entry key="txt" value="903" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="903" />
-          <entry key="Python" value="12232" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robots/TreeAI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1605">
-              <caret line="112" column="11" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <marker date="1572932014252" expanded="true" signature="4567:4572" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Game.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="123" selection-start-line="123" selection-end-line="124" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-                <element signature="e#1491#3661#0" />
-                <marker date="1573001313819" expanded="true" signature="7461:7466" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robots/TacticalTanya.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Board.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="14" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Start.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Player.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Human.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-              <folding>
-                <marker date="1573000821528" expanded="true" signature="15:20" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robots/CowardlyCandice.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robots/BaseAI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="46" column="65" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="65" />
-              <folding>
-                <marker date="1572931388877" expanded="true" signature="119:128" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Menu.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="49" column="80" selection-start-line="49" selection-start-column="80" selection-end-line="49" selection-end-column="80" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-                <marker date="1573001183943" expanded="true" signature="749:750" ph="..." />
-                <marker date="1573001183943" expanded="true" signature="749:754" ph="..." />
-                <marker date="1573001183943" expanded="true" signature="1257:1266" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -266,81 +40,8 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>'r'</find>
-      <find>'b'</find>
-      <find>'m'</find>
-      <find>self.board</find>
-      <find>piece_position \= piece\.location\n            move \= card\.moves\[move_index\]\n            \# inverts the move if playing from the top of the board\n            if piece\.color \=\= player2\:\n                \# removes any piece in the space the piece is moving to\n                self\.remove_piece\(self\.board_state\[piece_position\[0\] \+ move\[0\]\]\[piece_position\[1\] \+ move\[1\]\]\)\n                \# sets the new space to the piece\n                piece\.location \= \[piece_position\[0\] \+ move\[0\]\]\[piece_position\[1\] \+ move\[1\]\]\n                self\.board_state\[piece_position\[0\] \+ move\[0\]\]\[piece_position\[1\] \+ move\[1\]\] \= piece\n            else\:\n                \# removes any piece in the space the piece is moving to\n                self\.remove_piece\(self\.board_state\[piece_position\[0\] \- move\[0\]\]\[piece_position\[1\] \- move\[1\]\]\)\n                \# sets where the piece was to None\n                \# sets the new space to the piece\n                self\.board_state\[piece_position\[0\] \- move\[0\]\]\[piece_position\[1\] \- move\[1\]\] \= piece\n            \# sets where the piece was to None\n            self\.board_state\[piece_position\[0\]\]\[piece_position\[1\]\] \= None\n            \# swaps the card that was used with the middle card\n            self\.swap_cards\(card\)\n            return True\n        else\:\n            return False</find>
-      <find>piece.location</find>
-      <find>for</find>
-      <find>print_board</find>
-      <find>board</find>
-      <find>decide</find>
-      <find>print</find>
-      <find>move_piece</find>
-      <find>players</find>
-      <find>as</find>
-      <find>sa</find>
-      <find>deal_hand</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>player1</replace>
-      <replace>player2</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/test1.py" />
-        <option value="$PROJECT_DIR$/SimpleSamAi.py" />
-        <option value="$PROJECT_DIR$/OkitamaForRobots.py" />
-        <option value="$PROJECT_DIR$/AssassinAndyAI.py" />
-        <option value="$PROJECT_DIR$/AssassinAndyAI.py" />
-        <option value="$PROJECT_DIR$/RecklessRicky.py" />
-        <option value="$PROJECT_DIR$/OnitamaForRobots.py" />
-        <option value="$PROJECT_DIR$/Robots/RecklessRicky.py" />
-        <option value="$PROJECT_DIR$/Robots/ErraticEric.py" />
-        <option value="$PROJECT_DIR$/OnitamaArena.py" />
-        <option value="$PROJECT_DIR$/Robots/AssassinAndyAI.py" />
-        <option value="$PROJECT_DIR$/Robots/TacticalTim.py" />
-        <option value="$PROJECT_DIR$/ImageTk.py" />
-        <option value="$PROJECT_DIR$/Play.py" />
-        <option value="$PROJECT_DIR$/Robotinfo.py" />
-        <option value="$PROJECT_DIR$/src/Robots/DirectDerek.py" />
-        <option value="$PROJECT_DIR$/src/Start.py" />
-        <option value="$PROJECT_DIR$/test/test_board.py" />
-        <option value="$PROJECT_DIR$/src/Game.py" />
-        <option value="$PROJECT_DIR$/src/Board.py" />
-        <option value="$PROJECT_DIR$/src/Robotinfo.py" />
-        <option value="$PROJECT_DIR$/src/Robots/TreeAI.py" />
-        <option value="$PROJECT_DIR$/test/test_treeAI.py" />
-        <option value="$PROJECT_DIR$/Player.py" />
-        <option value="$PROJECT_DIR$/Robots/BaseAI.py" />
-        <option value="$PROJECT_DIR$/s.py" />
-        <option value="$PROJECT_DIR$/Robots/AssassinAndy.py" />
-        <option value="$PROJECT_DIR$/Robots/CowardlyCandice.py" />
-        <option value="$PROJECT_DIR$/Robots/DirectDerek.py" />
-        <option value="$PROJECT_DIR$/Robots/ErraticErin.py" />
-        <option value="$PROJECT_DIR$/Robots/KillerKyle.py" />
-        <option value="$PROJECT_DIR$/Robots/RandomRebecca.py" />
-        <option value="$PROJECT_DIR$/Robots/SadisticSarah.py" />
-        <option value="$PROJECT_DIR$/Robots/FirstFinley.py" />
-        <option value="$PROJECT_DIR$/Robots/ParanoidPam.py" />
-        <option value="$PROJECT_DIR$/Robots/LieutenantLarry.py" />
-        <option value="$PROJECT_DIR$/Robots/TacticalTanya.py" />
-        <option value="$PROJECT_DIR$/Robots/TreeAI.py" />
-        <option value="$PROJECT_DIR$/Board.py" />
-        <option value="$PROJECT_DIR$/Start.py" />
-        <option value="$PROJECT_DIR$/Human.py" />
-        <option value="$PROJECT_DIR$/Menu.py" />
-        <option value="$PROJECT_DIR$/Game.py" />
-      </list>
-    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -348,43 +49,14 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1971" />
-    <option name="y" value="239" />
-    <option name="width" value="1250" />
-    <option name="height" value="1008" />
-  </component>
+  <component name="ProjectId" id="1VVhtY74nWs2BQ3pU6HW0q4nJy0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Onitama" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Onitama" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Onitama" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Onitama" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Onitama" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Onitama" type="462c0819:PsiDirectoryNode" />
-              <item name="Robots" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -392,7 +64,8 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -410,18 +83,6 @@
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/Robots" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.Start">
     <configuration name="Start" type="PythonConfigurationType" factoryName="Python">
@@ -525,6 +186,18 @@
         <item itemvalue="Python tests.Nosetests for test_board.TestBoard" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -806,63 +479,8 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="1680" y="-1" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13500534" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.29180327" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.499388" weight="0.37853107" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37062147" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299435" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.25235602" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.500612" side_tool="true" weight="0.32768363" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.499388" visible="true" weight="0.20732984" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3299435" />
-      <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1493268" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.29180327" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.499388" weight="0.39096045" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27457628" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299435" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.54915255" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.500612" side_tool="true" weight="0.32768363" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.499388" weight="0.32768363" />
-      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.3299435" />
-      <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New pictures!" />
@@ -892,240 +510,80 @@
     <MESSAGE value="fixed tanya" />
     <option name="LAST_COMMIT_MESSAGE" value="fixed tanya" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test1.py" />
-    <entry file="file://$PROJECT_DIR$/Onitama.py" />
-    <entry file="file://$PROJECT_DIR$/OnitamaArena.py" />
-    <entry file="file://$PROJECT_DIR$/Robots/AssassinAndyAI.py" />
-    <entry file="file://$PROJECT_DIR$/OnitamaForRobots.py" />
-    <entry file="file://$PROJECT_DIR$/res/mantis.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/cobra.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/crab.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageTk.py" />
-    <entry file="file://$PROJECT_DIR$/Play.py" />
-    <entry file="file://$PROJECT_DIR$/res/crane.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Piece.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/boar.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_board.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_treeAI.py" />
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///usr/lib/python3/dist-packages/PIL/Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/s.py" />
-    <entry file="file://$PROJECT_DIR$/Card.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robotinfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding>
-            <marker date="1572834909091" expanded="true" signature="345:348" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/AssassinAndy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/FirstFinley.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/KillerKyle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/ParanoidPam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/RandomRebecca.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/SadisticSarah.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/ErraticErin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="19" column="98" lean-forward="true" selection-start-line="19" selection-start-column="98" selection-end-line="19" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/LieutenantLarry.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/DirectDerek.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="50" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/TreeAI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1605">
-          <caret line="112" column="11" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1572932014252" expanded="true" signature="4567:4572" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/TacticalTanya.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Board.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/CowardlyCandice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robots/BaseAI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="46" column="65" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="65" />
-          <folding>
-            <marker date="1572931388877" expanded="true" signature="119:128" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="49" column="80" selection-start-line="49" selection-start-column="80" selection-end-line="49" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-            <marker date="1573001183943" expanded="true" signature="749:750" ph="..." />
-            <marker date="1573001183943" expanded="true" signature="749:754" ph="..." />
-            <marker date="1573001183943" expanded="true" signature="1257:1266" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Human.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <marker date="1573000821528" expanded="true" signature="15:20" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="123" selection-start-line="123" selection-end-line="124" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#1491#3661#0" />
-            <marker date="1573001313819" expanded="true" signature="7461:7466" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="496" y="28" key="#Start" timestamp="1577344493997">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="496" y="28" key="#Start/0.0.1536.824@0.0.1536.824" timestamp="1577344493997" />
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1577347746711">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1577347746711" />
+    <state x="393" y="386" width="793" height="438" key="#xdebugger.evaluate" timestamp="1579681002350">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="393" y="386" width="793" height="438" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1579681002350" />
+    <state width="1515" height="327" key="GridCell.Tab.0.bottom" timestamp="1579681182077">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="327" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579681182077" />
+    <state width="1515" height="327" key="GridCell.Tab.0.center" timestamp="1579681182077">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="327" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579681182077" />
+    <state width="1515" height="327" key="GridCell.Tab.0.left" timestamp="1579681182077">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="327" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579681182077" />
+    <state width="1515" height="327" key="GridCell.Tab.0.right" timestamp="1579681182077">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="327" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579681182077" />
+    <state width="1515" height="275" key="GridCell.Tab.1.bottom" timestamp="1579681003989">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="275" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579681003989" />
+    <state width="1515" height="275" key="GridCell.Tab.1.center" timestamp="1579681003989">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="275" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1579681003989" />
+    <state width="1515" height="275" key="GridCell.Tab.1.left" timestamp="1579681003989">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="275" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1579681003989" />
+    <state width="1515" height="275" key="GridCell.Tab.1.right" timestamp="1579681003989">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="275" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1579681003989" />
+    <state x="277" y="56" key="SettingsEditor" timestamp="1577346641194">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1577346641194" />
+    <state x="470" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579676812381">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="470" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579676812381" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Menu.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Menu.py</url>
+          <line>86</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Game.py</url>
+          <line>214</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>
