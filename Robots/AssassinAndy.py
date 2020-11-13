@@ -2,7 +2,7 @@ import math
 
 from Robots.BaseAI import BaseAI
 
-"""Andy minimises the total distance between his pieces and the enemy master."""
+"""Andy minimises the total distance between his pieces and the enemy master. He goes straight for the kill!"""
 
 
 class AssassinAndy(BaseAI):

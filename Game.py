@@ -130,27 +130,35 @@ class GUIGame(Game):
         pass
 
     def on_click(self, i, j, event):
-        if self.turns > 100:
-            print("Draw!")
-            self.reset()
-        if not self.board.is_won():
-            card, start, end = self.players[self.current].get_move(self)
-            self.take_move(card, start, end)
-        else:
-            self.battles -= 1
-            #self.board.print_board()
-            print()
-            print("Player " + str(1 - self.current + 1) + " won!")
-            self.players[1-self.current].score += 1
-            self.update_titlescore()
-            self.reset()
 
-        self.update_board()
-        self.update_hands()
+        type_of_piece = event.widget.config()['text'][4]
+        position = event.widget.myId
+        print("Clicked on " + type_of_piece + " at position " + str(position))
 
-        if self.battles > 0:
-            self.root.update()
-            self.on_click(i, j, event)
+        if not self.players[self.current].strategy is None:
+
+            if self.turns > 100:
+                print("Draw!")
+                self.reset()
+            if not self.board.is_won():
+                card, start, end = self.players[self.current].get_move(self)
+                self.take_move(card, start, end)
+            else:
+                self.battles -= 1
+                #self.board.print_board()
+                print()
+                print("Player " + str(1 - self.current + 1) + " won!")
+                self.players[1-self.current].score += 1
+                self.update_titlescore()
+                self.reset()
+
+            self.update_board()
+            self.update_hands()
+
+            if self.battles > 0:
+                self.root.update()
+                self.on_click(i, j, event)
+
 
     def create_titlescore(self):
         self.score0 = tk.Label(self.root,text=0, font=("Helvetica", 64))
@@ -184,8 +192,9 @@ class GUIGame(Game):
                 #text = {"maser":, "student":' S ', '':'}[kind]
                 #text = {"master":'', "student":'', '': '}[kind]
 
-                L = tk.Label(self.gui_board,text=text,bg=colour, font=('Courier', 32), borderwidth=4, relief=relief)
+                L = tk.Label(self.gui_board, text=text, bg=colour, font=('Courier', 32), borderwidth=4, relief=relief)
                 L.grid(row=i,column=j)
+                L.myId = (i,j)
                 L.bind('<Button-1>',lambda e,i=i,j=j: self.on_click(i,j,e))
                 self.gui_labelgrid[i][j] = L
 
@@ -214,17 +223,17 @@ class GUIGame(Game):
         for i, j in enumerate([0,2]):
             frame = tk.Frame(self.root)
             frame.grid(row=1, column=j)
-            self.deal_hand(frame, self.players[i].hand, i+1)
+            self.deal_hand(frame, self.players[i].hand, i+1, self.players[i].strategy.__class__.__name__)
 
         #Create the mid card
         frame = tk.Frame(self.root)
         frame.grid(row=2, column=1)
-        self.deal_hand(frame, [self.mid_card], None)
+        self.deal_hand(frame, [self.mid_card])
 
 
-    def deal_hand(self, frame, hand, player):
+    def deal_hand(self, frame, hand, player=None, player_name=None):
         if player:
-            title = tk.Label(frame,text="Player " + str(player) + " hand")
+            title = tk.Label(frame,text="Player " + str(player) + " hand ("+ str(player_name) + ")")
         else:
             title = tk.Label(frame, text="Middle Card")
         title.grid(row=0,column=0)
@@ -232,7 +241,12 @@ class GUIGame(Game):
         for i, card in enumerate(hand):
             panel = tk.Button(frame, image = card.image)
             panel.grid(row=i+1,column=0)
+            panel.bind('<Button-1>', lambda e, i=i: self.on_card_click(i, hand, e))
             self.gui_cards.append(panel)
+
+    def on_card_click(self, i, hand, event):
+        print(hand[i].name)
+
 
 
     def update_hands(self):

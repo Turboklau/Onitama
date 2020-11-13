@@ -3,7 +3,7 @@ import math
 
 from Robots.TreeAI import TreeAI
 
-"""Lieutenant Larry doesn't care about positioning as long sa he can take pieces. Also, he would rather trade
+"""Lieutenant Larry doesn't care about positioning as long as he can take pieces. Also, he would rather trade
 pieces than live in peace."""
 
 p1_master_board_values = [

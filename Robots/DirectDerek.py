@@ -2,7 +2,7 @@ import math
 
 from Robots.BaseAI import BaseAI
 
-"""Derek minimises the distance between his master and the enemy shrine."""
+"""Derek minimises the distance between his master and the enemy shrine. Quick games."""
 
 
 class DirectDerek(BaseAI):

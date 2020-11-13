@@ -3,7 +3,7 @@ import math
 
 from Robots.TreeAI import TreeAI
 
-"""Tanya is god. Tanya combines the best aspects of all AIs and also gets points for being on 'good' spaces on the board."""
+"""Tanya is god. Tanya combines the best aspects of all AIs (in this folder) and also gets points for being on 'good' spaces on the board."""
 
 piece_board_values = [
     [-0.5, 0, 0, 0, -0.5],

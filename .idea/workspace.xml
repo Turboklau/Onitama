@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="238b6650-83d0-4c6d-8b3c-7a7873b6724e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/TM.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TM.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlayerGame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/Menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Robots/BaseAI.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robots/BaseAI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Robots/AssassinAndy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robots/AssassinAndy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Robots/DirectDerek.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robots/DirectDerek.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Robots/LieutenantLarry.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robots/LieutenantLarry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Robots/TacticalTanya.py" beforeDir="false" afterPath="$PROJECT_DIR$/Robots/TacticalTanya.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +61,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../411project" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -435,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572932425401</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added a proper menu and you can now choose the robots you want to battle through a drop-down">
+      <created>1579681317363</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1579681317363</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -483,7 +491,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New pictures!" />
     <MESSAGE value="Added minimax to work properly and moved the mult" />
     <MESSAGE value="Commit so I can pull" />
     <MESSAGE value="Almost got the game tree working. I can feel it in my tingles" />
@@ -508,79 +515,71 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/Turboklau/Onitama&#10;&#10;# Conflicts:&#10;#&#9;Start.py" />
     <MESSAGE value="Added some doc" />
     <MESSAGE value="fixed tanya" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed tanya" />
+    <MESSAGE value="Added a proper menu and you can now choose the robots you want to battle through a drop-down" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a proper menu and you can now choose the robots you want to battle through a drop-down" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="496" y="28" key="#Start" timestamp="1577344493997">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="838" y="274" key="#xdebugger.XInspectDialog" timestamp="1605244944212">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="496" y="28" key="#Start/0.0.1536.824@0.0.1536.824" timestamp="1577344493997" />
-    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser" timestamp="1577347746711">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="838" y="274" key="#xdebugger.XInspectDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605244944212" />
+    <state x="805" y="187" width="490" height="572" key="#xdebugger.evaluate" timestamp="1605245077236">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="574" y="129" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1577347746711" />
-    <state x="393" y="386" width="793" height="438" key="#xdebugger.evaluate" timestamp="1579681002350">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="805" y="187" width="490" height="572" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1605245077236" />
+    <state width="1899" height="365" key="GridCell.Tab.0.bottom" timestamp="1605245251135">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="393" y="386" width="793" height="438" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1579681002350" />
-    <state width="1515" height="327" key="GridCell.Tab.0.bottom" timestamp="1579681182077">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="365" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605245251135" />
+    <state width="1899" height="365" key="GridCell.Tab.0.center" timestamp="1605245251135">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="327" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579681182077" />
-    <state width="1515" height="327" key="GridCell.Tab.0.center" timestamp="1579681182077">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="365" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605245251135" />
+    <state width="1899" height="365" key="GridCell.Tab.0.left" timestamp="1605245251135">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="327" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579681182077" />
-    <state width="1515" height="327" key="GridCell.Tab.0.left" timestamp="1579681182077">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="365" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605245251135" />
+    <state width="1899" height="365" key="GridCell.Tab.0.right" timestamp="1605245251135">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="327" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579681182077" />
-    <state width="1515" height="327" key="GridCell.Tab.0.right" timestamp="1579681182077">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="365" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605245251135" />
+    <state width="1899" height="365" key="GridCell.Tab.1.bottom" timestamp="1605245251135">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="327" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579681182077" />
-    <state width="1515" height="275" key="GridCell.Tab.1.bottom" timestamp="1579681003989">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="365" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605245251135" />
+    <state width="1899" height="365" key="GridCell.Tab.1.center" timestamp="1605245251135">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="275" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579681003989" />
-    <state width="1515" height="275" key="GridCell.Tab.1.center" timestamp="1579681003989">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="365" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605245251135" />
+    <state width="1899" height="365" key="GridCell.Tab.1.left" timestamp="1605245251135">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="275" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1579681003989" />
-    <state width="1515" height="275" key="GridCell.Tab.1.left" timestamp="1579681003989">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="365" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605245251135" />
+    <state width="1899" height="365" key="GridCell.Tab.1.right" timestamp="1605245251135">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="275" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1579681003989" />
-    <state width="1515" height="275" key="GridCell.Tab.1.right" timestamp="1579681003989">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="365" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605245251135" />
+    <state x="667" y="154" width="586" height="732" key="find.popup" timestamp="1605244320174">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1515" height="275" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1579681003989" />
-    <state x="277" y="56" key="SettingsEditor" timestamp="1577346641194">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="667" y="154" width="586" height="732" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605244320174" />
+    <state x="688" y="324" key="git4idea.merge.GitPullDialog" timestamp="1605241271169">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="277" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1577346641194" />
-    <state x="470" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579676812381">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="470" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579676812381" />
+    <state x="688" y="324" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605241271169" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Menu.py</url>
-          <line>80</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Menu.py</url>
-          <line>86</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/Game.py</url>
+          <line>247</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Game.py</url>
-          <line>214</line>
-          <option name="timeStamp" value="12" />
+          <line>137</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
